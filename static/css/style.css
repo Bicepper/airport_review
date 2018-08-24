@@ -1,0 +1,20 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"), url(https://example.com/MaterialIcons-Regular.woff) format("woff"), url(https://example.com/MaterialIcons-Regular.ttf) format("truetype"); }
+html {
+  font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro",'Hiragino Kaku Gothic Pro', 'FontAwesome', Osaka, 'ＭＳ Ｐゴシック', sans-serif;
+  box-sizing: border-box;
+  color: #666; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+.border-bottom-none {
+  border-bottom: none !important; }
+
+/*# sourceMappingURL=style.css.map */

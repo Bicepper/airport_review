@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+$primary-fonts:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro",'Hiragino Kaku Gothic Pro', 'FontAwesome', Osaka, 'ＭＳ Ｐゴシック', sans-serif;
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+
+$primary-color:#00429C !default;
+//$primary-color:#E60012 !default;
+$primary-color-light:#6ba899 !default;
+
+$secondary-color:#FBDAC8 !default;
+
+$base-color:#666767 !default;
+$base-color-light:#E6E6E5 !default;
+
+$icon-color:#ff931e !default;
+
+$text-color:#4f3436 !default;
+
+$button-color:#e83c51 !default;
+$button-color-light:lighten($button-color, 15%) !default;
+$button-color-dark:darken($button-color, 15%) !default;
+
+$button-disabled:#d2d2d2 !default;
+$button-disabled-light:lighten($button-disabled, 15%) !default;
+$button-disabled-dark:darken($button-disabled, 15%) !default;
