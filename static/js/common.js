@@ -1,15 +1,8 @@
-var Main = {
-    data() {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
-      };
-    },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
+new Vue({
+    el: '#app',
+    data () {
+        return {
+            title: 'Your Logo'
+        }
     }
-  }
-var Ctor = Vue.extend(Main)
-new Ctor().$mount('#app')
+})
