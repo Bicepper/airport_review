@@ -14,12 +14,15 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+[v-cloak] {
+  display: none; }
+
 .head-nav {
   position: fixed;
   z-index: 1000000; }
 
 .nav-logo {
-  height: 100px; }
+  height: 80%; }
   .nav-logo img {
     width: auto;
     height: 100%; }
@@ -45,7 +48,16 @@ html {
   z-index: 10; }
 
 .top-search-form {
+  width: 100%;
   z-index: 10; }
+
+.top-search-form-input {
+  max-width: 400px; }
+
+.top-search-form-search {
+  height: 48px;
+  margin: 0 8px;
+  border: 2px solid currentColor !important; }
 
 .border-bottom-none {
   border-bottom: none !important; }
