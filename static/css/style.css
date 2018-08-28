@@ -62,6 +62,9 @@ html {
 .top-search-notfind {
   z-index: 10; }
 
+.top-num-counter {
+  width: 100%; }
+
 .border-bottom-none {
   border-bottom: none !important; }
 
