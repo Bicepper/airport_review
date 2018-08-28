@@ -1,8 +1,6 @@
 new Vue({
     el: '#app',
-    data () {
-        return {
-            title: 'Your Logo'
-        }
-    }
+    data: () => ({
+        items:['成田（NRT）', '羽田（ABC）', 'Fizz', 'Buzz']
+    })
 })

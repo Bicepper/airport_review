@@ -1,15 +1,86 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <section>
     <v-layout class="top-search" align-center justify-center column wrap>
-        <h1 class="top-search-title white--text mb-2 display-3 text-sm-center">空港を探しましょう</h1>
+        <h1 class="top-search-title white--text mb-2 display-2 text-sm-center">空港を探しましょう</h1>
         <v-form class="top-search-form">
             <v-container>
                 <v-layout align-start justify-center row fill-height>
-                    <v-text-field label="空港名" class="top-search-form-input" solo></v-text-field>
+{#                    <v-text-field label="空港名" class="top-search-form-input" solo></v-text-field>#}
+                    <v-select
+                            :items="items"
+							label="空港名"
+							class="top-search-form-input input-group--focused"
+							Solo
+							autocomplete>
+							</v-select>
                     <v-btn outline color="white" class="top-search-form-search font-weight-bold">検索</v-btn>
                 </v-layout>
             </v-container>
         </v-form>
+        <p class="top-search-notfind white--text mb-2 body-1 text-sm-center">空港がみつかりませんか？<a href="#">こちら</a>から申請してください</p>
     </v-layout>
+    </section>
+    <section>
+        <v-layout column wrap class="my-5" align-center>
+            <v-flex xs12 sm4 class="my-3">
+                <div class="text-xs-center">
+                    <h2 class="headline">The best way to start developing</h2>
+                    <span class="subheading">Cras facilisis mi vitae nunc</span>
+                </div>
+            </v-flex>
+            <v-flex xs12>
+                <v-container grid-list-xl>
+                    <v-layout row wrap align-center>
+                        <v-flex xs12 md4>
+                            <v-card class="elevation-0 transparent">
+                                <v-card-text class="text-xs-center">
+                                    <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
+                                </v-card-text>
+                                <v-card-title primary-title class="layout justify-center">
+                                    <div class="headline text-xs-center">Material Design</div>
+                                </v-card-title>
+                                <v-card-text>
+                                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                        <v-flex xs12 md4>
+                            <v-card class="elevation-0 transparent">
+                                <v-card-text class="text-xs-center">
+                                    <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                                </v-card-text>
+                                <v-card-title primary-title class="layout justify-center">
+                                    <div class="headline">Fast development</div>
+                                </v-card-title>
+                                <v-card-text>
+                                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                        <v-flex xs12 md4>
+                            <v-card class="elevation-0 transparent">
+                                <v-card-text class="text-xs-center">
+                                    <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                                </v-card-text>
+                                <v-card-title primary-title class="layout justify-center">
+                                    <div class="headline">Fast development</div>
+                                </v-card-title>
+                                <v-card-text>
+                                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
 {% endblock %}
