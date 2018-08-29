@@ -8,13 +8,13 @@
             <v-container>
                 <v-layout align-start justify-center row fill-height>
 {#                    <v-text-field label="空港名" class="top-search-form-input" solo></v-text-field>#}
-                    <v-select
+                    <v-autocomplete
                             :items="items"
 							label="空港名"
-							class="top-search-form-input input-group--focused"
-							Solo
-							autocomplete>
-							</v-select>
+							class="top-search-form-input"
+							solo
+							autocomplete
+                    ></v-autocomplete>
                     <v-btn outline color="white" class="top-search-form-search font-weight-bold">検索</v-btn>
                 </v-layout>
             </v-container>
@@ -71,7 +71,7 @@
                         </v-flex>
                     </v-layout>
                 </v-container>
-            </v-flex xs12>
+            </v-flex>
         </v-layout>
     </section>
 {% endblock %}
