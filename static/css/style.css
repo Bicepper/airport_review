@@ -78,6 +78,9 @@ html {
 .v-select__slot {
   position: relative; }
 
+.footer-inner {
+  width: 100%; }
+
 .border-bottom-none {
   border-bottom: none !important; }
 
