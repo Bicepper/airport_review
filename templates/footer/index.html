@@ -2,14 +2,14 @@
 
 <v-footer dark height="auto">
     <v-card flat tile class="footer-inner blue-grey darken-4 white--text text-xs-center">
-
-        <v-layout align-center justify-space-around row wrap>
+    <v-container>
+        <v-layout align-space-between justify-start row fill-height>
             <v-flex xs12 md3>
                 <v-card class="elevation-0 transparent">
                     <v-card-title primary-title>
                         <div class="headline">About</div>
-                        <div class="text-sm-left">Airport Geekは、世界中の空港のレビューサイトです。空港、ラウンジ、レストラン、ショッピングなどのレビューができます。</div>
                     </v-card-title>
+                    <v-card-text class="text-sm-left">Airport Geekは、世界中の空港のレビューサイトです。空港、ラウンジ、レストラン、ショッピングなどのレビューができます。</v-card-text>
                     <v-card-actions>
                         <v-btn icon class="light-blue--text">
                             <v-icon medium>fab fa-twitter</v-icon>
@@ -20,8 +20,16 @@
                     </v-card-actions>
                 </v-card>
             </v-flex>
+            <v-flex xs12 md3>
+                <v-card class="elevation-0 transparent">
+                    <v-card-title primary-title>
+                        <div class="headline">Link</div>
+                    </v-card-title>
+                    <v-card-text class="text-sm-left">リンク</v-card-text>
+                </v-card>
+            </v-flex>
         </v-layout>
-
+    </v-container>
 
         <v-divider></v-divider>
 
