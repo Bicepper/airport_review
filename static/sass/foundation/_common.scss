@@ -19,8 +19,9 @@
   position:relative;
   height: 100vh;
   padding:0;
-  background: url(../img/top_back.jpg) no-repeat center center;
-  background-size: cover;
+  //background: url(../img/top_back.jpg) no-repeat center center;
+  //background-size: cover;
+  overflow:hidden;
   &:after{
     content: '';
     position: absolute;
@@ -30,8 +31,21 @@
     right:0;
     width:100%;
     height:100%;
-    background:url(../img/header-mask.png) center center;
+    background:url(../img/cover.png) center center ,
+              #000;
+    opacity:.8;
   }
+}
+
+.top-search-video{
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
 }
 
 .top-search-title{
@@ -56,6 +70,10 @@
 .top-search-notfind{
   z-index:10;
 }
+
+//.top-count{
+//  background:#303030;
+//}
 
 .top-num-counter{
   width:100%;

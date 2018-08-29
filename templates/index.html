@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <section>
     <v-layout class="top-search" align-center justify-center column wrap>
+        <video autoplay loop class="top-search-video">
+            <source src="{% static 'video/top_back.mp4' %}" type="video/mp4">
+        </video>
         <h1 class="top-search-title white--text mb-2 display-2 text-sm-center">空港を探しましょう</h1>
         <v-form class="top-search-form">
             <v-container>
                 <v-layout align-start justify-center row fill-height>
-{#                    <v-text-field label="空港名" class="top-search-form-input" solo></v-text-field>#}
                     <v-autocomplete
                             :items="items"
 							label="空港名"
@@ -22,12 +25,12 @@
         <p class="top-search-notfind white--text mb-2 body-1 text-sm-center">空港がみつかりませんか？<a href="#">こちら</a>から申請してください</p>
     </v-layout>
     </section>
-    <section>
+    <section class="top-count">
         <v-layout column wrap class="my-5" align-center>
             <v-flex xs12 sm4 class="my-3">
                 <div class="text-xs-center">
                     <h2 class="headline">世界の空港マニアへ</h2>
-                    <span class="subheading">至高の空港を見つけてください</span>
+                    <span class="subheading">あなたはいくつの空港を巡ったことがありますか？<br />あなたの体験をみんなと共有しませんか？<br />至高の空港を見つけてください</span>
                 </div>
             </v-flex>
             <v-flex xs12 class="top-num-counter">
