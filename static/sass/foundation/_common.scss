@@ -4,7 +4,7 @@
 
 .head-nav{
   position:fixed;
-  z-index:1000000;
+  z-index:100001;
 }
 
 .nav-logo{
@@ -13,6 +13,16 @@
     width:auto;
     height:100%;
   }
+}
+
+.nav-drawer{
+  z-index:100000;
+  margin-top:80px !important;
+  max-height:calc(100% - 80px) !important;
+}
+
+.v-list--dense .v-list__tile:not(.v-list__tile--avatar) {
+  height: 60px !important;
 }
 
 .top-search{
@@ -85,4 +95,12 @@
 
 .footer-inner{
   width:100%;
+  background-color:#1f1f1f !important;
+}
+
+.footer-copyright{
+  padding:0 24px !important;
+  @media only screen and (max-width: 959px){
+    padding: 0 16px !important;
+  }
 }

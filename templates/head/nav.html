@@ -1,13 +1,58 @@
 {% load static %}
 
 <v-toolbar class="white head-nav" height="80px">
-    <v-toolbar-side-icon class="hidden-sm-and-up"></v-toolbar-side-icon>
     <v-toolbar-title class="nav-logo"><img src="{% static 'img/logo.png' %}" alt=""></v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-xs-only">
+    <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat>Home</v-btn>
       <v-btn flat>Airport</v-btn>
       <v-btn flat>News</v-btn>
       <v-btn flat>Login</v-btn>
     </v-toolbar-items>
+    <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 </v-toolbar>
+
+
+<v-navigation-drawer v-model="drawer" absolute temporary class="nav-drawer hidden-md-and-up">
+    <v-list dense class="nav-drawer-list">
+        <v-list-tile @click="">
+            <v-list-tile-action>
+                <v-icon>home</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>HOME</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+            <v-list-tile-action>
+                <v-icon>local_airport</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>AIRPORT</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+            <v-list-tile-action>
+                <v-icon>notes</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>NEWS</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+    </v-list>
+
+    <v-divider></v-divider>
+
+        <v-list class="pa-1">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img src="https://randomuser.me/api/portraits/men/85.jpg">
+            </v-list-tile-avatar>
+
+            <v-list-tile-content>
+              <v-list-tile-title>John Leider</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+
+      </v-navigation-drawer>

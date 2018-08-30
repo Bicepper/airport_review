@@ -1,15 +1,15 @@
 {% load static %}
 
 <v-footer dark height="auto">
-    <v-card flat tile class="footer-inner blue-grey darken-4 white--text text-xs-center">
+    <v-card flat tile class="footer-inner white--text">
     <v-container>
-        <v-layout align-space-between justify-start row fill-height>
+        <v-layout align-space-between justify-start row wrap>
             <v-flex xs12 md3>
                 <v-card class="elevation-0 transparent">
                     <v-card-title primary-title>
                         <div class="headline">About</div>
                     </v-card-title>
-                    <v-card-text class="text-sm-left">Airport Geekは、世界中の空港のレビューサイトです。空港、ラウンジ、レストラン、ショッピングなどのレビューができます。</v-card-text>
+                    <v-card-text class="test-xs-left text-sm-left text-md-left text-lg-left footer-text-color_gray01">Airport Geekは、世界中の空港のレビューサイトです。空港、ラウンジ、レストラン、ショッピングなどのレビューができます。</v-card-text>
                     <v-card-actions>
                         <v-btn icon class="light-blue--text">
                             <v-icon medium>fab fa-twitter</v-icon>
@@ -25,17 +25,25 @@
                     <v-card-title primary-title>
                         <div class="headline">Link</div>
                     </v-card-title>
-                    <v-card-text class="text-sm-left">リンク</v-card-text>
+                    <v-card-text class="text-sm-left">
+                        <ul class="p-l-0 test-xs-left text-sm-left text-md-left text-lg-left">
+                            <li class="list-no-style"><a href="#" class="link-no-decoration link-color__gray01">HOME</a></li>
+                            <li class="list-no-style"><a href="#" class="link-no-decoration link-color__gray01">AIRPORT</a></li>
+                            <li class="list-no-style"><a href="#" class="link-no-decoration link-color__gray01">NEWS</a></li>
+                        </ul>
+                    </v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
     </v-container>
 
-        <v-divider></v-divider>
+    <v-divider></v-divider>
 
+    <v-container class="footer-copyright">
         <v-card-text class="white--text">
           &copy;2018 — <strong>Airport Geek All rights reserved.</strong>
         </v-card-text>
+    </v-container>
 
     </v-card>
 </v-footer>
