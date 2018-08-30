@@ -60,6 +60,21 @@
 
 .top-search-title{
   z-index:10;
+  transition: all  0.1s ease;
+  @media only screen and (max-width: 599px){
+    font-size:34px !important;
+  }
+}
+
+.top-search-form-wrap{
+  @media only screen and (min-width: 960px){
+    align-items: flex-start;
+    flex-direction:row;
+  }
+  @media only screen and (max-width: 959px){
+    align-items: center;
+    flex-direction:column;
+  }
 }
 
 .top-search-form{
@@ -67,8 +82,17 @@
   z-index:10;
 }
 
+.top-search-form-input-over{
+  @include flexbox();
+  justify-content:flex-end;
+}
+
 .top-search-form-input{
-  max-width:400px;
+  width:100%;
+  @media only screen and (min-width: 960px){
+    min-width:400px;
+    max-width:400px;
+  }
 }
 
 .top-search-form-search{

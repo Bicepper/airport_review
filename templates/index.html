@@ -10,13 +10,14 @@
         <h1 class="top-search-title white--text mb-2 display-2 text-sm-center">空港を探しましょう</h1>
         <v-form class="top-search-form">
             <v-container>
-                <v-layout align-start justify-center row fill-height>
+                <v-layout align-start justify-center wrap class="top-search-form-wrap">
                     <v-autocomplete
                             :items="items"
 							label="空港名"
 							class="top-search-form-input"
 							solo
 							autocomplete
+                            no-data-text="空港が見つかりません"
                     ></v-autocomplete>
                     <v-btn outline color="white" class="top-search-form-search font-weight-bold">検索</v-btn>
                 </v-layout>
