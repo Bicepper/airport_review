@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from top.views import index
+from airport.views import list
 urlpatterns = [
     path('', index, name='home'),
     path('admin/', admin.site.urls),
+    path('airport/', list, name='airport'),
 ]

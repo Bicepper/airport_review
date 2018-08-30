@@ -18,8 +18,10 @@
     <div id="app" v-cloak>
         <v-app white>
             {% include 'head/nav.html' %}
-            {% block content %}
-            {% endblock %}
+            {% if request.path != '/' %}<div class="containerwrap">{% endif %}
+                {% block content %}
+                {% endblock %}
+            {% if request.path != '/' %}</div>{% endif %}
             {% include 'footer/index.html' %}
         </v-app>
     </div>

@@ -4,8 +4,8 @@
     <v-toolbar-title class="nav-logo"><img src="{% static 'img/logo.png' %}" alt=""></v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Home</v-btn>
-      <v-btn flat>Airport</v-btn>
+      <v-btn flat href="{% url 'home' %}">Home</v-btn>
+      <v-btn flat href="{% url 'airport' %}">Airport</v-btn>
       <v-btn flat>News</v-btn>
       <v-btn flat>Login</v-btn>
     </v-toolbar-items>

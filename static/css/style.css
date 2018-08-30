@@ -630,6 +630,9 @@ html {
 .v-select__slot {
   position: relative; }
 
+.containerwrap {
+  margin-top: 80px; }
+
 .footer-inner {
   width: 100%;
   background-color: #1f1f1f !important; }
