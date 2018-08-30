@@ -644,6 +644,18 @@ html {
     .footer-copyright {
       padding: 0 16px !important; } }
 
+.airport-list-item {
+  transition: all  0.1s ease; }
+  @media only screen and (max-width: 599px) {
+    .airport-list-item {
+      width: 100%; } }
+  @media only screen and (min-width: 600px) and (max-width: 959px) {
+    .airport-list-item {
+      width: 50%; } }
+  @media only screen and (min-width: 960px) {
+    .airport-list-item {
+      width: 33.3%; } }
+
 .border-bottom-none {
   border-bottom: none !important; }
 

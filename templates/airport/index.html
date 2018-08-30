@@ -40,11 +40,11 @@
 
                 <v-card>
                     <v-container fluid grid-list-md>
-                        <v-layout row wrap>
+                        <v-layout row wrap class="airport-list">
                             <v-flex
                               v-for="card in cards"
-                              v-bind="{ [`xs${card.flex}`]: true}"
                               :key="card.title"
+                              class="airport-list-item"
                             >
                 <v-card>
                 <v-img
