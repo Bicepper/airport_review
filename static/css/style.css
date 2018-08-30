@@ -631,6 +631,7 @@ html {
   position: relative; }
 
 .containerwrap {
+  position: relative;
   margin-top: 80px; }
 
 .footer-inner {
