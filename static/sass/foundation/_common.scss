@@ -134,6 +134,22 @@
   }
 }
 
+//=================================================
+// 空港一覧
+//=================================================
+
+.airport-result{
+  overflow: hidden;
+}
+
+.airport_map{
+  height:calc(100vh - 80px);
+}
+
+.airport-list-wrapper-inner{
+  //overflow: scroll;
+}
+
 .airport-list-wrapper .v-content__wrap .container{
   @media only screen and (min-width: 1264px){
     max-width:100%;
@@ -157,4 +173,25 @@
   //@media only screen and (min-width: 1264px){
   //  width:25%;
   //}
+
+  .v-card__title{
+    padding:16px 16px 0 16px !important;
+
+    .v-rating{
+      margin-left:-8px;
+    }
+  }
+}
+
+//=================================================
+// サイドフィルター
+//=================================================
+
+.airport-filter{
+  .v-text-field--outline .v-input__slot{
+    border:1px solid rgba(0,0,0,.24) !important;
+  }
+  .v-text-field--outline .v-input__slot:hover{
+    border:1px solid rgba(0,0,0,.24) !important;
+  }
 }
