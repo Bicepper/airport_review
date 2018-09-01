@@ -138,12 +138,31 @@
 // 空港一覧
 //=================================================
 
+.airport_map{
+  height:100%;
+  @media only screen and (min-width: 960px){
+    height:calc(100vh - 80px);
+  }
+  //height:calc(100vh - 80px);
+}
+
+.airport-googlemap{
+  height:50vh;
+  @media only screen and (min-width: 960px){
+    height:100%;
+  }
+}
+
 .airport-result{
+  //@media only screen and (min-width: 960px){
+  //  overflow: hidden;
+  //}
   overflow: hidden;
 }
 
-.airport_map{
-  height:calc(100vh - 80px);
+.airport-result-container {
+  height: 100%;
+  overflow-y: auto;
 }
 
 .airport-list-wrapper-inner{
@@ -164,12 +183,12 @@
   @media only screen and (max-width: 599px){
     width:100%;
   }
-  @media only screen and (min-width: 600px) and (max-width: 959px){
+  @media only screen and (min-width: 600px){
     width:50%;
   }
-  @media only screen and (min-width: 960px){
-    width:33.3%;
-  }
+  //@media only screen and (min-width: 960px){
+  //  width:33.3%;
+  //}
   //@media only screen and (min-width: 1264px){
   //  width:25%;
   //}
@@ -181,6 +200,10 @@
       margin-left:-8px;
     }
   }
+}
+
+.airport-list-container{
+  padding:24px 0 !important;
 }
 
 //=================================================

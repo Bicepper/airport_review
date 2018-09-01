@@ -644,11 +644,24 @@ html {
     .footer-copyright {
       padding: 0 16px !important; } }
 
+.airport_map {
+  height: 100%; }
+  @media only screen and (min-width: 960px) {
+    .airport_map {
+      height: calc(100vh - 80px); } }
+
+.airport-googlemap {
+  height: 50vh; }
+  @media only screen and (min-width: 960px) {
+    .airport-googlemap {
+      height: 100%; } }
+
 .airport-result {
   overflow: hidden; }
 
-.airport_map {
-  height: calc(100vh - 80px); }
+.airport-result-container {
+  height: 100%;
+  overflow-y: auto; }
 
 @media only screen and (min-width: 1264px) {
   .airport-list-wrapper .v-content__wrap .container {
@@ -662,16 +675,16 @@ html {
   @media only screen and (max-width: 599px) {
     .airport-list-item {
       width: 100%; } }
-  @media only screen and (min-width: 600px) and (max-width: 959px) {
+  @media only screen and (min-width: 600px) {
     .airport-list-item {
       width: 50%; } }
-  @media only screen and (min-width: 960px) {
-    .airport-list-item {
-      width: 33.3%; } }
   .airport-list-item .v-card__title {
     padding: 16px 16px 0 16px !important; }
     .airport-list-item .v-card__title .v-rating {
       margin-left: -8px; }
+
+.airport-list-container {
+  padding: 24px 0 !important; }
 
 .airport-filter .v-text-field--outline .v-input__slot {
   border: 1px solid rgba(0, 0, 0, 0.24) !important; }
