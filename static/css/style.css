@@ -752,6 +752,9 @@ html {
 .airport-list-container {
   padding: 24px 0 !important; }
 
+.airport-list-item-view-favorite {
+  color: #e83c51 !important; }
+
 .airport-filter .v-text-field--outline .v-input__slot {
   border: 1px solid rgba(0, 0, 0, 0.24) !important; }
 .airport-filter .v-text-field--outline .v-input__slot:hover {
