@@ -63,27 +63,62 @@
                                   class="airport-list-item"
                                 >
 
+                                    <v-card>
+                                        <v-img
+                                            :src="card.src"
+                                            height="200px"
+                                            class="airport-list-item-link"
+                                        >
+                                            <a href="yahoo.co.jp">
+                                            <v-container
+                                                fill-height
+                                                fluid
+                                                pa-2
+                                                class="airport-list-item-view"
+                                            >
+                                                <v-layout fill-height class="airport-list-item-view-text">
+                                                    <v-flex xs12 align-end flexbox>
+                                                        <span class="headline white--text" v-text="card.title"></span>
+                                                    </v-flex>
+                                                </v-layout>
+                                            </v-container>
+                                                </a>
+                                        </v-img>
 
-                                    <v-card class="mx-auto hide-overflow">
-                                        <v-layout>
-                                            <v-img
-                                                :src="card.src"
-                                                height="200px"
-                                            ></v-img>
-                                        </v-layout>
-                                        <v-card-title class="align-start">
-                                            <div>
-                                                <span class="headline" v-text="card.title"></span>
-                                                <v-rating v-model="rating" readonly></v-rating>
-                                            </div>
-                                        </v-card-title>
-                                        <v-divider></v-divider>
                                         <v-card-actions>
+                                            <v-rating v-model="rating" dense hover readonly small></v-rating>
+                                            <v-spacer></v-spacer>
                                             <v-btn icon>
                                                 <v-icon>favorite</v-icon>
                                             </v-btn>
                                         </v-card-actions>
                                     </v-card>
+
+
+{#                                    <v-card class="mx-auto hide-overflow">#}
+{#                                        <v-layout>#}
+{#                                            <v-img#}
+{#                                                :src="card.src"#}
+{#                                                height="200px"#}
+{#                                            ></v-img>#}
+{#                                        </v-layout>#}
+{#                                        <v-card-title class="align-start">#}
+{#                                            <div>#}
+{#                                                <span class="headline" v-text="card.title"></span>#}
+{#                                                <v-rating v-model="rating" readonly></v-rating>#}
+{#                                            </div>#}
+{#                                        </v-card-title>#}
+{#                                        <v-divider></v-divider>#}
+{#                                        <v-card-actions>#}
+{#                                            <v-btn icon>#}
+{#                                                <v-icon>favorite</v-icon>#}
+{#                                            </v-btn>#}
+{#                                        </v-card-actions>#}
+{#                                    </v-card>#}
+{#                                    #}
+
+
+
                                 </v-flex>
                             </v-layout>
                         </v-container>

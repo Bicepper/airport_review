@@ -683,6 +683,72 @@ html {
     .airport-list-item .v-card__title .v-rating {
       margin-left: -8px; }
 
+.airport-list-item-view-text {
+  z-index: 13; }
+  .airport-list-item-view-text .headline {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    transition-timing-function: ease; }
+
+.airport-list-item-link .v-image__image--cover {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  transition-timing-function: ease; }
+.airport-list-item-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: linear-gradient(to bottom, transparent 0%, black 100%);
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 12; }
+
+.airport-list-item-link:hover .v-image__image--cover {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  transition-timing-function: ease;
+  transform: scale(1.1, 1.1); }
+.airport-list-item-link:hover .airport-list-item-view-text .headline {
+  bottom: 24px;
+  left: 20px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
 .airport-list-container {
   padding: 24px 0 !important; }
 

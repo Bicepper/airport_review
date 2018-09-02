@@ -202,6 +202,55 @@
   }
 }
 
+.airport-list-item-view-text{
+  z-index:13;
+  .headline{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    @include transition(0.3s);
+    @include transition-timing-function(ease);
+  }
+}
+
+.airport-list-item-link{
+  .v-image__image--cover{
+    @include transition(0.3s);
+    @include transition-timing-function(ease);
+  }
+  &:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index:12;
+  }
+}
+
+.airport-list-item-link{
+  &:hover{
+    .v-image__image--cover{
+      @include transition(0.3s);
+      @include transition-timing-function(ease);
+      transform: scale(1.1, 1.1);
+    }
+
+    .airport-list-item-view-text{
+      .headline{
+        bottom: 24px;
+        left: 20px;
+        @include transition(0.3s);
+        @include transition-timing-function(ease);
+      }
+    }
+  }
+}
+
 .airport-list-container{
   padding:24px 0 !important;
 }
