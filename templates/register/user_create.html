@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} | ログイン{% endblock %}
+{% block title %} | 新規登録{% endblock %}
 
 {% block content %}
     <section class="top-count">
@@ -9,16 +9,15 @@
                 <v-container grid-list-xl class="login-wrapper">
                     <v-card>
                         <v-container grid-list-md>
-                            <p class="headline">ログイン</p>
+                            <p class="headline">新規登録</p>
                             <v-form v-model="valid" method="post" novalidate>
                                 {% csrf_token %}
-                                {% include 'includes/login_form.html' %}
-                                <v-btn class="m-t-20" type="submit" block color="primary" large>ログイン</v-btn>
+                                {% include 'includes/create_form.html' %}
+                                <v-btn class="m-t-20" type="submit" block color="primary" large>新規登録</v-btn>
                             </v-form>
                             <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
                                 <ul class="login-link">
-                                    <li>アカウントをまだお持ちでないですか？<a href="{% url 'signup' %}" class="">新規登録</a></li>
-                                    <li><a href="#">パスワードを忘れましたか？</a></li>
+                                    <li>既にアカウントをお持ちですか？<a href="{% url 'login' %}">ログイン</a></li>
                                 </ul>
                             </div>
                         </v-container>
