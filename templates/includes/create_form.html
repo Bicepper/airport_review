@@ -8,9 +8,11 @@
 {% endif %}
 
 {% for field in form %}
+    {{ field.id_for_label }}
+    {{ field.label_tag }}
 <v-text-field
     v-model="email"
-    label="{% if field.id_for_label == 'id_username' %}メールアドレス{% else %}パスワード{% endif %}"
+    label="{{ field.label_tag }}"
     prepend-icon="{% if field.id_for_label == 'id_username' %}mail{% else %}lock{% endif %}"
     {% if field.id_for_label == 'id_password' %}type="password"{% endif %}
     name="{% if field.id_for_label == 'id_username' %}username{% else %}password{% endif %}"
