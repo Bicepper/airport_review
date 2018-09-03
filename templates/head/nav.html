@@ -3,11 +3,11 @@
 <v-toolbar class="white head-nav" height="80px">
     <v-toolbar-title class="nav-logo"><img src="{% static 'img/logo.png' %}" alt=""></v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat href="{% url 'home' %}">Home</v-btn>
-      <v-btn flat href="{% url 'airport' %}">Airport</v-btn>
-      <v-btn flat>News</v-btn>
-      <v-btn flat>Login</v-btn>
+    <v-toolbar-items class="hidden-sm-and-down head-nav-menu">
+      <v-btn flat class="head-nav-menu-item{% if request.path == '/' %} active{% endif %}" href="{% url 'home' %}">Home</v-btn>
+      <v-btn flat class="head-nav-menu-item{% if request.path == '/airport/' %} active{% endif %}" href="{% url 'airport' %}">Airport</v-btn>
+      <v-btn flat class="head-nav-menu-item">News</v-btn>
+      <v-btn flat class="head-nav-menu-item{% if request.path == '/login/' %} active{% endif %}" href="{% url 'login' %}">Login</v-btn>
     </v-toolbar-items>
     <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 </v-toolbar>

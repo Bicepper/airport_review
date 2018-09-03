@@ -540,6 +540,15 @@ html {
   position: fixed;
   z-index: 100001; }
 
+.head-nav-menu .head-nav-menu-item .v-btn__content {
+  color: #bdbdbd; }
+
+.head-nav-menu .head-nav-menu-item:hover .v-btn__content {
+  color: #000; }
+
+.head-nav-menu .active .v-btn__content {
+  color: #000; }
+
 .nav-logo {
   height: 80%; }
   .nav-logo img {
@@ -759,6 +768,17 @@ html {
   border: 1px solid rgba(0, 0, 0, 0.24) !important; }
 .airport-filter .v-text-field--outline .v-input__slot:hover {
   border: 1px solid rgba(0, 0, 0, 0.24) !important; }
+
+.login-wrapper {
+  margin: 60px auto; }
+  @media only screen and (min-width: 600px) {
+    .login-wrapper {
+      min-width: 600px;
+      max-width: 600px;
+      margin: 100px auto; } }
+
+.login-link {
+  list-style: none; }
 
 .border-bottom-none {
   border-bottom: none !important; }

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} | ログイン{% endblock %}
+
+{% block content %}
+    <section class="top-count">
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl class="login-wrapper">
+                    <v-card>
+                        <v-container grid-list-md>
+                            <p class="headline">ログイン</p>
+                            <v-form v-model="valid">
+                                <v-text-field
+                                    v-model="email"
+                                    :rules="nameRules"
+                                    label="メールアドレス"
+                                    prepend-icon="mail"
+                                    required
+                                ></v-text-field>
+                                <v-text-field
+                                    v-model="email"
+                                    :rules="emailRules"
+                                    label="パスワード"
+                                    prepend-icon="lock"
+                                    type="password"
+                                    required
+                                ></v-text-field>
+                                <v-btn block color="primary" large>ログイン</v-btn>
+                            </v-form>
+                            <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
+                                <ul class="login-link">
+                                    <li>アカウントをまだお持ちでないですか？<a href="#" class="">新規登録</a></li>
+                                    <li><a href="#">パスワードを忘れましたか？</a></li>
+                                </ul>
+                            </div>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+{% endblock %}
