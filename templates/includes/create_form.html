@@ -18,12 +18,12 @@
     required
     :rules="loginRules"
 ></v-text-field>
-{#            <div class="uk-text-small">#}
-{#                {% for error in field.errors %}#}
-{#                    <p class="uk-text-danger">{{ error }}</p>#}
-{#                {% endfor %}#}
-{#            {% if field.help_text %}#}
-{#                    {{ field.help_text|safe }}#}
-{#            {% endif %}#}
-{#            </div>#}
+            <div class="uk-text-small">
+                {% for error in field.errors %}
+                    <p class="uk-text-danger">{{ error }}</p>
+                {% endfor %}
+            {% if field.help_text %}
+                    {{ field.help_text|safe }}
+            {% endif %}
+            </div>
 {% endfor %}
