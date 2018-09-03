@@ -1,0 +1,36 @@
+
+{#{% if form.non_field_errors %}#}
+{#    {% for error in form.non_field_errors %}#}
+{#        <div class="uk-alert-danger">#}
+{#            <p>{{ error }}</p>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#{% endif %}#}
+
+{% for field in form %}
+<v-text-field
+    v-model="email"
+    label="{% if field.id_for_label == 'id_username' %}メールアドレス{% else %}パスワード{% endif %}"
+    prepend-icon="{% if field.id_for_label == 'id_username' %}mail{% else %}lock{% endif %}"
+    {% if field.id_for_label == 'id_password' %}type="password"{% endif %}
+    name="{% if field.id_for_label == 'id_username' %}username{% else %}password{% endif %}"
+    id="{% if field.id_for_label == 'id_username' %}id_username{% else %}id_password{% endif %}"
+    required
+></v-text-field>
+{% endfor %}
+
+{#<v-text-field#}
+{#    v-model="email"#}
+{#    :rules="nameRules"#}
+{#    label="メールアドレス"#}
+{#    prepend-icon="mail"#}
+{#    required#}
+{#></v-text-field>#}
+{#<v-text-field#}
+{#    v-model="email"#}
+{#    :rules="emailRules"#}
+{#    label="パスワード"#}
+{#    prepend-icon="lock"#}
+{#    type="password"#}
+{#    required#}
+{#></v-text-field>#}

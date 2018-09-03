@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
     'top',
+    'airport',
 ]
 
 MIDDLEWARE = [
@@ -137,11 +139,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# Use original user model
+AUTH_USER_MODEL = 'users.User'
+
 # メールをコンソールに表示する
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # ログインURLの設定と、ログイン・ログアウト後のリダイレクト先
-LOGIN_URL = 'register:login'
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

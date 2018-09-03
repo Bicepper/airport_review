@@ -10,23 +10,10 @@
                     <v-card>
                         <v-container grid-list-md>
                             <p class="headline">ログイン</p>
-                            <v-form v-model="valid">
-                                <v-text-field
-                                    v-model="email"
-                                    :rules="nameRules"
-                                    label="メールアドレス"
-                                    prepend-icon="mail"
-                                    required
-                                ></v-text-field>
-                                <v-text-field
-                                    v-model="email"
-                                    :rules="emailRules"
-                                    label="パスワード"
-                                    prepend-icon="lock"
-                                    type="password"
-                                    required
-                                ></v-text-field>
-                                <v-btn block color="primary" large>ログイン</v-btn>
+                            <v-form v-model="valid" method="post" novalidate>
+                                {% csrf_token %}
+                                {% include 'includes/login_form.html' %}
+                                <v-btn type="submit" block color="primary" large>ログイン</v-btn>
                             </v-form>
                             <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
                                 <ul class="login-link">
