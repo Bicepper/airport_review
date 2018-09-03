@@ -1,11 +1,11 @@
 
-{#{% if form.non_field_errors %}#}
-{#    {% for error in form.non_field_errors %}#}
-{#        <div class="uk-alert-danger">#}
-{#            <p>{{ error }}</p>#}
-{#        </div>#}
-{#    {% endfor %}#}
-{#{% endif %}#}
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <div class="login-alert">
+            <p>{{ error }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
 
 {% for field in form %}
 <v-text-field
@@ -16,21 +16,14 @@
     name="{% if field.id_for_label == 'id_username' %}username{% else %}password{% endif %}"
     id="{% if field.id_for_label == 'id_username' %}id_username{% else %}id_password{% endif %}"
     required
+    :rules="loginRules"
 ></v-text-field>
+{#            <div class="uk-text-small">#}
+{#                {% for error in field.errors %}#}
+{#                    <p class="uk-text-danger">{{ error }}</p>#}
+{#                {% endfor %}#}
+{#            {% if field.help_text %}#}
+{#                    {{ field.help_text|safe }}#}
+{#            {% endif %}#}
+{#            </div>#}
 {% endfor %}
-
-{#<v-text-field#}
-{#    v-model="email"#}
-{#    :rules="nameRules"#}
-{#    label="メールアドレス"#}
-{#    prepend-icon="mail"#}
-{#    required#}
-{#></v-text-field>#}
-{#<v-text-field#}
-{#    v-model="email"#}
-{#    :rules="emailRules"#}
-{#    label="パスワード"#}
-{#    prepend-icon="lock"#}
-{#    type="password"#}
-{#    required#}
-{#></v-text-field>#}

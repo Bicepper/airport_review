@@ -780,6 +780,9 @@ html {
 .login-link {
   list-style: none; }
 
+.login-alert {
+  color: #f44336; }
+
 .border-bottom-none {
   border-bottom: none !important; }
 

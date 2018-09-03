@@ -13,7 +13,7 @@
                             <v-form v-model="valid" method="post" novalidate>
                                 {% csrf_token %}
                                 {% include 'includes/login_form.html' %}
-                                <v-btn type="submit" block color="primary" large>ログイン</v-btn>
+                                <v-btn class="m-t-20" type="submit" block color="primary" large>ログイン</v-btn>
                             </v-form>
                             <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
                                 <ul class="login-link">

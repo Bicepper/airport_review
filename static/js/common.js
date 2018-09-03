@@ -21,7 +21,10 @@ var app = new Vue({
                 { title: 'Best airlines12', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
                 { title: 'Best airlines13', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 }
             ],
-            rating:3
+            rating:3,
+            loginRules: [
+                function (v) {return !!v || 'このフィールドは必須です';}
+            ]
         }
     },
     computed: {
