@@ -20,7 +20,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = _('ユーザー')
         verbose_name_plural = _('ユーザー')
 
-    object = UserManager()
+    objects = UserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

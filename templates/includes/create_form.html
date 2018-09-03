@@ -8,15 +8,13 @@
 {% endif %}
 
 {% for field in form %}
-    {{ field.id_for_label }}
-    {{ field.label_tag }}
 <v-text-field
     v-model="email"
-    label="{{ field.label_tag }}"
-    prepend-icon="{% if field.id_for_label == 'id_username' %}mail{% else %}lock{% endif %}"
-    {% if field.id_for_label == 'id_password' %}type="password"{% endif %}
-    name="{% if field.id_for_label == 'id_username' %}username{% else %}password{% endif %}"
-    id="{% if field.id_for_label == 'id_username' %}id_username{% else %}id_password{% endif %}"
+    label="{% if field.id_for_label == 'id_username' %}ユーザー名{% elif field.id_for_label == 'id_email' %}メールアドレス{% elif field.id_for_label == 'id_password1' %}パスワード{% else %}パスワード確認{% endif %}"
+    prepend-icon="{% if field.id_for_label == 'id_username' %}people{% elif field.id_for_label == 'id_email' %}mail{% elif field.id_for_label == 'id_password1' %}lock{% else %}lock{% endif %}"
+    {% if field.id_for_label == 'id_password1' or field.id_for_label == 'id_password2' %}type="password"{% endif %}
+    name="{% if field.id_for_label == 'id_username' %}username{% elif field.id_for_label == 'id_email' %}email{% elif field.id_for_label == 'id_password1' %}password1{% else %}password2{% endif %}"
+    id="{% if field.id_for_label == 'id_username' %}id_username{% elif field.id_for_label == 'id_email' %}id_email{% elif field.id_for_label == 'id_password1' %}id_password1{% else %}id_password2{% endif %}"
     required
     :rules="loginRules"
 ></v-text-field>

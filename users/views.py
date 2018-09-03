@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 from django.template.loader import get_template
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import redirect
-from django.http import Http404
 from django.http import HttpResponseBadRequest
 from django.core.signing import BadSignature
 from django.core.signing import SignatureExpired
@@ -86,7 +85,7 @@ class UserCreateComplete(generic.TemplateView):
         # tokenは問題なし
         else:
             try:
-                user = User.objects.get(pk=user_pk)  # userが仮登録で存在するか確認
+                user = User.objects.get(pk=user_pk)
             except User.DoesNotExist:
                 return HttpResponseBadRequest()
             else:
