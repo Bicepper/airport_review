@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} | マイページ{% endblock %}
+
+{% block content %}
+    <section>
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl>
+                    <v-card>
+                        <v-container grid-list-md>
+                            <p>{{ user.username }}</p>
+                            <p>{{ user.email }}</p>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+{% endblock %}

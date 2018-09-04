@@ -16,12 +16,12 @@
     id="{% if field.id_for_label == 'id_username' %}id_username{% else %}id_password{% endif %}"
     required
 ></v-text-field>
-{#            <div class="uk-text-small">#}
-{#                {% for error in field.errors %}#}
-{#                    <p class="uk-text-danger">{{ error }}</p>#}
-{#                {% endfor %}#}
-{#            {% if field.help_text %}#}
-{#                    {{ field.help_text|safe }}#}
-{#            {% endif %}#}
-{#            </div>#}
+            <div class="form-text-alert-wrapper">
+                {% for error in field.errors %}
+                    <p class="form-text-alert">{{ error }}</p>
+                {% endfor %}
+            {% if field.help_text %}
+                    {{ field.help_text|safe }}
+            {% endif %}
+            </div>
 {% endfor %}

@@ -15,6 +15,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(_('登録日'), auto_now_add=True)
     is_active = models.BooleanField(_('有効・無効'), default=True)
     is_staff = models.BooleanField(_('スタッフ'), default=False)
+    url = models.URLField(blank=True)
 
     class Meta:
         verbose_name = _('ユーザー')

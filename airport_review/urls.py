@@ -27,6 +27,7 @@ from users.views import PasswordResetDone
 from users.views import PasswordResetConfirm
 from users.views import PasswordResetComplete
 from airport.views import list
+from account.views import Account
 
 urlpatterns = [
     path('', index, name='home'),
@@ -41,4 +42,5 @@ urlpatterns = [
     path('reset/done/', PasswordResetDone.as_view(), name='password_reset_done'),
     path('reset/<slug:uidb64>/<slug:token>/', PasswordResetConfirm.as_view(), name='password_reset_confirm'),
     path('reset/complete/', PasswordResetComplete.as_view(), name='password_reset_complete'),
+    path('account/<int:pk>/', Account.as_view(), name='account'),
 ]
