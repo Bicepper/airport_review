@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="uk-container uk-padding">
-    <h2>仮登録受付けメール送信</h2>
-    <p>専門医.comへのご登録ありがとうございます。</p>
-    <p class="uk-text-danger uk-text-bold">会員登録はまだ完了していません。</p>
-    <p>ご入力いただいたアドレス宛に、仮登録受付のメールを送信いたしました。<br>
-        登録完了用URLを記載しておりますので、そちらをクリックして本登録を完了してください。</p>
-    <p>やるべきことは、URL制限時間の調整、時間が過ぎた場合の仮登録の処理、登録時の利用規約の文章つけ</p>
-</div>
+    <section>
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl class="login-wrapper">
+                    <v-card>
+                        <v-container grid-list-md>
+                            <p class="headline">仮登録受付けメール送信</p>
+                            <p>Airport Geekへのご登録ありがとうございます。</p>
+                            <p class="form-text-alert">会員登録はまだ完了していません。</p>
+                            <p>ご入力いただいたアドレス宛に、仮登録受付のメールを送信いたしました。<br>
+                                登録完了用URLを記載しておりますので、そちらをクリックして本登録を完了してください。</p>
+                            <p>やるべきことは、URL制限時間の調整、時間が過ぎた場合の仮登録の処理、登録時の利用規約の文章つけ</p>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
 {% endblock %}
