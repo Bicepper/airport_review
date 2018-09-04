@@ -789,6 +789,21 @@ html {
 .form-text-alert {
   color: #ff5252 !important; }
 
+.account-head:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: linear-gradient(to bottom, transparent 0%, black 100%);
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 12; }
+
+.account-head-username {
+  position: relative;
+  z-index: 13; }
+
 .terms-daialog {
   width: 90%;
   height: 50vh; }

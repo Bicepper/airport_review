@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} | マイページ{% endblock %}
 
@@ -8,6 +9,19 @@
             <v-flex xs12 sm12>
                 <v-container grid-list-xl>
                     <v-card>
+                        <v-img
+                            class="account-head white--text"
+                            height="200px"
+                            src="{% static 'img/narita_terminal.jpg' %}"
+                        >
+                            <v-container fill-height fluid>
+                                <v-layout fill-height>
+                                <v-flex xs12 align-end flexbox>
+                                <span class="account-head-username headline">{{ user.username }}</span>
+                                </v-flex>
+                                </v-layout>
+                            </v-container>
+                        </v-img>
                         <v-container grid-list-md>
                             <p>{{ user.username }}</p>
                             <p>{{ user.email }}</p>
