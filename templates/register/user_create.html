@@ -19,11 +19,12 @@
                                 color="deep-purple"
                                 >
                                 <template slot="label">
-                                    <p class="m-b-0"><a href="#" @click.stop.prevent="dialog = true">利用規約</a>&nbsp;と&nbsp;<a href="#" @click.stop.prevent="dialog = true">プライバシーポリシー</a>に同意します。</p>
+                                    <p class="m-b-0"><a href="#" @click.stop.prevent="dialogterms = true">利用規約</a>&nbsp;と&nbsp;<a href="#" @click.stop.prevent="dialogprivacy = true">プライバシーポリシー</a>に同意します。</p>
                                 </template>
                                 </v-checkbox>
                                 <v-btn type="submit" block color="primary" :disabled="!agreement" large>新規登録</v-btn>
                                 {% include 'includes/terms_text.html' %}
+                                {% include 'includes/privacypolicy_text.html' %}
                             </v-form>
                             <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
                                 <ul class="login-link">

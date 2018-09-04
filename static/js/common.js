@@ -24,7 +24,8 @@ var app = new Vue({
             ],
             rating:3,
             agreement: false,
-            dialog: false,
+            dialogprivacy: false,
+            dialogterms: false,
             rules: {
                 required: function required(v) {return !!v || 'チェックが必要です';}
             }
