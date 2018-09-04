@@ -334,17 +334,26 @@
   }
 }
 
-.account-head-username{
+.account-head-profile{
   position:relative;
   z-index:13;
+}
+
+.account-head-username{
+  //position:relative;
+  //z-index:13;
 }
 
 .account-head-avatar{
   width: 100px !important;
   height: 100px !important;
-  position: absolute;
-  top:-50px;
-  transition: .3s cubic-bezier(.25,.8,.5,1);
+    //position: absolute;
+    //top:-50px;
+    //left:0;
+    //right:0;
+    //margin:auto;
+    transition: .3s cubic-bezier(.25,.8,.5,1);
+    z-index:13;
 }
 
 //=================================================

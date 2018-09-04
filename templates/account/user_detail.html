@@ -11,38 +11,49 @@
                     <v-card>
                         <v-img
                             class="account-head white--text"
-                            height="200px"
+                            height="248px"
                             src="{% static 'img/narita_terminal.jpg' %}"
                         >
-                            <v-container fill-height fluid>
-                                <v-layout fill-height>
-                                <v-flex xs12 align-end flexbox>
-                                <span class="account-head-username headline">{{ user.username }}</span>
-                                </v-flex>
+                            <v-container grid-list-xl fill-height fluid>
+                                <v-layout align-center justify-center column fill-height class="account-head-profile">
+                                    <v-flex xs12 align-center flexbox>
+                                        <v-avatar class="account-head-avatar elevation-5">
+                                            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+                                        </v-avatar>
+                                     </v-flex>
+                                    <v-flex xs12 align-center flexbox>
+                                        <span class="account-head-username headline">{{ user.username }}</span>
+                                    </v-flex>
                                 </v-layout>
                             </v-container>
                         </v-img>
-                        <v-card-text style="position: relative;">
-                            <v-avatar class="account-head-avatar elevation-5">
-                                <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
-                            </v-avatar>
-                            <v-btn
-                                absolute
-                                color="orange"
-                                class="white--text"
-                                fab
-                                large
-                                right
-                                top
-                             >
-                                <v-icon>mdi-cart</v-icon>
-                            </v-btn>
+                        <div style="position: relative;">
+                            <v-tabs
+                                dark
+                                color="cyan"
+                                show-arrows
+                                grow
+                            >
+                                <v-tabs-slider color="yellow"></v-tabs-slider>
+
+                                <v-tab v-for="i in 6" :href="'#tab-' + i" :key="i">
+                                    Item {{ i }}
+                                </v-tab>
+
+                                <v-tabs-items>
+                                    <v-tab-item v-for="i in 6" :id="'tab-' + i" :key="i">
+                                        <v-card flat>
+                                            <v-card-text>{{ text }}</v-card-text>
+                                        </v-card>
+                                    </v-tab-item>
+                                </v-tabs-items>
+                            </v-tabs>
                             <v-container grid-list-md>
                                 <p>{{ user.username }}</p>
                                 <p>{{ user.email }}</p>
                                 <a href="{% url 'account_update' user.pk %}">更新</a>
                             </v-container>
-                        </v-card-text>
+                        </div>
                     </v-card>
                 </v-container>
             </v-flex>
