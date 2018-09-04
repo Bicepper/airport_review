@@ -804,6 +804,13 @@ html {
   position: relative;
   z-index: 13; }
 
+.account-head-avatar {
+  width: 100px !important;
+  height: 100px !important;
+  position: absolute;
+  top: -50px;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1); }
+
 .terms-daialog {
   width: 90%;
   height: 50vh; }

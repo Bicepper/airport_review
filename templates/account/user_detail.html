@@ -22,11 +22,27 @@
                                 </v-layout>
                             </v-container>
                         </v-img>
-                        <v-container grid-list-md>
-                            <p>{{ user.username }}</p>
-                            <p>{{ user.email }}</p>
-                            <a href="{% url 'account_update' user.pk %}">更新</a>
-                        </v-container>
+                        <v-card-text style="position: relative;">
+                            <v-avatar class="account-head-avatar elevation-5">
+                                <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+                            </v-avatar>
+                            <v-btn
+                                absolute
+                                color="orange"
+                                class="white--text"
+                                fab
+                                large
+                                right
+                                top
+                             >
+                                <v-icon>mdi-cart</v-icon>
+                            </v-btn>
+                            <v-container grid-list-md>
+                                <p>{{ user.username }}</p>
+                                <p>{{ user.email }}</p>
+                                <a href="{% url 'account_update' user.pk %}">更新</a>
+                            </v-container>
+                        </v-card-text>
                     </v-card>
                 </v-container>
             </v-flex>

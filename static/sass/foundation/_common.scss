@@ -339,6 +339,14 @@
   z-index:13;
 }
 
+.account-head-avatar{
+  width: 100px !important;
+  height: 100px !important;
+  position: absolute;
+  top:-50px;
+  transition: .3s cubic-bezier(.25,.8,.5,1);
+}
+
 //=================================================
 // 利用規約
 //=================================================
