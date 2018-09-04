@@ -10,7 +10,7 @@
                     <v-card>
                         <v-container grid-list-md>
                             <p class="headline">ログイン</p>
-                            <v-form v-model="valid" method="post" novalidate>
+                            <v-form method="post" novalidate>
                                 {% csrf_token %}
                                 {% include 'includes/login_form.html' %}
                                 <v-btn class="m-t-20" type="submit" block color="primary" large>ログイン</v-btn>

@@ -789,6 +789,15 @@ html {
 .form-text-alert {
   color: #ff5252 !important; }
 
+.terms-daialog {
+  width: 90%;
+  height: 50vh; }
+  @media only screen and (min-width: 600px) {
+    .terms-daialog {
+      width: 60%;
+      min-width: 600px;
+      max-width: 600px; } }
+
 .border-bottom-none {
   border-bottom: none !important; }
 

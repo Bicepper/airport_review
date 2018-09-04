@@ -23,9 +23,11 @@ var app = new Vue({
                 { title: 'Best airlines13', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 }
             ],
             rating:3,
-            loginRules: [
-                function (v) {return !!v || 'このフィールドは必須です';}
-            ]
+            agreement: false,
+            dialog: false,
+            rules: {
+                required: function required(v) {return !!v || 'チェックが必要です';}
+            }
         }
     },
     computed: {

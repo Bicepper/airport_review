@@ -9,7 +9,6 @@
 
 {% for field in form %}
 <v-text-field
-    v-model="email"
     label="{% if field.id_for_label == 'id_username' %}ユーザー名{% elif field.id_for_label == 'id_email' %}メールアドレス{% elif field.id_for_label == 'id_password1' %}パスワード{% else %}パスワード確認{% endif %}"
     prepend-icon="{% if field.id_for_label == 'id_username' %}people{% elif field.id_for_label == 'id_email' %}mail{% elif field.id_for_label == 'id_password1' %}lock{% else %}lock{% endif %}"
     {% if field.id_for_label == 'id_password1' or field.id_for_label == 'id_password2' %}type="password"{% endif %}

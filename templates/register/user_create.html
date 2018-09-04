@@ -10,10 +10,20 @@
                     <v-card>
                         <v-container grid-list-md>
                             <p class="headline">新規登録</p>
-                            <v-form v-model="valid" method="post" novalidate>
+                            <v-form method="post" novalidate>
                                 {% csrf_token %}
                                 {% include 'includes/create_form.html' %}
-                                <v-btn class="m-t-20" type="submit" block color="primary" large>新規登録</v-btn>
+                                <v-checkbox
+                                v-model="agreement"
+                                :rules="[rules.required]"
+                                color="deep-purple"
+                                >
+                                <template slot="label">
+                                    <p class="m-b-0"><a href="#" @click.stop.prevent="dialog = true">利用規約</a>&nbsp;と&nbsp;<a href="#" @click.stop.prevent="dialog = true">プライバシーポリシー</a>に同意します。</p>
+                                </template>
+                                </v-checkbox>
+                                <v-btn type="submit" block color="primary" :disabled="!agreement" large>新規登録</v-btn>
+                                {% include 'includes/terms_text.html' %}
                             </v-form>
                             <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
                                 <ul class="login-link">
