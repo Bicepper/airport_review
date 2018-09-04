@@ -783,6 +783,12 @@ html {
 .login-alert {
   color: #f44336; }
 
+.form-text-alert-wrapper {
+  margin-left: 33px; }
+
+.form-text-alert {
+  color: #ff5252 !important; }
+
 .border-bottom-none {
   border-bottom: none !important; }
 

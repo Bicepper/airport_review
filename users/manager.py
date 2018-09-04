@@ -12,9 +12,6 @@ class UserManager(BaseUserManager):
             raise ValueError('The given email must be set')
         if not username:  # usernameが指定されていなかった場合
             raise ValueError('The give username must be set')
-        if not extra_fields['is_superuser']:  # スーパーユーザーではない場合に、以下の名称は使用不可
-            if username == 'admin' or username == 'Admin' or username == '管理者' or username == '管理人':
-                raise ValueError("The username entered can't be used")
         email = self.normalize_email(email)  # メールアドレスを正規化
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)

@@ -11,7 +11,7 @@ from .manager import UserManager
 class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(_('メールアドレス'), unique=True, blank=False)
-    username = models.CharField(_('ユーザー名'), max_length=255, unique=True, blank=False, null=True)
+    username = models.CharField(_('ユーザー名'), max_length=32, unique=True, blank=False, null=True)
     date_joined = models.DateTimeField(_('登録日'), auto_now_add=True)
     is_active = models.BooleanField(_('有効・無効'), default=True)
     is_staff = models.BooleanField(_('スタッフ'), default=False)
