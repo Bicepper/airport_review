@@ -22,6 +22,10 @@ from top.views import index
 from users.views import UserCreate
 from users.views import UserCreateDone
 from users.views import UserCreateComplete
+from users.views import PasswordReset
+from users.views import PasswordResetDone
+from users.views import PasswordResetConfirm
+from users.views import PasswordResetComplete
 from airport.views import list
 
 urlpatterns = [
@@ -33,18 +37,8 @@ urlpatterns = [
     path('airport/', list, name='airport'),
     path('login/', auth_views.LoginView.as_view(template_name='register/login.html'), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
-    path('reset/', auth_views.PasswordResetView.as_view(
-        template_name='reset/password_reset.html',
-        email_template_name='reset/password_reset_email.html',
-        subject_template_name='reset/password_reset_subject.txt'
-    ), name='password_reset'),
-    path('reset/done/', auth_views.PasswordResetDoneView.as_view(
-        template_name='reset/password_reset_done.html'
-    ), name='password_reset_done'),
-    path('reset/<slug:uidb64>/<slug:token>/', auth_views.PasswordResetConfirmView.as_view(
-        template_name='reset/password_reset_confirm.html'
-    ), name='password_reset_confirm'),
-    path('reset/complete/', auth_views.PasswordResetCompleteView.as_view(
-        template_name='reset/password_reset_complete.html'
-    ), name='password_reset_complete'),
+    path('reset/', PasswordReset.as_view(), name='password_reset'),
+    path('reset/done/', PasswordResetDone.as_view(), name='password_reset_done'),
+    path('reset/<slug:uidb64>/<slug:token>/', PasswordResetConfirm.as_view(), name='password_reset_confirm'),
+    path('reset/complete/', PasswordResetComplete.as_view(), name='password_reset_complete'),
 ]
