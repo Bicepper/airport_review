@@ -9,7 +9,7 @@
         <v-btn flat class="head-nav-menu-item">News</v-btn>
         {% if user.is_authenticated %}
             <v-btn flat class="head-nav-menu-item{% if request.path == '/mypage/' %} active{% endif %}" href="{% url 'login' %}">Mypage</v-btn>
-            <v-btn flat class="head-nav-menu-item{% if request.path == '/logout/' %} active{% endif %}" href="{% url 'logout' %}">Logout</v-btn>
+            <v-btn flat class="head-nav-menu-item{% if request.path == '/logout/' %} active{% endif %}" href="{% url 'login' %}">Logout</v-btn>
         {% else %}
             <v-btn flat class="head-nav-menu-item{% if request.path == '/login/' %} active{% endif %}" href="{% url 'login' %}">Login</v-btn>
         {% endif %}

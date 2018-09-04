@@ -9,8 +9,8 @@
 
 {% for field in form %}
 <v-text-field
-    label="{% if field.id_for_label == 'id_username' %}メールアドレス{% else %}パスワード{% endif %}"
-    prepend-icon="{% if field.id_for_label == 'id_username' %}mail{% else %}lock{% endif %}"
+    label="{% if field.id_for_label == 'id_username' or field.id_for_label == 'id_email' %}メールアドレス{% else %}パスワード{% endif %}"
+    prepend-icon="{% if field.id_for_label == 'id_username' or field.id_for_label == 'id_email' %}mail{% else %}lock{% endif %}"
     {% if field.id_for_label == 'id_password' %}type="password"{% endif %}
     name="{% if field.id_for_label == 'id_username' %}username{% else %}password{% endif %}"
     id="{% if field.id_for_label == 'id_username' %}id_username{% else %}id_password{% endif %}"
