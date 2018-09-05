@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'account',
     'top',
     'airport',
+    'country',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'ja-JP'
+LANGUAGE_CODE = 'ja'
 
 TIME_ZONE = 'Asia/Tokyo'
 
