@@ -30,9 +30,16 @@ from airport.views import list
 from account.views import Account
 from account.views import AccountUpdate
 
+from country.api_urls import country_router
+
+api_urlpatterns = [
+    path('countries/', include(country_router.urls)),
+]
+
 urlpatterns = [
     path('', index, name='home'),
     path('admin/', admin.site.urls),
+    path('api/1.0/', include(api_urlpatterns)),
     path('signup/', UserCreate.as_view(), name='signup'),
     path('signup/done/', UserCreateDone.as_view(), name='create_done'),
     path('signup/complete/<token>/', UserCreateComplete.as_view(), name='create_complete'),

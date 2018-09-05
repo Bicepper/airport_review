@@ -5,7 +5,7 @@ var app = new Vue({
         return {
             drawer:null,
             items:['成田（NRT）', '羽田（ABC）', 'Fizz', 'Buzz'],
-            countries:['アメリカ', '日本', '中国', 'フランス'],
+            countries:[],
             alliance:['スターアライアンス', 'ワンワールド', 'スカイチーム'],
             airline:['全日空', 'ルフトハンザ', 'ブリティッシュエアウェイズ', '中国東方航空'],
             cards:[
@@ -36,5 +36,14 @@ var app = new Vue({
 			let options = this.options.opt_city
             return options.filter(o => o.dependency == this.support.home_province)
         }
+    },
+    created: function() {
+        var self = this;
+        axios.get('/api/1.0/countries/').then(function(response){
+            for(var i=0; i < response.data.length; i++){
+                console.log(response.data[i]);
+                self.countries.push(response.data[i]);
+            }
+        });
     }
 })
