@@ -7,7 +7,7 @@ var app = new Vue({
             items:['成田（NRT）', '羽田（ABC）', 'Fizz', 'Buzz'],
             countries:[],
             alliance:[],
-            airline:['全日空', 'ルフトハンザ', 'ブリティッシュエアウェイズ', '中国東方航空'],
+            airlines:[],
             cards:[
                 { title: 'Best airlines01', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
                 { title: 'Best airlines02', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
@@ -33,8 +33,8 @@ var app = new Vue({
     },
     computed: {
         filterdData() {
-			let options = this.options.opt_city
-            return options.filter(o => o.dependency == this.support.home_province)
+			let options = this.options.opt_city;
+            return options.filter(o => o.dependency == this.support.home_province);
         }
     },
     created: function() {
@@ -48,6 +48,13 @@ var app = new Vue({
         axios.get('/api/1.0/alliances/').then(function(response){
             for(var i=0; i < response.data.length; i++){
                 self.alliance.push(response.data[i]);
+            }
+        });
+
+        axios.get('/api/1.0/airlines/').then(function(response){
+            for(var i=0; i < response.data.length; i++){
+                console.log(response.data[i]);
+                self.airlines.push(response.data[i]);
             }
         });
     }

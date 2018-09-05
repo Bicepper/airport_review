@@ -32,10 +32,12 @@ from account.views import AccountUpdate
 
 from country.api_urls import country_router
 from alliance.api_urls import alliance_router
+from airline.api_urls import airline_router
 
 api_urlpatterns = [
     path('countries/', include(country_router.urls)),
     path('alliances/', include(alliance_router.urls)),
+    path('airlines/', include(airline_router.urls)),
 ]
 
 urlpatterns = [
