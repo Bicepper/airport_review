@@ -16,6 +16,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(_('有効・無効'), default=True)
     is_staff = models.BooleanField(_('スタッフ'), default=False)
     url = models.URLField(blank=True)
+    intro = models.TextField(blank=True)
+    facebook = models.URLField(blank=True)
+    twitter = models.URLField(blank=True)
+    youtube = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
 
     class Meta:
         verbose_name = _('ユーザー')

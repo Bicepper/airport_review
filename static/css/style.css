@@ -810,6 +810,21 @@ html {
   transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
   z-index: 13; }
 
+.account-info-table {
+  width: 100%; }
+
+.account-info-table-item {
+  width: 30%;
+  text-align: left;
+  padding: 10px 5px;
+  vertical-align: top; }
+
+.account-info-table-item-info {
+  width: 70%;
+  text-align: left;
+  padding: 10px 5px;
+  vertical-align: top; }
+
 .terms-daialog {
   width: 90%;
   height: 50vh; }
