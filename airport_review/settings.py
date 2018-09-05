@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'airport',
     'country',
     'alliance',
+    'airline',
     'rest_framework',
 ]
 
