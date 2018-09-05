@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from .models import Country
+from .models import Alliance
 
 
-class CountrySerializers(serializers.ModelSerializer):
+class AllianceSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Country
+        model = Alliance
         fields = (
             'id',
             'name_ja',
