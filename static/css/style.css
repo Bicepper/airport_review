@@ -671,6 +671,9 @@ html {
 .airport-result-container {
   height: 100%;
   overflow-y: auto; }
+  @media only screen and (min-width: 960px) {
+    .airport-result-container {
+      overflow-y: scroll; } }
 
 @media only screen and (min-width: 1264px) {
   .airport-list-wrapper .v-content__wrap .container {
@@ -686,7 +689,8 @@ html {
       width: 100%; } }
   @media only screen and (min-width: 600px) {
     .airport-list-item {
-      width: 50%; } }
+      width: 50%;
+      max-width: 50%; } }
   .airport-list-item .v-card__title {
     padding: 16px 16px 0 16px !important; }
     .airport-list-item .v-card__title .v-rating {

@@ -5,24 +5,15 @@ var app = new Vue({
         return {
             drawer:null,
             airports:[],
-            airportsType:null,
             countryselected:[],
             countries:[],
             alliance:[],
             airlinesselected:[],
             airlines:[],
+            sortitems:[],
             cards:[
                 { title: 'Best airlines01', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
                 { title: 'Best airlines02', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines03', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines04', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines05', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines06', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines07', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines08', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines09', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines11', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines12', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
                 { title: 'Best airlines13', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 }
             ],
             rating:3,
@@ -36,8 +27,13 @@ var app = new Vue({
     },
     computed: {
         filteredData() {
-                let options = this.options.airports;
-                return options.filter(o => o.id == this.support.home_province)
+                let options = this.airports;
+                if (typeof(this.airlinesselected) !== 'number'){
+                    return options;
+                }else{
+                    //optionsで全て見て回る（pythonのmapみたいな感じ）
+                    return options.filter(o => o.id === this.airlinesselected)
+                }
         }
     },
     created: function() {

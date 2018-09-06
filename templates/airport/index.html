@@ -66,11 +66,10 @@
                         <v-container grid-list-md class="airport-list-container">
                             <v-layout row wrap class="airport-list">
                                 <v-flex
-                                  v-for="airport in airports"
+                                  v-for="airport in filteredData"
                                   :key="airport.id"
                                   class="airport-list-item"
                                   item-value="airport.id"
-                                  v-model="airlinesselected"
                                 >
 
                                     <v-card>

@@ -177,6 +177,9 @@
 .airport-result-container {
   height: 100%;
   overflow-y: auto;
+  @media only screen and (min-width: 960px){
+    overflow-y: scroll;
+  }
 }
 
 .airport-list-wrapper-inner{
@@ -199,6 +202,7 @@
   }
   @media only screen and (min-width: 600px){
     width:50%;
+    max-width:50%;
   }
   //@media only screen and (min-width: 960px){
   //  width:33.3%;
