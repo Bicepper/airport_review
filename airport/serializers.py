@@ -13,4 +13,5 @@ class AirportSerializers(serializers.ModelSerializer):
             'coordinate_latitude',
             'coordinate_longitude',
             'main_image',
+            'country_id',
         )

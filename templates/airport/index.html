@@ -16,6 +16,9 @@
                                 <v-autocomplete
                                     :items="airports"
                                     item-text="name_ja"
+                                    item-value="id"
+                                    v-model="airlinesselected"
+                                    v-on:change="test"
                                     label="空港名"
                                     autocomplete
                                     no-data-text="空港が見つかりません"
@@ -26,7 +29,9 @@
                                 <v-autocomplete
                                     :items="countries"
                                     item-text="name_ja"
+                                    item-value="id"
                                     label="国"
+                                    v-model="countryselected"
                                     autocomplete
                                     no-data-text="国が見つかりません"
                                 ></v-autocomplete>
@@ -136,13 +141,17 @@
 
 {% block javascript %}
 <script>
+    var map
+    var marker = [];
+    var infoWindow = [];
+
     function initMap() {
 
         var myLatLng = {lat: 35.771987, lng: 140.392850};
 
-        var map = new google.maps.Map(document.getElementById('googlemap'), { // #sampleに地図を埋め込む
+        map = new google.maps.Map(document.getElementById('googlemap'), { // #sampleに地図を埋め込む
             center: myLatLng,
-            zoom: 12, // 地図のズームを指定
+            zoom: 8, // 地図のズームを指定
             styles: [{"elementType": "geometry", "stylers": [{"color": "#f5f5f5"}]},
                     {"elementType": "labels.icon", "stylers": [{"visibility": "off"}]},
                     {"elementType": "labels.text.fill", "stylers": [{"color": "#616161"}]},
@@ -168,18 +177,46 @@
             ]
         });
 
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            animation: google.maps.Animation.DROP,
-            title: 'Hello World!'
+        //複数マーカー
+        for (var i = 0; i < app.airports.length; i++) {
+            markerLatLng = new google.maps.LatLng({lat: app.airports[i]['coordinate_latitude'], lng: app.airports[i]['coordinate_longitude']}); // 緯度経度のデータ作成
+            marker[i] = new google.maps.Marker({ // マーカーの追加
+             position: markerLatLng, // マーカーを立てる位置を指定
+                map: map, // マーカーを立てる地図を指定
+                animation: google.maps.Animation.DROP,
+           });
+
+            infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+                content: '<v-tooltip top><span>' + app.airports[i]['name_ja'] + '</span></v-tooltip>' // 吹き出しに表示する内容
+            });
+
+            markerEvent(i);
+        }
+    }
+
+    // マーカーにクリックイベントを追加
+    function markerEvent(i) {
+        marker[i].addListener('mouseover', function() { // マーカーにマウスオーバーしたとき
+          infoWindow[i].open(map, marker[i]); // 吹き出しの表示
         });
 
+        marker[i].addListener('mouseout', function() { // マーカーからマウスアウトしたとき
+          infoWindow[i].close(); // 吹き出しの表示
+        });
 
-        var mapType = new google.maps.StyledMapType(mapStyle);
-            map.mapTypes.set( 'GrayScaleMap', mapType);
-            map.setMapTypeId( 'GrayScaleMap' );
+        marker[i].addListener('click', function() { // マーカーをクリックしたとき
+          app.airlinesselected = app.airports[i]['id'];
+          app.countryselected = app.airports[i]['country_id'];
+        });
     }
+
+    function test(){
+        alert('change');
+    }
+
+    $(document).ready(function() {
+      initMap();
+    });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf3loKFEXitNvX0FdE8aWwmKaslZnq5Ag&callback=initMap"></script>
 {% endblock %}

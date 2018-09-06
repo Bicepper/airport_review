@@ -5,8 +5,10 @@ var app = new Vue({
         return {
             drawer:null,
             airports:[],
+            countryselected:[],
             countries:[],
             alliance:[],
+            airlinesselected:[],
             airlines:[],
             cards:[
                 { title: 'Best airlines01', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
@@ -62,5 +64,10 @@ var app = new Vue({
                 self.airports.push(response.data[i]);
             }
         });
+    },
+    methods: {
+        onSelect(v) {
+            alert(v);
+        }
     }
 })
