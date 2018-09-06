@@ -14,7 +14,8 @@
                         <v-layout justify-center row wrap>
                             <v-flex xs12 sm12 md6>
                                 <v-autocomplete
-                                    :items="items"
+                                    :items="airports"
+                                    item-text="name_ja"
                                     label="空港名"
                                     autocomplete
                                     no-data-text="空港が見つかりません"
@@ -174,12 +175,6 @@
             title: 'Hello World!'
         });
 
-        google.maps.event.addListener(marker,'mouseover',function(){
-          $('img[src="'+this.icon+'"]').stop().animate({opacity:1});
-        });
-        google.maps.event.addListener(marker,'mouseout',function(){
-          $('img[src="'+this.icon+'"]').stop().animate({opacity:.5});
-        });
 
         var mapType = new google.maps.StyledMapType(mapStyle);
             map.mapTypes.set( 'GrayScaleMap', mapType);

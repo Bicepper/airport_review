@@ -4,7 +4,7 @@ var app = new Vue({
     data: function data() {
         return {
             drawer:null,
-            items:['成田（NRT）', '羽田（ABC）', 'Fizz', 'Buzz'],
+            airports:[],
             countries:[],
             alliance:[],
             airlines:[],
@@ -53,8 +53,13 @@ var app = new Vue({
 
         axios.get('/api/1.0/airlines/').then(function(response){
             for(var i=0; i < response.data.length; i++){
-                console.log(response.data[i]);
                 self.airlines.push(response.data[i]);
+            }
+        });
+
+        axios.get('/api/1.0/airports/').then(function(response){
+            for(var i=0; i < response.data.length; i++){
+                self.airports.push(response.data[i]);
             }
         });
     }
