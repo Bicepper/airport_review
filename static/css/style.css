@@ -694,7 +694,7 @@ html {
 
 .airport-list-item-view-text {
   z-index: 13; }
-  .airport-list-item-view-text .headline {
+  .airport-list-item-view-text .title {
     position: absolute;
     bottom: 20px;
     left: 20px;

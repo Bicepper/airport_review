@@ -5,6 +5,7 @@ var app = new Vue({
         return {
             drawer:null,
             airports:[],
+            airportsType:null,
             countryselected:[],
             countries:[],
             alliance:[],
@@ -34,9 +35,9 @@ var app = new Vue({
         }
     },
     computed: {
-        filterdData() {
-			let options = this.options.opt_city;
-            return options.filter(o => o.dependency == this.support.home_province);
+        filteredData() {
+                let options = this.options.airports;
+                return options.filter(o => o.id == this.support.home_province)
         }
     },
     created: function() {
@@ -64,10 +65,5 @@ var app = new Vue({
                 self.airports.push(response.data[i]);
             }
         });
-    },
-    methods: {
-        onSelect(v) {
-            alert(v);
-        }
     }
 })
