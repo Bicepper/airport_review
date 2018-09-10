@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} | マイページ{% endblock %}
+
+{% block content %}
+    <section>
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl>
+                    <v-card>
+                        <v-container grid-list-md>
+                            <v-form method="post" novalidate>
+                                {% csrf_token %}
+                                {% include 'includes/update_form.html' %}
+                                <v-btn class="m-t-20" type="submit" block color="primary" large>更新</v-btn>
+                            </v-form>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+{% endblock %}

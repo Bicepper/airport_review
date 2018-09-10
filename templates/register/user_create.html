@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} | 新規登録{% endblock %}
+
+{% block content %}
+    <section class="top-count">
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl class="login-wrapper">
+                    <v-card>
+                        <v-container grid-list-md>
+                            <p class="headline">新規登録</p>
+                            <v-form method="post" novalidate>
+                                {% csrf_token %}
+                                {% include 'includes/create_form.html' %}
+                                <v-checkbox
+                                v-model="agreement"
+                                :rules="[rules.required]"
+                                color="deep-purple"
+                                >
+                                <template slot="label">
+                                    <p class="m-b-0"><a href="#" @click.stop.prevent="dialogterms = true">利用規約</a>&nbsp;と&nbsp;<a href="#" @click.stop.prevent="dialogprivacy = true">プライバシーポリシー</a>に同意します。</p>
+                                </template>
+                                </v-checkbox>
+                                <v-btn type="submit" block color="primary" :disabled="!agreement" large>新規登録</v-btn>
+                                {% include 'includes/terms_text.html' %}
+                                {% include 'includes/privacypolicy_text.html' %}
+                            </v-form>
+                            <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
+                                <ul class="login-link">
+                                    <li>既にアカウントをお持ちですか？<a href="{% url 'login' %}">ログイン</a></li>
+                                </ul>
+                            </div>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+{% endblock %}

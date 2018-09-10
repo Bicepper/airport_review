@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+html{
+  font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro",'Hiragino Kaku Gothic Pro', 'FontAwesome', Osaka, 'ＭＳ Ｐゴシック', sans-serif;
+  box-sizing:border-box;
+  color:#666;
+}
+
+*, *:before, *:after{
+  box-sizing:inherit;
+}
+
+.list-no-style{
+  list-style:none;
+}
+
+.link-no-decoration{
+  text-decoration: none;
+}
+
+.link-color__gray01{
+  color:#aaa;
+  transition: all  0.1s ease;
+  &:hover{
+    color:#fff;
+  }
+}
+
+.footer-text-color_gray01{
+  color:#aaa;
+}
+
+//marginとpadding
+$spaceamounts:(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+$sides:(top, bottom, left, right);
+
+@each $space in $spaceamounts{
+  @each $side in $sides{
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}

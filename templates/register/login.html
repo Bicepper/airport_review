@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} | ログイン{% endblock %}
+
+{% block content %}
+    <section class="top-count">
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl class="login-wrapper">
+                    <v-card>
+                        <v-container grid-list-md>
+                            <p class="headline">ログイン</p>
+                            <v-form method="post" novalidate>
+                                {% csrf_token %}
+                                {% include 'includes/login_form.html' %}
+                                <v-btn class="m-t-20" type="submit" block color="primary" large>ログイン</v-btn>
+                            </v-form>
+                            <div class="body-2 text-md-center text-sm-center text-xs-center m-t-30">
+                                <ul class="login-link">
+                                    <li>アカウントをまだお持ちでないですか？<a href="{% url 'signup' %}" class="">新規登録</a></li>
+                                    <li><a href="{% url 'password_reset' %}">パスワードを忘れましたか？</a></li>
+                                </ul>
+                            </div>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+{% endblock %}

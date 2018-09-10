@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12>
+                <v-container grid-list-xl class="login-wrapper">
+                    <v-card>
+                        <v-container grid-list-md>
+                            <p class="headline">本登録完了</p>
+                            <p>本登録が完了しました</p>
+                            <p>登録されたメールアドレスとパスワードでログインしてください。<br>
+                                <a href="{% url 'login' %}">ログイン</a>
+                            </p>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+{% endblock %}

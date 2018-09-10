@@ -1,0 +1,27 @@
+
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <div class="login-alert">
+            <p>{{ error }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% for field in form %}
+<v-text-field
+    label="{% if field.id_for_label == 'id_username' or field.id_for_label == 'id_email' %}メールアドレス{% else %}パスワード{% endif %}"
+    prepend-icon="{% if field.id_for_label == 'id_username' or field.id_for_label == 'id_email' %}mail{% else %}lock{% endif %}"
+    {% if field.id_for_label == 'id_password' %}type="password"{% endif %}
+    name="{% if field.id_for_label == 'id_username' %}username{% else %}password{% endif %}"
+    id="{% if field.id_for_label == 'id_username' %}id_username{% else %}id_password{% endif %}"
+    required
+></v-text-field>
+            <div class="form-text-alert-wrapper">
+                {% for error in field.errors %}
+                    <p class="form-text-alert">{{ error }}</p>
+                {% endfor %}
+            {% if field.help_text %}
+                    {{ field.help_text|safe }}
+            {% endif %}
+            </div>
+{% endfor %}

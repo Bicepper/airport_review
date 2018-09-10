@@ -1,0 +1,62 @@
+{% load static %}
+
+<v-toolbar class="white head-nav" height="80px">
+    <v-toolbar-title class="nav-logo"><img src="{% static 'img/logo.png' %}" alt=""></v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down head-nav-menu">
+        <v-btn flat class="head-nav-menu-item{% if request.path == '/' %} active{% endif %}" href="{% url 'home' %}">Home</v-btn>
+        <v-btn flat class="head-nav-menu-item{% if request.path == '/airport/' %} active{% endif %}" href="{% url 'airport' %}">Airport</v-btn>
+        <v-btn flat class="head-nav-menu-item">News</v-btn>
+        {% if user.is_authenticated %}
+            <v-btn flat class="head-nav-menu-item{% if request.path|slice:':9' == '/account/' %} active{% endif %}" href="{% url 'account' user.pk %}">Mypage</v-btn>
+            <v-btn flat class="head-nav-menu-item{% if request.path == '/logout/' %} active{% endif %}" href="{% url 'logout' %}">Logout</v-btn>
+        {% else %}
+            <v-btn flat class="head-nav-menu-item{% if request.path == '/login/' %} active{% endif %}" href="{% url 'login' %}">Login</v-btn>
+        {% endif %}
+    </v-toolbar-items>
+    <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+</v-toolbar>
+
+
+<v-navigation-drawer v-model="drawer" fixed temporary class="nav-drawer hidden-md-and-up">
+    <v-list dense>
+        <v-list-tile @click="">
+            <v-list-tile-action>
+                <v-icon>home</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>HOME</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+            <v-list-tile-action>
+                <v-icon>local_airport</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>AIRPORT</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+            <v-list-tile-action>
+                <v-icon>notes</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>NEWS</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+    </v-list>
+
+    <v-divider></v-divider>
+
+    <v-list>
+        <v-list-tile avatar>
+            <v-list-tile-avatar>
+                <img src="https://randomuser.me/api/portraits/men/85.jpg">
+            </v-list-tile-avatar>
+
+            <v-list-tile-content>
+                <v-list-tile-title>John Leider</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
+    </v-list>
+</v-navigation-drawer>

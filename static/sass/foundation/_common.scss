@@ -1,0 +1,393 @@
+[v-cloak] {
+  display:none;
+}
+
+.head-nav{
+  position:fixed;
+  z-index:100001;
+}
+
+.head-nav-menu .head-nav-menu-item .v-btn__content{
+  color:#bdbdbd;
+}
+
+.head-nav-menu .head-nav-menu-item:hover{
+  .v-btn__content{
+    color:#000;
+  }
+}
+
+.head-nav-menu .active .v-btn__content{
+  color:#000;
+}
+
+.nav-logo{
+  height:80%;
+  img{
+    width:auto;
+    height:100%;
+  }
+}
+
+.nav-drawer{
+  z-index:100000;
+  margin-top:80px !important;
+  max-height:calc(100% - 80px) !important;
+}
+
+.v-list--dense .v-list__tile:not(.v-list__tile--avatar) {
+  height: 60px !important;
+}
+
+.top-search{
+  position:relative;
+  height: 100vh;
+  padding:0;
+  //background: url(../img/top_back.jpg) no-repeat center center;
+  //background-size: cover;
+  overflow:hidden;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    width:100%;
+    height:100%;
+    background:url(../img/cover.png) center center ,
+              #000;
+    opacity:.8;
+  }
+}
+
+.top-search-video{
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
+.top-search-title{
+  z-index:10;
+  transition: all  0.1s ease;
+  @media only screen and (max-width: 599px){
+    font-size:34px !important;
+  }
+}
+
+.top-search-form-wrap{
+  @media only screen and (min-width: 960px){
+    align-items: flex-start;
+    flex-direction:row;
+  }
+  @media only screen and (max-width: 959px){
+    align-items: center;
+    flex-direction:column;
+  }
+}
+
+.top-search-form{
+  width:100%;
+  z-index:10;
+}
+
+.top-search-form-input-over{
+  @include flexbox();
+  justify-content:flex-end;
+}
+
+.top-search-form-input{
+  width:100%;
+  @media only screen and (min-width: 960px){
+    min-width:400px;
+    max-width:400px;
+  }
+}
+
+.top-search-form-search{
+  height:48px;
+  margin:0 8px;
+  border:2px solid currentColor !important;
+}
+
+.top-search-notfind{
+  z-index:10;
+}
+
+//.top-count{
+//  background:#303030;
+//}
+
+.top-num-counter{
+  width:100%;
+}
+
+.v-select__slot{
+  position:relative;
+}
+
+.containerwrap{
+  position:relative;
+  margin-top:80px;
+}
+
+.footer-inner{
+  width:100%;
+  background-color:#1f1f1f !important;
+}
+
+.footer-copyright{
+  padding:0 24px !important;
+  @media only screen and (max-width: 959px){
+    padding: 0 16px !important;
+  }
+}
+
+//=================================================
+// 空港一覧
+//=================================================
+
+.airport_map{
+  height:100%;
+  @media only screen and (min-width: 960px){
+    height:calc(100vh - 80px);
+  }
+  //height:calc(100vh - 80px);
+}
+
+.airport-googlemap{
+  height:50vh;
+  @media only screen and (min-width: 960px){
+    height:100%;
+  }
+}
+
+.airport-result{
+  //@media only screen and (min-width: 960px){
+  //  overflow: hidden;
+  //}
+  overflow: hidden;
+}
+
+.airport-result-container {
+  height: 100%;
+  overflow-y: auto;
+  @media only screen and (min-width: 960px){
+    overflow-y: scroll;
+  }
+}
+
+.airport-list-wrapper-inner{
+  //overflow: scroll;
+}
+
+.airport-list-wrapper .v-content__wrap .container{
+  @media only screen and (min-width: 1264px){
+    max-width:100%;
+  }
+  @media only screen and (min-width: 960px){
+    max-width:100%;
+  }
+}
+
+.airport-list-item{
+  transition: all  0.1s ease;
+  @media only screen and (max-width: 599px){
+    width:100%;
+  }
+  @media only screen and (min-width: 600px){
+    width:50%;
+    max-width:50%;
+  }
+  //@media only screen and (min-width: 960px){
+  //  width:33.3%;
+  //}
+  //@media only screen and (min-width: 1264px){
+  //  width:25%;
+  //}
+
+  .v-card__title{
+    padding:16px 16px 0 16px !important;
+
+    .v-rating{
+      margin-left:-8px;
+    }
+  }
+}
+
+.airport-list-item-view-text{
+  z-index:13;
+  .title{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    @include transition(0.3s);
+    @include transition-timing-function(ease);
+  }
+}
+
+.airport-list-item-link{
+  .v-image__image--cover{
+    @include transition(0.3s);
+    @include transition-timing-function(ease);
+  }
+  &:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index:12;
+  }
+}
+
+.airport-list-item-link{
+  &:hover{
+    .v-image__image--cover{
+      @include transition(0.3s);
+      @include transition-timing-function(ease);
+      transform: scale(1.1, 1.1);
+    }
+
+    .airport-list-item-view-text{
+      .headline{
+        bottom: 24px;
+        left: 20px;
+        @include transition(0.3s);
+        @include transition-timing-function(ease);
+      }
+    }
+  }
+}
+
+.airport-list-container{
+  padding:24px 0 !important;
+}
+
+.airport-list-item-view-favorite{
+  color:#e83c51 !important;
+}
+
+//=================================================
+// サイドフィルター
+//=================================================
+
+.airport-filter{
+  .v-text-field--outline .v-input__slot{
+    border:1px solid rgba(0,0,0,.24) !important;
+  }
+  .v-text-field--outline .v-input__slot:hover{
+    border:1px solid rgba(0,0,0,.24) !important;
+  }
+}
+
+//=================================================
+// ログイン
+//=================================================
+.login-wrapper{
+  margin:60px auto;
+  @media only screen and (min-width: 600px){
+    min-width:600px;
+    max-width:600px;
+    margin:100px auto;
+  }
+}
+
+.login-link{
+  list-style:none;
+}
+
+.login-alert{
+  color:#f44336;
+}
+
+//=================================================
+// 新規登録
+//=================================================
+
+.form-text-alert-wrapper{
+  margin-left:33px;
+}
+.form-text-alert{
+  color:#ff5252 !important;
+}
+
+//=================================================
+// マイアカウント
+//=================================================
+.account-head{
+  &:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 12;
+  }
+}
+
+.account-head-profile{
+  position:relative;
+  z-index:13;
+}
+
+.account-head-username{
+  //position:relative;
+  //z-index:13;
+}
+
+.account-head-avatar{
+  width: 100px !important;
+  height: 100px !important;
+    //position: absolute;
+    //top:-50px;
+    //left:0;
+    //right:0;
+    //margin:auto;
+    transition: .3s cubic-bezier(.25,.8,.5,1);
+    z-index:13;
+}
+
+.account-info-table{
+  width:100%;
+}
+
+.account-info-table-item{
+  width:30%;
+  text-align:left;
+  padding:10px 5px;
+  vertical-align: top;
+}
+
+.account-info-table-item-info{
+  width:70%;
+  text-align:left;
+  padding:10px 5px;
+  vertical-align: top;
+}
+
+
+//=================================================
+// 利用規約
+//=================================================
+.terms-daialog{
+  width:90%;
+  height:50vh;
+  @media only screen and (min-width: 600px){
+    width:60%;
+    min-width:600px;
+    max-width:600px;
+  }
+}
