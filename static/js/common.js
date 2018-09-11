@@ -11,11 +11,6 @@ var app = new Vue({
             airlinesselected:[],
             airlines:[],
             sortitems:[],
-            cards:[
-                { title: 'Best airlines01', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines02', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 },
-                { title: 'Best airlines13', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3, mdflex: 6 }
-            ],
             rating:3,
             agreement: false,
             dialogprivacy: false,
