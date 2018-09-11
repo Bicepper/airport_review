@@ -27,6 +27,7 @@ from users.views import PasswordResetDone
 from users.views import PasswordResetConfirm
 from users.views import PasswordResetComplete
 from airport.views import list
+from airport.views import Detail
 from account.views import Account
 from account.views import AccountUpdate
 
@@ -50,6 +51,7 @@ urlpatterns = [
     path('signup/done/', UserCreateDone.as_view(), name='create_done'),
     path('signup/complete/<token>/', UserCreateComplete.as_view(), name='create_complete'),
     path('airport/', list, name='airport'),
+    path('airport/<int:pk>/', Detail.as_view(), name='airport_detail'),
     path('login/', auth_views.LoginView.as_view(template_name='register/login.html'), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('reset/', PasswordReset.as_view(), name='password_reset'),
