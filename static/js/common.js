@@ -5,11 +5,12 @@ var app = new Vue({
         return {
             drawer:null,
             airports:[],
-            countryselected:[],
             countries:[],
             alliance:[],
-            airlinesselected:[],
             airlines:[],
+            airportsselected:[],
+            countryselected:[],
+            allianceselected:[],
             sortitems:[],
             rating:3,
             agreement: false,
@@ -21,14 +22,40 @@ var app = new Vue({
         }
     },
     computed: {
+        filterAirport: {
+            get: function(x) {
+                return this.airportsselected;
+            },
+            set: function(y){
+                this.airportsselected = y;
+            }
+        },
+        filterCountry: {
+            get: function(x) {
+                return this.countryselected;
+            },
+            set: function(y){
+                this.countryselected = y;
+            }
+        },
         filteredData() {
-                let options = this.airports;
-                if (typeof(this.airlinesselected) !== 'number'){
-                    return options;
-                }else{
-                    //optionsで全て見て回る（pythonのmapみたいな感じ）
-                    return options.filter(o => o.id === this.airlinesselected)
-                }
+                // let options = this.airports;
+                // console.log(options);
+                // if (typeof(this.airlinesselected) !== 'number'){
+                //     return options;
+                // }else{
+                //     //optionsで全て見て回る（pythonのmapみたいな感じ）
+                //     return options.filter(o => o.id === this.airlinesselected)
+                // }
+
+                // let self = this.airports;
+                // console.log(self);
+                // let options = this.airports;
+            if (this.airportsselected.length === 0 && this.countryselected.length === 0 && this.allianceselected.length === 0) {
+                return this.airports;
+            } else {
+                return this.airports.filter(o => o.id === this.airportsselected)
+            }
         }
     },
     created: function() {
@@ -59,8 +86,12 @@ var app = new Vue({
     },
     methods: {
         clear: function() {
-            this.airlinesselected = '';
+            this.airportsselected = '';
             this.countryselected = '';
+        },
+        remove (item) {
+            const index = this.alliance.indexOf(item.name);
+            if (index >= 0) this.alliance.splice(index, 1);
         }
     }
 })

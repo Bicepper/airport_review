@@ -10,9 +10,12 @@
             <v-container class="airport-result-container">
                 <v-card>
                     <v-container grid-list-md class="airport-filter">
-                        <v-layout justify-space-between row wrap>
+                        <v-layout align-center ustify-space-between row wrap>
                             <v-flex xs6 sm6 md6>
-                                <p class="subheading"><i class="material-icons">search</i>検索フィルター</p>
+                                <v-layout align-center justify-start row wrap>
+                                    <i class="material-icons">search</i>
+                                    <p class="subheading m-b-0">検索フィルター</p>
+                                </v-layout>
                             </v-flex>
                             <v-flex xs6 sm6 md6 class="text-xs-right text-sm-right text-md-right text-lg-right">
                                 <v-btn color="orange darken-2" dark @click="clear" class="airport-filter-reset">リセット</v-btn>
@@ -24,7 +27,7 @@
                                     :items="airports"
                                     item-text="name_ja"
                                     item-value="id"
-                                    v-model="airlinesselected"
+                                    v-model="filterAirport"
                                     label="空港名"
                                     autocomplete
                                     no-data-text="空港が見つかりません"
@@ -37,7 +40,7 @@
                                     item-text="name_ja"
                                     item-value="id"
                                     label="国"
-                                    v-model="countryselected"
+                                    v-model="filterCountry"
                                     autocomplete
                                     no-data-text="国が見つかりません"
                                 ></v-autocomplete>
@@ -49,6 +52,7 @@
                                     label="アライアンス"
                                     autocomplete
                                     chips
+                                    close
                                     multiple
                                     no-data-text="アライアンスが見つかりません"
                                 ></v-autocomplete>
@@ -60,6 +64,7 @@
                                     label="運航エアライン"
                                     autocomplete
                                     chips
+                                    close
                                     multiple
                                     no-data-text="エアラインが見つかりません"
                                 ></v-autocomplete>
@@ -77,6 +82,7 @@
                                   :key="airport.id"
                                   class="airport-list-item"
                                   item-value="airport.id"
+                                  v-model="filteredData"
                                 >
 
                                     <v-card>
@@ -188,8 +194,8 @@
         });
 
         marker[i].addListener('click', function() { // マーカーをクリックしたとき
-          app.airlinesselected = app.airports[i]['id'];
-          app.countryselected = app.airports[i]['country_id'];
+          app.filterAirport = app.airports[i]['id'];
+          app.filterCountry = app.airports[i]['country_id'];
         });
     }
 
