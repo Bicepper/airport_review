@@ -773,6 +773,9 @@ html {
 .airport-filter .v-text-field--outline .v-input__slot:hover {
   border: 1px solid rgba(0, 0, 0, 0.24) !important; }
 
+.airport-filter-reset {
+  margin: 0 !important; }
+
 .login-wrapper {
   margin: 60px auto; }
   @media only screen and (min-width: 600px) {

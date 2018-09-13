@@ -56,5 +56,11 @@ var app = new Vue({
                 self.airports.push(response.data[i]);
             }
         });
+    },
+    methods: {
+        clear: function() {
+            this.airlinesselected = '';
+            this.countryselected = '';
+        }
     }
 })
