@@ -54,7 +54,22 @@ var app = new Vue({
             if (this.airportsselected.length === 0 && this.countryselected.length === 0 && this.allianceselected.length === 0) {
                 return this.airports;
             } else {
-                return this.airports.filter(o => o.id === this.airportsselected)
+                var self = this;
+                return self.airports
+                    .filter(function(post){
+                        if (self.airportsselected.length !== 0){
+                            return post.id === self.airportsselected;
+                        }else{
+                            return self.airports;
+                        }
+                    })
+                    .filter(function(post){
+                        if (self.countryselected.length !== 0){
+                            return post.country_id === self.countryselected;
+                        }else{
+                            return self.airports;
+                        }
+                    })
             }
         }
     },
