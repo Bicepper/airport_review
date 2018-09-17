@@ -2,7 +2,15 @@
 {% load static %}
 
 {% block content %}
-
-<p>{{ object.name_ja }}</p>
-
+    <v-layout justify-center row wrap fill-height>
+        <v-flex xs12 sm12 md12 class="">
+            <v-container class="">
+                <v-card>
+                    <v-container grid-list-md class="airport-filter">
+                    <p>{{ object.name_ja }}</p>
+                    </v-container>
+                </v-card>
+            </v-container>
+        </v-flex>
+    </v-layout>
 {% endblock %}

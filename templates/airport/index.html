@@ -91,19 +91,17 @@
                                   item-value="airport.id"
                                   v-model="filteredData"
                                 >
-
                                     <v-card>
                                         <v-img
-                                            src="{% static 'img/airport/main/noimage.jpg' %}"
+                                            v-if="airport.main_image != '/'"
+                                            :src="airport.main_image"
                                             height="200px"
                                             class="airport-list-item-link"
                                         >
                                             <a :href="airport.id">
-{#                                            <a href="{% url 'airport_detail' id %}">#}
                                             <v-container
                                                 fill-height
                                                 fluid
-                                                pa-2
                                                 class="airport-list-item-view"
                                             >
                                                 <v-layout fill-height class="airport-list-item-view-text">
@@ -114,6 +112,28 @@
                                             </v-container>
                                                 </a>
                                         </v-img>
+
+                                        <v-img
+                                            v-else
+                                            src="{% static 'img/airport/main/noimage.jpg' %}"
+                                            height="200px"
+                                            class="airport-list-item-link"
+                                        >
+                                            <a :href="airport.id">
+                                            <v-container
+                                                fill-height
+                                                fluid
+                                                class="airport-list-item-view"
+                                            >
+                                                <v-layout fill-height class="airport-list-item-view-text">
+                                                    <v-flex xs12 align-end flexbox>
+                                                        <span class="title white--text" v-text="airport.name_ja"></span>
+                                                    </v-flex>
+                                                </v-layout>
+                                            </v-container>
+                                                </a>
+                                        </v-img>
+
 
                                         <v-card-actions>
                                             <v-rating v-model="rating" dense hover readonly small></v-rating>
