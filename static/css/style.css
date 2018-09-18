@@ -801,7 +801,52 @@ html {
     width: 100%;
     height: 380px;
     opacity: .8;
-    background-image: linear-gradient(to bottom, transparent 0%, #000000 90%); }
+    background-image: linear-gradient(to bottom, transparent 0%, #000000 90%);
+    z-index: 10; }
+
+.detail-title {
+  position: relative;
+  width: 100%;
+  color: #fff;
+  z-index: 11; }
+
+.detail-title-inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.detail-rate {
+  margin-top: 20px; }
+
+.detail-rate-title {
+  font-size: 14px;
+  font-weight: bold; }
+
+.detail-rate-fraction {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px; }
+
+.detail-review-left {
+  padding: 0 10px 0 0; }
+
+.detail-review-right {
+  color: #fff;
+  background-color: #424242; }
+
+.detail-review-totalrate {
+  padding: 20px;
+  font-size: 40px;
+  font-weight: bold; }
+
+.detail-review-rate {
+  width: 100%;
+  padding: 4px 10px;
+  border-top: 1px solid #fff; }
+
+.detail-review-rate-right {
+  text-align: right; }
 
 .login-wrapper {
   margin: 60px auto; }
