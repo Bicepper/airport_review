@@ -2,11 +2,14 @@
 {% load static %}
 
 {% block content %}
+    <v-layout class="detail-image" style="background-image:url(/{{ object.main_image }});" align-center justify-center column wrap>
+    </v-layout>
     <v-layout justify-center row wrap fill-height>
         <v-flex xs12 sm12 md12 class="">
             <v-container class="">
                 <v-card>
                     <v-container grid-list-md class="airport-filter">
+                        <p>{{ object.main_image }}</p>
                     <p>{{ object.name_ja }}</p>
                     </v-container>
                 </v-card>
