@@ -28,12 +28,47 @@
             <v-container class="">
                 <v-card>
                     <v-container class="">
-                        <v-layout justify-center row wrap fill-height>
-                            <v-flex xs12 sm8 md8 class="detail-review-left">
-                                <h4>Title of Title</h4>
+                        <v-layout align-start justify-start row wrap fill-height>
+                            <v-flex xs12 sm12 md8 class="detail-review-left">
+                                <h4 class="display-2">Title of Title</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                                <v-flex xs12 sm12 md12>
+                                    <v-container class="detail-review-gallery" grid-list-sm fluid>
+                                      <v-layout row wrap>
+                                        <v-flex
+                                          v-for="n in 6"
+                                          :key="n"
+                                          xs3
+                                          sm2
+                                          d-flex
+                                        >
+                                          <v-card flat tile class="d-flex">
+                                            <v-img
+                                              :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                                              :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                                              aspect-ratio="1"
+                                              class="grey lighten-2"
+                                            >
+                                              <v-layout
+                                                slot="placeholder"
+                                                fill-height
+                                                align-center
+                                                justify-center
+                                                ma-0
+                                              >
+                                                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                              </v-layout>
+                                            </v-img>
+                                          </v-card>
+                                        </v-flex>
+                                      </v-layout>
+                                    </v-container>
+                                </v-flex>
+
                             </v-flex>
-                            <v-flex xs12 sm4 md4 class="detail-review-right">
+                            <v-flex xs12 sm12 md4 class="detail-review-right">
                                 <v-layout class="detail-review-totalrate" align-center justify-center row>3.5</v-layout>
                                 <v-layout class="detail-review-rate" align-center justify-space-between row>
                                     <v-flex xs2 sm2 md2>
@@ -88,6 +123,9 @@
 
                             </v-flex>
                         </v-layout>
+
+                        <v-divider light></v-divider>
+
                     </v-container>
                 </v-card>
             </v-container>
