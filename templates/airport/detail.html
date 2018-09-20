@@ -26,11 +26,15 @@
     <v-layout justify-center row wrap fill-height>
         <v-flex xs12 sm12 md12 class="">
             <v-container class="">
+
+
+            <v-expansion-panel v-model="panel" expand>
+                <v-expansion-panel-content>
+                <div slot="header" class="detail-review-header"><h4 class="display-1 detail-review-header-inner">タイトルテスト　タイトル</h4></div>
                 <v-card>
-                    <v-container class="">
-                        <v-layout align-start justify-start row wrap fill-height>
+                    <v-container class="detail-review">
+                        <v-layout align-start justify-start row wrap fill-height class="detail-review-wrapper">
                             <v-flex xs12 sm12 md8 class="detail-review-left">
-                                <h4 class="display-1">タイトルテスト　タイトル</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
@@ -123,10 +127,8 @@
                                     </v-layout>
                                 </v-flex>
                                 <div>
-                                    <v-layout align-center justify-center row fill-height class="">
-                                        <v-flex xs12 sm12 md12 lg12>
-                                            <p>参考になった<span>5</span>人</p>
-                                        </v-flex>
+                                    <v-layout align-center justify-center row fill-height class="detail-review-helpful">
+                                        <v-flex xs12 sm12 md12 lg12>参考になった<span class="detail-review-helpful-num">5</span>人</v-flex>
                                     </v-layout>
                                     <v-layout align-center justify-space-between row wrap fill-height class="detail-review-button-wrap">
                                         <v-flex xs12 sm12 md12 lg5>
@@ -147,6 +149,13 @@
 
                     </v-container>
                 </v-card>
+
+
+
+                </v-expansion-panel-content>
+            </v-expansion-panel>
+
+
             </v-container>
         </v-flex>
     </v-layout>

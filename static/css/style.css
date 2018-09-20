@@ -828,12 +828,38 @@ html {
   font-weight: bold;
   margin-left: 20px; }
 
+.detail-review {
+  padding-top: 0 !important; }
+
+.detail-review-wrapper {
+  margin-bottom: 10px; }
+
 .detail-review-left {
   padding: 0 10px 0 0; }
 
 .detail-review-right {
   color: #fff;
   background-color: #424242; }
+
+.detail-review-header {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  margin-left: -8px; }
+
+@media only screen and (max-width: 600px) {
+  .detail-review-header-inner {
+    width: 100%;
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 18px !important;
+    line-height: 1.5 !important; } }
+
+@media only screen and (max-width: 600px) {
+  .v-expansion-panel__container--active .detail-review-header-inner {
+    text-overflow: initial !important;
+    white-space: inherit; } }
 
 .detail-review-totalrate {
   padding: 20px;
@@ -861,6 +887,13 @@ html {
 @media only screen and (max-width: 1263px) {
   .detail-review-button-middle {
     margin: 10px 0; } }
+
+.detail-review-helpful {
+  text-align: center; }
+
+.detail-review-helpful-num {
+  font-size: 40px;
+  margin: 0 10px; }
 
 .login-wrapper {
   margin: 60px auto; }

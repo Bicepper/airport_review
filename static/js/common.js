@@ -18,7 +18,8 @@ var app = new Vue({
             dialogterms: false,
             rules: {
                 required: function required(v) {return !!v || 'チェックが必要です';}
-            }
+            },
+            panel:[true]
         }
     },
     computed: {
