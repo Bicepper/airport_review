@@ -851,6 +851,17 @@ html {
 .detail-review-rate-right {
   text-align: right; }
 
+.detail-review-button-wrap {
+  margin-top: 10px; }
+
+.detail-review-button {
+  margin: 0 !important;
+  width: 100%; }
+
+@media only screen and (max-width: 1263px) {
+  .detail-review-button-middle {
+    margin: 10px 0; } }
+
 .login-wrapper {
   margin: 60px auto; }
   @media only screen and (min-width: 600px) {

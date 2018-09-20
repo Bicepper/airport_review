@@ -388,6 +388,21 @@
   text-align:right;
 }
 
+.detail-review-button-wrap{
+  margin-top:10px;
+}
+
+.detail-review-button{
+  margin:0 !important;
+  width:100%;
+}
+
+.detail-review-button-middle{
+  @media only screen and (max-width: 1263px){
+    margin:10px 0;
+  }
+}
+
 //=================================================
 // ログイン
 //=================================================
