@@ -879,20 +879,32 @@ html {
 
 .detail-review-button-wrap {
   margin-top: 10px; }
-
-.detail-review-button {
-  margin: 0 !important;
-  width: 100%; }
+  .detail-review-button-wrap .detail-review-button {
+    width: 100%;
+    margin: 0 !important; }
+  @media only screen and (min-width: 1264px) {
+    .detail-review-button-wrap .detail-review-button-wrap-sec:first-child {
+      padding: 0 5px 0 0 !important; } }
+  @media only screen and (min-width: 1264px) {
+    .detail-review-button-wrap .detail-review-button-wrap-sec:last-child {
+      padding: 0 0 0 5px !important; } }
+  @media only screen and (max-width: 1263px) {
+    .detail-review-button-wrap .detail-review-button-wrap-sec:last-child {
+      margin: 10px 0 0 0 !important; } }
 
 @media only screen and (max-width: 1263px) {
   .detail-review-button-middle {
     margin: 10px 0; } }
 
 .detail-review-helpful {
-  text-align: center; }
+  text-align: center;
+  margin-top: 10px; }
+
+.detail-review-helpful-button {
+  width: 100%; }
 
 .detail-review-helpful-num {
-  font-size: 40px;
+  font-size: 16px;
   margin: 0 10px; }
 
 .login-wrapper {
