@@ -30,7 +30,25 @@
 
             <v-expansion-panel v-model="panel" expand>
                 <v-expansion-panel-content>
-                <div slot="header" class="detail-review-header"><h4 class="display-1 detail-review-header-inner">タイトルテスト　タイトル</h4></div>
+                <div slot="header" class="detail-review-header">
+                    <v-layout align-space-between justify-space-between row wrap fill-height>
+                        <v-flex xs10 sm10 md11 class="">
+                            <h4 class="display-1 detail-review-header-inner">タイトルテスト　タイトル</h4>
+                            <div class="detail-review-header-list">
+                                <span class="detail-review-header-list-item">2018年9月23日 9:33</span>
+                                <span class="detail-review-header-list-item panel-active-display-none">0 コメント</span>
+                                <span class="detail-review-header-list-item panel-active-display-none">3 参考になった</span>
+                            </div>
+                        </v-flex>
+                        <v-flex xs2 sm2 md1 class="detail-review-totalrate-sub panel-active-display-none">
+                            <v-layout align-space-between justify-end row fill-height class="">
+                                <v-flex xs12 sm12 md12 class="detail-review-totalrate-sub-num">
+                                    <v-layout align-center justify-center row fill-height class="">3.5</v-layout>
+                                </v-flex>
+                            </v-layout>
+                        </v-flex>
+                    </v-layout>
+                </div>
                 <v-card>
                     <v-container class="detail-review">
                         <v-layout align-start justify-start row wrap fill-height class="detail-review-wrapper">
@@ -143,6 +161,30 @@
                         </v-layout>
 
                         <v-divider light></v-divider>
+
+                        <v-layout align-start justify-start row wrap fill-height class="detail-review-author-wrapper">
+                            <v-flex xs12 sm12 md4 lg4 class="detail-review-author-section">
+                                <v-avatar color="grey lighten-4" class="detail-review-author">
+                                    <img src="https://cdn.vuetifyjs.com/images/john.jpg" class="detail-review-author-image" alt="avatar">
+                                </v-avatar>
+                                <div class="detail-review-author-overview">
+                                    <div class="detail-review-author-name">テスト太郎</div>
+                                    <div class="detail-review-author-social">
+                                        <v-btn icon class="detail-review-author-social-button light-blue--text">
+                                            <v-icon small>fab fa-twitter</v-icon>
+                                        </v-btn>
+                                        <v-btn icon class="detail-review-author-social-button blue--text text--darken-4">
+                                            <v-icon small>fab fa-facebook-f</v-icon>
+                                        </v-btn>
+                                        <v-btn icon class="detail-review-author-social-button red--text">
+                                            <v-icon small>fab fa-youtube</v-icon>
+                                        </v-btn>
+                                    </div>
+                                </div>
+                            </v-flex>
+                        </v-layout>
+
+
 
                     </v-container>
                 </v-card>
