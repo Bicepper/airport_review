@@ -838,8 +838,7 @@ html {
   padding: 0 10px 0 0; }
 
 .detail-review-right {
-  color: #fff;
-  background-color: #424242; }
+  padding-top: 14px; }
 
 .detail-review-header {
   width: 100%;
@@ -847,14 +846,13 @@ html {
   max-width: 100%;
   margin-left: -8px; }
 
-@media only screen and (max-width: 600px) {
-  .detail-review-header-inner {
-    width: 100%;
-    text-overflow: ellipsis !important;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size: 18px !important;
-    line-height: 1.5 !important; } }
+.detail-review-header-inner {
+  margin: 0 0 10px 0; }
+  @media only screen and (max-width: 600px) {
+    .detail-review-header-inner {
+      width: 100%;
+      text-overflow: ellipsis !important;
+      overflow: hidden; } }
 
 .detail-review-header-list {
   line-height: 1;
@@ -891,16 +889,8 @@ html {
   border-top: 1px solid #fff; }
 
 .detail-review-totalrate-sub-num {
-  max-width: 70px !important;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 24px;
-  background-color: #424242; }
-  @media only screen and (max-width: 600px) {
-    .detail-review-totalrate-sub-num {
-      max-width: 60px !important;
-      font-size: 12px; } }
+  color: #00C853;
+  font-size: 36px; }
 
 .detail-review-gallery {
   padding: 24px 0 !important; }
@@ -937,6 +927,10 @@ html {
 .detail-review-helpful-num {
   font-size: 16px;
   margin: 0 10px; }
+
+@media only screen and (max-width: 959px) {
+  .detail-review-author-intro {
+    margin: 10px 0 0 0; } }
 
 .login-wrapper {
   margin: 60px auto; }
@@ -1016,8 +1010,12 @@ html {
   margin-left: 20px; }
 
 .detail-review-author-name {
+  margin: 10px 0 0 0;
   font-size: 16px;
   font-weight: 600; }
+
+.detail-review-author-social {
+  margin: 6px 0 0 0; }
 
 .detail-review-author-social-button {
   width: 24px;

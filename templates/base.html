@@ -12,6 +12,7 @@
     <!-- import vuetify CSS -->
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block javascript-head %}{% endblock %}
     <title>Airport Geek{% block title %}{% endblock %}</title>
 </head>
 <body>
