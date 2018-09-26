@@ -34,7 +34,7 @@
             <v-container>
                 <v-layout align-center justify-space-between row wrap fill-height>
                     <v-flex xs12 sm12 md4 class="detail-rate-circle">
-                        <p>総合</p>
+                        <p class="detail-rate-circle-total">総合</p>
                         <div class="circle"><strong></strong></div>
                         <p>2 レビュー</p>
                     </v-flex>
@@ -68,6 +68,27 @@
                             <p class="skillbar-bar" style="background:#69F0AE;"></p>
                             <span class="skill-bar-percent"></span>
                         </div>
+                    </v-flex>
+                </v-layout>
+
+                <v-layout align-center justify-space-between row wrap fill-height class="detail-sort">
+                    <v-flex xs12 sm12 md2 d-flex>
+                        <v-select
+                            v-model="detailsortselect"
+                            :items="detailsortlist"
+                            label="並び替え"
+                            item-text="name"
+                            item-value="abbr"
+                            return-object
+                        ></v-select>
+                    </v-flex>
+                    <v-flex xs12 sm12 md3 d-flex>
+                        <v-switch
+                            :label="`画像・動画投稿あり`"
+                            v-model="detailcheckimage"
+                            color="primary"
+                            class="detail-sort-image"
+                        ></v-switch>
                     </v-flex>
                 </v-layout>
 

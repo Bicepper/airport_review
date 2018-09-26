@@ -363,6 +363,20 @@
   text-align:center;
 }
 
+.detail-rate-circle-total{
+  font-size:28px;
+  font-weight:400;
+}
+
+.detail-sort{
+  padding:10px 0 0 0;
+  border-top:1px solid rgba(0,0,0,.12);
+}
+
+.detail-sort-image .v-input__slot{
+  justify-content:flex-end;
+}
+
 .detail-review{
   padding-top:0 !important;
 }

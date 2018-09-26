@@ -19,7 +19,13 @@ var app = new Vue({
             rules: {
                 required: function required(v) {return !!v || 'チェックが必要です';}
             },
-            panel:[true,true]
+            panel:[true,true],
+            detailsortselect:{name:'新しい投稿順', abbr:0},
+            detailsortlist:[
+                {name:'新しい投稿順', abbr:0},
+                {name:'参考になった順', abbr:1}
+            ],
+            detailcheckimage:false
         }
     },
     computed: {
