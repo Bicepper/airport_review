@@ -1,22 +1,3 @@
-Vue.component('radar-chart', {
-  extends: VueChartJs.Radar,
-  mounted () {
-    this.renderChart({
-      labels: ['清潔さ', '施設・設備', 'ロケーション', 'サービス', 'ラウンジ'],
-      datasets: [
-        {
-          label:'評価',
-          backgroundColor:'rgba(0, 200, 83, .5)',
-          borderColor:"rgba(0, 200, 83, .8)",
-          borderWidth:1,
-          data: [90, 39, 60, 40, 39]
-        }
-      ]
-    }, {responsive: true, maintainAspectRatio: false})
-  }
-})
-
-
 var app = new Vue({
     el: '#app',
     delimiters: ['{$', '$}'],

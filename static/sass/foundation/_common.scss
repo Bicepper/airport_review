@@ -359,6 +359,10 @@
   margin-left:20px;
 }
 
+.detail-rate-circle{
+  text-align:center;
+}
+
 .detail-review{
   padding-top:0 !important;
 }
@@ -445,6 +449,14 @@
   font-size:36px;
   @media only screen and (max-width: 600px){
   }
+}
+
+.detail-review-review{
+  &:not(:last-child){
+    margin-bottom:30px;
+  }
+  padding-top:30px;
+  border-top:1px solid rgba(0,0,0,.12);
 }
 
 .detail-review-gallery{
@@ -641,4 +653,93 @@
     min-width:600px;
     max-width:600px;
   }
+}
+
+//=================================================
+// スキルバー
+//=================================================
+
+.skillbar {
+	position:relative;
+	display:inline-block;
+	margin:0;
+	width:100%;
+	background:#eee;
+	height:35px;
+	border-radius:3px;
+}
+
+.skillbar-title {
+	position:absolute;
+	top:0;
+	left:0;
+	width:110px;
+	font-weight:bold;
+	font-size:13px;
+	color:#ffffff;
+	background:#6adcfa;
+	border-top-left-radius:3px;
+	border-bottom-left-radius:3px;
+	background:rgba(0, 0, 0, 0.1);
+	padding:0 20px;
+	height:35px;
+	line-height:35px;
+}
+
+.skillbar-bar {
+	height:35px;
+	width:0;
+	background:#6adcfa;
+	border-radius:3px;
+	display:inline-block;
+}
+
+.skill-bar-percent {
+	position:absolute;
+	right:10px;
+	top:0;
+	font-size:11px;
+	height:35px;
+	line-height:35px;
+	color:#ffffff;
+	color:rgba(0, 0, 0, 0.4);
+  font-weight:bold;
+}
+
+.circle {
+  width: 120px;
+  margin: 6px 6px 20px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.circle canvas {
+  vertical-align: top;
+}
+
+.circle strong {
+  position: absolute;
+  width:100%;
+  top:50%;
+  left:50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  font-size:30px;
+}
+
+.circle strong i {
+  font-style: normal;
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+.circle span {
+  display: block;
+  color: #aaa;
+  margin-top: 12px;
 }

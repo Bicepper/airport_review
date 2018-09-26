@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block javascript-head %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-<script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
-{% endblock %}
+{% block javascript-head %}{% endblock %}
 
 {% block content %}
     <v-layout class="detail-image" style="background-image:url(/{{ object.main_image }});" align-center justify-center column wrap>
@@ -12,19 +9,19 @@
             <v-container class="detail-title-inner">
                 <h2 class="display-2">{{ object.name_ja }}</h2>
                 <h3 class="headline">{{ object.name_en }}</h3>
-                <v-layout class="detail-rate" align-center justify-start row fill-height>
-                    <span class="detail-rate-title">総合レート:</span>
-                    <v-rating
-                        v-model="rating"
-                        background-color="amber lighten-1"
-                        color="amber lighten-1"
-                        medium
-                        dense
-                        half-increments
-                        readonly
-                    ></v-rating>
-                    <span class="detail-rate-fraction">3/5</span>
-                </v-layout>
+{#                <v-layout class="detail-rate" align-center justify-start row fill-height>#}
+{#                    <span class="detail-rate-title">総合レート:</span>#}
+{#                    <v-rating#}
+{#                        v-model="rating"#}
+{#                        background-color="amber lighten-1"#}
+{#                        color="amber lighten-1"#}
+{#                        medium#}
+{#                        dense#}
+{#                        half-increments#}
+{#                        readonly#}
+{#                    ></v-rating>#}
+{#                    <span class="detail-rate-fraction">3/5</span>#}
+{#                </v-layout>#}
             </v-container>
         </v-flex>
     </v-layout>
@@ -35,10 +32,46 @@
             <v-btn color="success">レビューを書く</v-btn>
 
             <v-container>
+                <v-layout align-center justify-space-between row wrap fill-height>
+                    <v-flex xs12 sm12 md4 class="detail-rate-circle">
+                        <p>総合</p>
+                        <div class="circle"><strong></strong></div>
+                        <p>2 レビュー</p>
+                    </v-flex>
+                    <v-flex xs12 sm12 md8 class="">
+                        <div class="skillbar" data-percent="5.0">
+                            <span class="skillbar-title" style="background:#00C853;">清潔さ</span>
+                            <p class="skillbar-bar" style="background:#69F0AE;"></p>
+                            <span class="skill-bar-percent"></span>
+                        </div>
 
-                <radar-chart></radar-chart>
+                        <div class="skillbar" data-percent="8.2">
+                            <span class="skillbar-title" style="background:#00C853;">施設・設備</span>
+                            <p class="skillbar-bar" style="background:#69F0AE;"></p>
+                            <span class="skill-bar-percent"></span>
+                        </div>
 
-                <v-layout align-start justify-space-between row wrap fill-height class="">
+                        <div class="skillbar" data-percent="10.0">
+                            <span class="skillbar-title" style="background:#00C853;">ラウンジ</span>
+                            <p class="skillbar-bar" style="background:#69F0AE;"></p>
+                            <span class="skill-bar-percent"></span>
+                        </div>
+
+                        <div class="skillbar" data-percent="2.5">
+                            <span class="skillbar-title" style="background:#00C853;">サービス</span>
+                            <p class="skillbar-bar" style="background:#69F0AE;"></p>
+                            <span class="skill-bar-percent"></span>
+                        </div>
+
+                        <div class="skillbar" data-percent="1.0">
+                            <span class="skillbar-title" style="background:#00C853;">アクセス</span>
+                            <p class="skillbar-bar" style="background:#69F0AE;"></p>
+                            <span class="skill-bar-percent"></span>
+                        </div>
+                    </v-flex>
+                </v-layout>
+
+                <v-layout align-start justify-space-between row wrap fill-height class="detail-review-review">
                     <v-flex xs12 sm12 md3 class="">
                         <v-layout align-center justify-center column fill-height class="">
                             <v-flex xs12 sm12 md12 lg12><span class="detail-review-totalrate-sub-num">3.5</span></v-flex>
@@ -110,9 +143,7 @@
                     </v-flex>
                 </v-layout>
 
-                <v-divider light class="m-t-20 m-b-20"></v-divider>
-
-                <v-layout align-start justify-start row wrap fill-height class="">
+                <v-layout align-start justify-start row wrap fill-height class="detail-review-review">
                     <v-flex xs12 sm12 md3 class="">
                         <v-layout align-center justify-center column fill-height class="">
                             <v-flex xs12 sm12 md12 lg12><span class="detail-review-totalrate-sub-num">3.5</span></v-flex>
@@ -188,4 +219,27 @@
             </v-container>
         </v-flex>
     </v-layout>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/skill.bars.jquery.js' %}"></script>
+    <script src="{% static 'js/circle-progress.min.js' %}"></script>
+    <script>
+        $('.skillbar').skillBars({
+            from: 0,
+            speed: 2000,
+            interval: 100,
+        });
+
+        $('.circle').circleProgress({
+            value: 0.5,
+            size: 120,
+            startAngle:Math.PI / -2,
+            fill: {
+                gradient: ["red", "orange"]
+            }
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('strong').html((Math.floor(stepValue * 100) / 10).toFixed(1));
+        });
+    </script>
 {% endblock %}
