@@ -23,7 +23,9 @@ var app = new Vue({
             detailsortselect:{name:'新しい投稿順', abbr:0},
             detailsortlist:[
                 {name:'新しい投稿順', abbr:0},
-                {name:'参考になった順', abbr:1}
+                {name:'参考になった順', abbr:1},
+                {name:'評価が高い順', abbr:2},
+                {name:'評価が低い順', abbr:3}
             ],
             detailcheckimage:false
         }
