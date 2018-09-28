@@ -5,7 +5,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="201">
+          <list size="202">
             <item index="0" class="java.lang.String" itemvalue="django-widget-tweaks" />
             <item index="1" class="java.lang.String" itemvalue="django-pure-pagination" />
             <item index="2" class="java.lang.String" itemvalue="django-crispy-forms" />
@@ -207,6 +207,7 @@
             <item index="198" class="java.lang.String" itemvalue="colorama" />
             <item index="199" class="java.lang.String" itemvalue="ply" />
             <item index="200" class="java.lang.String" itemvalue="openpyxl" />
+            <item index="201" class="java.lang.String" itemvalue="python-dateutil" />
           </list>
         </value>
       </option>

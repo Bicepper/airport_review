@@ -4,6 +4,7 @@ var app = new Vue({
     data: function data() {
         return {
             drawer:null,
+            adminmenu:null,
             airports:[],
             countries:[],
             alliance:[],

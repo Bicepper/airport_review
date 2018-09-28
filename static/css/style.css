@@ -972,6 +972,10 @@ html {
 .form-text-alert {
   color: #ff5252 !important; }
 
+@media only screen and (min-width: 960px) {
+  .user_detail_column_right {
+    padding-left: 300px; } }
+
 .account-head:after {
   position: absolute;
   bottom: 0;

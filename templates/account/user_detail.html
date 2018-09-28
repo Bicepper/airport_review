@@ -4,15 +4,51 @@
 {% block title %} | マイページ{% endblock %}
 
 {% block content %}
-    <section>
+
+    <v-navigation-drawer
+        mobile-break-point="960"
+        v-model="adminmenu"
+        absolute
+        app
+        class="elevation-2"
+    >
+        <v-list dense>
+            <v-list-tile href="{% url 'home' %}">
+                <v-list-tile-action>
+                    <v-icon>person</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>Profile</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile href="{% url 'airport' %}">
+                <v-list-tile-action>
+                    <v-icon>rate_review</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>Reviews</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile href="{% url 'airport' %}">
+                <v-list-tile-action>
+                    <v-icon>settings</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>Settings</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+    </v-navigation-drawer>
+
+    <section class="user_detail_column_right">
         <v-layout justify-center row wrap fill-height>
-            <v-flex xs12 sm12 md12 lg6>
+            <v-flex xs12 sm12 md12 lg12>
                 <v-container grid-list-xl>
                     <v-card>
                         <v-img
                             class="account-head white--text"
                             height="248px"
-                            src="{% static 'img/narita_terminal.jpg' %}"
+                            src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
                         >
                             <v-container grid-list-xl fill-height fluid>
                                 <v-layout align-center justify-center column fill-height class="account-head-profile">
@@ -27,60 +63,47 @@
                                 </v-layout>
                             </v-container>
                         </v-img>
-                        <div style="position: relative;">
-                            <v-tabs
-                                dark
-                                color="black"
-                                show-arrows
-                                grow
-                            >
-                                <v-tabs-slider color="yellow"></v-tabs-slider>
 
-                                <v-tab :href="'#tab-1'" :key="1">アカウント情報</v-tab>
-                                <v-tab :href="'#tab-2'" :key="2">マイレビュー</v-tab>
 
-                                <v-tabs-items>
-                                    <v-tab-item :id="'tab-1'" :key="1">
-                                        <v-card flat>
-                                            <v-card-text>
-                                                <v-container grid-list-xl>
 
-                                                    <table class="account-info-table">
-                                                        <tr>
-                                                            <th class="account-info-table-item">ユーザー名</th>
-                                                            <td class="account-info-table-item-info">{{ user.username }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="account-info-table-item">メールアドレス</th>
-                                                            <td class="account-info-table-item-info">{{ user.email }} <a href="{% url 'account_update' user.pk %}">更新</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="account-info-table-item">自己紹介</th>
-                                                            <td class="account-info-table-item-info">{{ user.intro|linebreaks }} <a href="{% url 'account_update' user.pk %}">更新</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="account-info-table-item">リンク</th>
-                                                            <td class="account-info-table-item-info">
-                                                                <a href="{{ user.url }}" target="_blank">{{ user.url }}</a> <a href="{% url 'account_update' user.pk %}">更新</a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
 
-                                                </v-container>
-                                            </v-card-text>
-                                        </v-card>
-                                    </v-tab-item>
-                                    <v-tab-item :id="'tab-2'" :key="2">
-                                        <v-card flat>
-                                            <v-card-text>b</v-card-text>
-                                        </v-card>
-                                    </v-tab-item>
-                                </v-tabs-items>
-                            </v-tabs>
-                        </div>
+                        <v-card flat>
+                            <v-card-text>
+                                <v-container grid-list-xl>
+
+                                    <table class="account-info-table">
+                                        <tr>
+                                            <th class="account-info-table-item">ユーザー名</th>
+                                            <td class="account-info-table-item-info">{{ user.username }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="account-info-table-item">メールアドレス</th>
+                                            <td class="account-info-table-item-info">{{ user.email }} <a href="{% url 'account_update' user.pk %}">更新</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="account-info-table-item">自己紹介</th>
+                                            <td class="account-info-table-item-info">{{ user.intro|linebreaks }} <a href="{% url 'account_update' user.pk %}">更新</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="account-info-table-item">リンク</th>
+                                            <td class="account-info-table-item-info">
+                                                <a href="{{ user.url }}" target="_blank">{{ user.url }}</a> <a href="{% url 'account_update' user.pk %}">更新</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </v-container>
+                            </v-card-text>
+                        </v-card>
+
+
+
                     </v-card>
                 </v-container>
             </v-flex>
         </v-layout>
     </section>
+
+
+
 {% endblock %}
