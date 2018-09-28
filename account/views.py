@@ -29,6 +29,14 @@ class Account(OnlyYouMixin, generic.DetailView):
     model = User
     template_name = 'account/user_detail.html'
 
+# class Account(OnlyYouMixin, generic.UpdateView):
+#     model = User
+#     form_class = UserUpdateForm
+#     template_name = 'account/user_detail.html'
+#
+#     def get_success_url(self):
+#         return resolve_url('account', pk=self.kwargs['pk'])
+
 
 class AccountUpdate(OnlyYouMixin, generic.UpdateView):
     model = User
