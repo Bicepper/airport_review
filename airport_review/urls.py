@@ -28,8 +28,8 @@ from users.views import PasswordResetConfirm
 from users.views import PasswordResetComplete
 from airport.views import list
 from airport.views import Detail
-from account.views import Account
-from account.views import AccountUpdate
+from account.views import AccountUpdateEmail
+from account.views import AccountUpdateIntro
 
 from country.api_urls import country_router
 from alliance.api_urls import alliance_router
@@ -58,6 +58,8 @@ urlpatterns = [
     path('reset/done/', PasswordResetDone.as_view(), name='password_reset_done'),
     path('reset/<slug:uidb64>/<slug:token>/', PasswordResetConfirm.as_view(), name='password_reset_confirm'),
     path('reset/complete/', PasswordResetComplete.as_view(), name='password_reset_complete'),
-    path('account/<int:pk>/', Account.as_view(), name='account'),
-    path('account_update/<int:pk>/', AccountUpdate.as_view(), name='account_update'),
+    # path('account/<int:pk>/', Account.as_view(), name='account'),
+    # path('account_update/<int:pk>/', AccountUpdate.as_view(), name='account_update'),
+    path('account/<int:pk>/email', AccountUpdateEmail.as_view(), name='account_update_email'),
+    path('account/<int:pk>/intro', AccountUpdateIntro.as_view(), name='account_update_intro'),
 ]

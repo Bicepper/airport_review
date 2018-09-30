@@ -8,7 +8,7 @@
         <v-btn flat class="head-nav-menu-item{% if request.path|slice:'9' == '/airport/' %} active{% endif %}" href="{% url 'airport' %}">Airport</v-btn>
         <v-btn flat class="head-nav-menu-item">News</v-btn>
         {% if user.is_authenticated %}
-            <v-btn flat class="head-nav-menu-item{% if request.path|slice:':9' == '/account/' %} active{% endif %}" href="{% url 'account' user.pk %}">Mypage</v-btn>
+            <v-btn flat class="head-nav-menu-item{% if request.path|slice:':9' == '/account/' %} active{% endif %}" href="{% url 'account_update_email' user.pk %}">Mypage</v-btn>
             <v-btn flat class="head-nav-menu-item{% if request.path == '/logout/' %} active{% endif %}" href="{% url 'logout' %}">Logout</v-btn>
         {% else %}
             <v-btn flat class="head-nav-menu-item{% if request.path == '/login/' %} active{% endif %}" href="{% url 'login' %}">Login</v-btn>
@@ -45,7 +45,7 @@
             </v-list-tile-content>
         </v-list-tile>
         {% if user.is_authenticated %}
-            <v-list-tile href="{% url 'account' user.pk %}">
+            <v-list-tile href="{% url 'account_update_email' user.pk %}">
                 <v-list-tile-action>
                     <v-icon>account_circle</v-icon>
                 </v-list-tile-action>

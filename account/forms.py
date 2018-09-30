@@ -12,3 +12,21 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('email', )
+
+
+class UserUpdateEmailForm(forms.ModelForm):
+    """
+    ユーザー情報更新：メール
+    """
+    class Meta:
+        model = User
+        fields = ('email', )
+
+
+class UserUpdateIntroForm(forms.ModelForm):
+    """
+    ユーザー情報更新：自己紹介
+    """
+    class Meta:
+        model = User
+        fields = ('intro', )

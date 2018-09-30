@@ -8,23 +8,31 @@
 {% endif %}
 
 {% for field in form %}
-{#<p>{{ field.id_for_label }}：{{ field }}</p>#}
-<v-text-field
-    value="{{ field.value }}"
-    label="{% if field.id_for_label == 'id_username' %}ユーザー名{% elif field.id_for_label == 'id_email' %}メールアドレス{% elif field.id_for_label == 'id_password1' %}パスワード{% else %}パスワード確認{% endif %}"
-    prepend-icon="{% if field.id_for_label == 'id_username' %}people{% elif field.id_for_label == 'id_email' %}mail{% elif field.id_for_label == 'id_password1' %}lock{% else %}lock{% endif %}"
-    name="{% if field.id_for_label == 'id_username' %}username{% elif field.id_for_label == 'id_email' %}email{% elif field.id_for_label == 'id_password1' %}password1{% else %}password2{% endif %}"
-    id="{% if field.id_for_label == 'id_username' %}id_username{% elif field.id_for_label == 'id_email' %}id_email{% elif field.id_for_label == 'id_password1' %}id_password1{% else %}id_password2{% endif %}"
-    {% if field.id_for_label == 'id_password1' or field.id_for_label == 'id_password2' %}type="password"{% endif %}
-    {% if field.id_for_label == 'id_username' %}readonly{% endif %}
-    required
-></v-text-field>
-            <div class="form-text-alert-wrapper">
-                {% for error in field.errors %}
-                    <p class="form-text-alert">{{ error }}</p>
-                {% endfor %}
-            {% if field.help_text %}
-                    {{ field.help_text|safe }}
-            {% endif %}
-            </div>
+    {% if field.id_for_label == 'id_intro' %}
+        <v-textarea
+          label="自己紹介"
+          value="{{ field.value }}"
+          name="{% if field.id_for_label == 'id_intro' %}intro{% endif %}"
+        ></v-textarea>
+    {% else %}
+        <v-text-field
+            value="{{ field.value }}"
+            label="{% if field.id_for_label == 'id_username' %}ユーザー名{% elif field.id_for_label == 'id_email' %}メールアドレス{% elif field.id_for_label == 'id_password1' %}パスワード{% else %}パスワード確認{% endif %}"
+            prepend-icon="{% if field.id_for_label == 'id_username' %}people{% elif field.id_for_label == 'id_email' %}mail{% elif field.id_for_label == 'id_password1' %}lock{% else %}lock{% endif %}"
+            name="{% if field.id_for_label == 'id_username' %}username{% elif field.id_for_label == 'id_email' %}email{% elif field.id_for_label == 'id_password1' %}password1{% else %}password2{% endif %}"
+            id="{% if field.id_for_label == 'id_username' %}id_username{% elif field.id_for_label == 'id_email' %}id_email{% elif field.id_for_label == 'id_password1' %}id_password1{% else %}id_password2{% endif %}"
+            {% if field.id_for_label == 'id_password1' or field.id_for_label == 'id_password2' %}type="password"{% endif %}
+            {% if field.id_for_label == 'id_username' %}readonly{% endif %}
+            required
+        ></v-text-field>
+    {% endif %}
+
+    <div class="form-text-alert-wrapper">
+        {% for error in field.errors %}
+            <p class="form-text-alert">{{ error }}</p>
+        {% endfor %}
+    {% if field.help_text %}
+            {{ field.help_text|safe }}
+    {% endif %}
+    </div>
 {% endfor %}
