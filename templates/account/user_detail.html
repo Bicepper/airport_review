@@ -10,9 +10,36 @@
         v-model="adminmenu"
         absolute
         app
-        class="elevation-2"
+        class="user-menu elevation-2"
     >
         <v-list dense>
+            <v-list-group
+                prepend-icon="person"
+            >
+                <v-list-tile slot="activator">
+                    <v-list-tile-content>
+                        <v-list-tile-title>Profile</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile href="{% url 'home' %}">
+                    <v-list-tile-action>
+                        <v-icon>email</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Email</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list-group>
+
+
+
+
+
+
+
+
+
+
             <v-list-tile href="{% url 'home' %}">
                 <v-list-tile-action>
                     <v-icon>person</v-icon>
@@ -71,32 +98,32 @@
                             <v-card-text>
                                 <v-container grid-list-xl>
 
-                                    <table class="account-info-table">
-                                        <tr>
-                                            <th class="account-info-table-item">ユーザー名</th>
-                                            <td class="account-info-table-item-info">{{ user.username }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="account-info-table-item">メールアドレス</th>
-                                            <td class="account-info-table-item-info">{{ user.email }} <a href="{% url 'account_update' user.pk %}">更新</a></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="account-info-table-item">自己紹介</th>
-                                            <td class="account-info-table-item-info">{{ user.intro|linebreaks }} <a href="{% url 'account_update' user.pk %}">更新</a></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="account-info-table-item">リンク</th>
-                                            <td class="account-info-table-item-info">
-                                                <a href="{{ user.url }}" target="_blank">{{ user.url }}</a> <a href="{% url 'account_update' user.pk %}">更新</a>
-                                            </td>
-                                        </tr>
-                                    </table>
+{#                                    <table class="account-info-table">#}
+{#                                        <tr>#}
+{#                                            <th class="account-info-table-item">ユーザー名</th>#}
+{#                                            <td class="account-info-table-item-info">{{ user.username }}</td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <th class="account-info-table-item">メールアドレス</th>#}
+{#                                            <td class="account-info-table-item-info">{{ user.email }} <a href="{% url 'account_update' user.pk %}">更新</a></td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <th class="account-info-table-item">自己紹介</th>#}
+{#                                            <td class="account-info-table-item-info">{{ user.intro|linebreaks }} <a href="{% url 'account_update' user.pk %}">更新</a></td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <th class="account-info-table-item">リンク</th>#}
+{#                                            <td class="account-info-table-item-info">#}
+{#                                                <a href="{{ user.url }}" target="_blank">{{ user.url }}</a> <a href="{% url 'account_update' user.pk %}">更新</a>#}
+{#                                            </td>#}
+{#                                        </tr>#}
+{#                                    </table>#}
 
-{#                            <v-form method="post" novalidate>#}
-{#                                {% csrf_token %}#}
-{#                                {% include 'includes/update_form.html' %}#}
-{#                                <v-btn class="m-t-20" type="submit" block color="primary" large>更新</v-btn>#}
-{#                            </v-form>#}
+                            <v-form method="post" novalidate>
+                                {% csrf_token %}
+                                {% include 'includes/update_form.html' %}
+                                <v-btn class="m-t-20" type="submit" block color="primary" large>更新</v-btn>
+                            </v-form>
 
                                 </v-container>
                             </v-card-text>

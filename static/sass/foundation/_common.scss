@@ -564,6 +564,9 @@
 //=================================================
 // マイアカウント
 //=================================================
+.user-menu .v-list__group__header{
+  height:60px !important;
+}
 .user_detail_column_right{
   @media only screen and (min-width: 960px){
     padding-left:300px;

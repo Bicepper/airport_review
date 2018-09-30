@@ -28,7 +28,16 @@ var app = new Vue({
                 {name:'評価が高い順', abbr:2},
                 {name:'評価が低い順', abbr:3}
             ],
-            detailcheckimage:false
+            detailcheckimage:false,
+            usermenu:[
+                {
+                    action: 'restaurant',
+                    active: true,
+                    items:[
+                        {title:'test'}
+                    ]
+                }
+            ]
         }
     },
     computed: {
