@@ -30,6 +30,7 @@ from airport.views import list
 from airport.views import Detail
 from account.views import AccountUpdateEmail
 from account.views import AccountUpdateIntro
+from account.views import AccountUpdateSocialmedia
 
 from country.api_urls import country_router
 from alliance.api_urls import alliance_router
@@ -62,4 +63,5 @@ urlpatterns = [
     # path('account_update/<int:pk>/', AccountUpdate.as_view(), name='account_update'),
     path('account/<int:pk>/email', AccountUpdateEmail.as_view(), name='account_update_email'),
     path('account/<int:pk>/intro', AccountUpdateIntro.as_view(), name='account_update_intro'),
+    path('account/<int:pk>/sns', AccountUpdateSocialmedia.as_view(), name='account_update_sns'),
 ]

@@ -37,7 +37,11 @@ var app = new Vue({
                         {title:'test'}
                     ]
                 }
-            ]
+            ],
+            snackbar:{
+                active:false,
+                timeout:6000,
+            }
         }
     },
     computed: {
@@ -127,5 +131,8 @@ var app = new Vue({
             const index = this.alliance.indexOf(item.name);
             if (index >= 0) this.alliance.splice(index, 1);
         }
-    }
+    },
+    // beforeMount(){
+    //     this.snackbar.active = true;
+    // }
 })

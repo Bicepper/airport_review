@@ -37,25 +37,17 @@
                         <v-list-tile-title>Introduction</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
+                <v-list-tile href="{% url 'account_update_sns' user.pk %}">
+                    <v-list-tile-action>
+                        <v-icon>share</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>SNS</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
             </v-list-group>
 
 
-
-
-
-
-
-
-
-
-            <v-list-tile href="{% url 'home' %}">
-                <v-list-tile-action>
-                    <v-icon>person</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                    <v-list-tile-title>Profile</v-list-tile-title>
-                </v-list-tile-content>
-            </v-list-tile>
             <v-list-tile href="{% url 'airport' %}">
                 <v-list-tile-action>
                     <v-icon>rate_review</v-icon>
@@ -99,33 +91,9 @@
                             </v-container>
                         </v-img>
 
-
-
-
                         <v-card flat>
                             <v-card-text>
                                 <v-container grid-list-xl>
-
-{#                                    <table class="account-info-table">#}
-{#                                        <tr>#}
-{#                                            <th class="account-info-table-item">ユーザー名</th>#}
-{#                                            <td class="account-info-table-item-info">{{ user.username }}</td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <th class="account-info-table-item">メールアドレス</th>#}
-{#                                            <td class="account-info-table-item-info">{{ user.email }} <a href="{% url 'account_update' user.pk %}">更新</a></td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <th class="account-info-table-item">自己紹介</th>#}
-{#                                            <td class="account-info-table-item-info">{{ user.intro|linebreaks }} <a href="{% url 'account_update' user.pk %}">更新</a></td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <th class="account-info-table-item">リンク</th>#}
-{#                                            <td class="account-info-table-item-info">#}
-{#                                                <a href="{{ user.url }}" target="_blank">{{ user.url }}</a> <a href="{% url 'account_update' user.pk %}">更新</a>#}
-{#                                            </td>#}
-{#                                        </tr>#}
-{#                                    </table>#}
 
                                     <v-form method="post" novalidate>
                                         {% csrf_token %}
@@ -137,13 +105,28 @@
                             </v-card-text>
                         </v-card>
 
-
+{#    <v-snackbar#}
+{#        v-model="snackbar.active"#}
+{#        color="success"#}
+{#        :timeout="snackbar.timeout"#}
+{#        top="top"#}
+{#        class="user-detail-snackbar"#}
+{#        @submit="snackbar.active = true"#}
+{#    >更新が完了しました#}
+{#        <v-btn#}
+{#            dark#}
+{#            flat#}
+{#            @click="snackbar.active = false"#}
+{#        >閉じる#}
+{#        </v-btn>#}
+{#    </v-snackbar>#}
 
                     </v-card>
                 </v-container>
             </v-flex>
         </v-layout>
     </section>
+
 
 
 

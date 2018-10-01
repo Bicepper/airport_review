@@ -572,6 +572,11 @@
     padding-left:300px;
   }
 }
+
+.user-detail-snackbar{
+  z-index:100002 !important;
+}
+
 .account-head{
   &:after{
     position: absolute;

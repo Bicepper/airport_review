@@ -979,6 +979,9 @@ html {
   .user_detail_column_right {
     padding-left: 300px; } }
 
+.user-detail-snackbar {
+  z-index: 100002 !important; }
+
 .account-head:after {
   position: absolute;
   bottom: 0;

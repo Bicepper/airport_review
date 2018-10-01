@@ -9,6 +9,7 @@ from . forms import (
     UserUpdateForm,
     UserUpdateEmailForm,
     UserUpdateIntroForm,
+    UserUpdateSocialmediaForm,
 )
 
 
@@ -65,4 +66,13 @@ class AccountUpdateIntro(OnlyYouMixin, generic.UpdateView):
 
     def get_success_url(self):
         return resolve_url('account_update_intro', pk=self.kwargs['pk'])
+
+
+class AccountUpdateSocialmedia(OnlyYouMixin, generic.UpdateView):
+    model = User
+    form_class = UserUpdateSocialmediaForm
+    template_name = 'account/user_detail.html'
+
+    def get_success_url(self):
+        return resolve_url('account_update_sns', pk=self.kwargs['pk'])
 

@@ -30,3 +30,12 @@ class UserUpdateIntroForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('intro', )
+
+
+class UserUpdateSocialmediaForm(forms.ModelForm):
+    """
+    ユーザー情報更新：SNS
+    """
+    class Meta:
+        model = User
+        fields = ('facebook', 'twitter', 'youtube', 'instagram', )

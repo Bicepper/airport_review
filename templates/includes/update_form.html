@@ -8,6 +8,7 @@
 {% endif %}
 
 {% for field in form %}
+{#    <p>{{ field.id_for_name }}</p>#}
     {% if field.id_for_label == 'id_intro' %}
         <v-textarea
           label="自己紹介"
@@ -17,9 +18,83 @@
     {% else %}
         <v-text-field
             value="{{ field.value }}"
-            label="{% if field.id_for_label == 'id_username' %}ユーザー名{% elif field.id_for_label == 'id_email' %}メールアドレス{% elif field.id_for_label == 'id_password1' %}パスワード{% else %}パスワード確認{% endif %}"
-            prepend-icon="{% if field.id_for_label == 'id_username' %}people{% elif field.id_for_label == 'id_email' %}mail{% elif field.id_for_label == 'id_password1' %}lock{% else %}lock{% endif %}"
-            name="{% if field.id_for_label == 'id_username' %}username{% elif field.id_for_label == 'id_email' %}email{% elif field.id_for_label == 'id_password1' %}password1{% else %}password2{% endif %}"
+            {# -----------------------ラベル分岐開始----------------------- #}
+            {% if field.id_for_label == 'id_username' %}
+                label="ユーザー名"
+            {% elif field.id_for_label == 'id_email' %}
+                label="メールアドレス"
+            {% elif field.id_for_label == 'id_facebook' %}
+                label="Facebook"
+            {% elif field.id_for_label == 'id_twitter' %}
+                label="Twitter"
+            {% elif field.id_for_label == 'id_youtube' %}
+                label="Youtube"
+            {% elif field.id_for_label == 'id_instagram' %}
+                label="Instagram"
+            {% elif field.id_for_label == 'id_password1' %}
+                label="パスワード"
+            {% else %}
+                label="パスワード確認"
+            {% endif %}
+            {# -----------------------ラベル分岐終了----------------------- #}
+            {# -----------------------アイコン分岐開始----------------------- #}
+            {% if field.id_for_label == 'id_username' %}
+                prepend-icon="people"
+            {% elif field.id_for_label == 'id_email' %}
+                prepend-icon="mail"
+            {% elif field.id_for_label == 'id_facebook' %}
+                prepend-icon="fab fa-facebook"
+            {% elif field.id_for_label == 'id_twitter' %}
+                prepend-icon="fab fa-twitter"
+            {% elif field.id_for_label == 'id_youtube' %}
+                prepend-icon="fab fa-youtube"
+            {% elif field.id_for_label == 'id_instagram' %}
+                prepend-icon="fab fa-instagram"
+            {% elif field.id_for_label == 'id_password1' %}
+                prepend-icon="lock"
+            {% else %}
+                prepend-icon="lock"
+            {% endif %}
+            {# -----------------------アイコン分岐終了----------------------- #}
+            {# -----------------------name分岐終了----------------------- #}
+            {% if field.id_for_label == 'id_username' %}
+                name="username"
+            {% elif field.id_for_label == 'id_email' %}
+                name="email"
+            {% elif field.id_for_label == 'id_facebook' %}
+                name="facebook"
+            {% elif field.id_for_label == 'id_twitter' %}
+                name="twitter"
+            {% elif field.id_for_label == 'id_youtube' %}
+                name="youtube"
+            {% elif field.id_for_label == 'id_instagram' %}
+                name="instagram"
+            {% elif field.id_for_label == 'id_password1' %}
+                name="password1"
+            {% else %}
+                name="password2"
+            {% endif %}
+            {# -----------------------name分岐開始----------------------- #}
+            {# -----------------------name分岐終了----------------------- #}
+            {% if field.id_for_label == 'id_username' %}
+                id="id_username"
+            {% elif field.id_for_label == 'id_email' %}
+                id="id_email"
+            {% elif field.id_for_label == 'id_facebook' %}
+                id="id_facebook"
+            {% elif field.id_for_label == 'id_twitter' %}
+                id="id_twitter"
+            {% elif field.id_for_label == 'id_youtube' %}
+                id="id_youtube"
+            {% elif field.id_for_label == 'id_instagram' %}
+                id="id_instagram"
+            {% elif field.id_for_label == 'id_password1' %}
+                id="id_password1"
+            {% else %}
+                id="id_password2"
+            {% endif %}
+            {# -----------------------name分岐開始----------------------- #}
+
             id="{% if field.id_for_label == 'id_username' %}id_username{% elif field.id_for_label == 'id_email' %}id_email{% elif field.id_for_label == 'id_password1' %}id_password1{% else %}id_password2{% endif %}"
             {% if field.id_for_label == 'id_password1' or field.id_for_label == 'id_password2' %}type="password"{% endif %}
             {% if field.id_for_label == 'id_username' %}readonly{% endif %}
