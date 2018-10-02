@@ -76,3 +76,7 @@ class AccountUpdateSocialmedia(OnlyYouMixin, generic.UpdateView):
     def get_success_url(self):
         return resolve_url('account_update_sns', pk=self.kwargs['pk'])
 
+
+class AccountReviewNew(OnlyYouMixin, generic.CreateView):
+    model = User
+
