@@ -1052,6 +1052,9 @@ html {
   height: 24px;
   margin: 0; }
 
+.detail-review-icon .v-icon {
+  font-size: inherit; }
+
 .terms-daialog {
   width: 90%;
   height: 50vh; }

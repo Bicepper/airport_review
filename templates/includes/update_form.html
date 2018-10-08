@@ -8,13 +8,117 @@
 {% endif %}
 
 {% for field in form %}
-{#    <p>{{ field.id_for_name }}</p>#}
+{#    <p>{{ field.id_for_label }}</p>#}
     {% if field.id_for_label == 'id_intro' %}
         <v-textarea
           label="自己紹介"
           value="{{ field.value }}"
           name="{% if field.id_for_label == 'id_intro' %}intro{% endif %}"
         ></v-textarea>
+    {% elif field.id_for_label == 'id_review_text' %}
+        <v-textarea
+          label="レビュー"
+          value="{{ field.value }}"
+          name="{% if field.id_for_label == 'id_review_text' %}review_text{% endif %}"
+        ></v-textarea>
+    {% elif field.id_for_label == 'id_airport' %}
+        <v-autocomplete
+            :items="airports"
+            item-text="name_ja"
+            item-value="id"
+            id="id_airport"
+            v-model="filterAirport"
+            label="空港名"
+            autocomplete
+            no-data-text="空港が見つかりません"
+            prepend-icon="local_airport"
+        ></v-autocomplete>
+    {% elif field.id_for_label == 'id_rate_clean' %}
+        <v-subheader class="pl-0">清潔さ</v-subheader>
+        <v-slider
+            v-model="zoom.clean"
+            id="id_password2"
+            :max="10"
+            step="1"
+            ticks="always"
+            tick-size="3"
+            color="red"
+            thumb-label="always"
+            :thumb-size="24"
+            append-icon="fa-plus-circle"
+            prepend-icon="fa-minus-circle"
+            class="detail-review-icon"
+            @click:append="zoomIn('clean')"
+            @click:prepend="zoomOut('clean')"
+        ></v-slider>
+    {% elif field.id_for_label == 'id_rate_facility' %}
+        <v-subheader class="pl-0">施設・設備</v-subheader>
+        <v-slider
+            v-model="zoom.facility"
+            :max="10"
+            step="1"
+            ticks="always"
+            tick-size="3"
+            color="red"
+            thumb-label="always"
+            :thumb-size="24"
+            append-icon="fa-plus-circle"
+            prepend-icon="fa-minus-circle"
+            class="detail-review-icon"
+            @click:append="zoomIn('facility')"
+            @click:prepend="zoomOut('facility')"
+        ></v-slider>
+    {% elif field.id_for_label == 'id_rate_lounge' %}
+        <v-subheader class="pl-0">ラウンジ</v-subheader>
+        <v-slider
+            v-model="zoom.lounge"
+            :max="10"
+            step="1"
+            ticks="always"
+            tick-size="3"
+            color="red"
+            thumb-label="always"
+            :thumb-size="24"
+            append-icon="fa-plus-circle"
+            prepend-icon="fa-minus-circle"
+            class="detail-review-icon"
+            @click:append="zoomIn('lounge')"
+            @click:prepend="zoomOut('lounge')"
+        ></v-slider>
+    {% elif field.id_for_label == 'id_rate_service' %}
+        <v-subheader class="pl-0">サービス</v-subheader>
+        <v-slider
+            v-model="zoom.service"
+            :max="10"
+            step="1"
+            ticks="always"
+            tick-size="3"
+            color="red"
+            thumb-label="always"
+            :thumb-size="24"
+            append-icon="fa-plus-circle"
+            prepend-icon="fa-minus-circle"
+            class="detail-review-icon"
+            @click:append="zoomIn('service')"
+            @click:prepend="zoomOut('service')"
+        ></v-slider>
+    {% elif field.id_for_label == 'id_rate_access' %}
+        <v-subheader class="pl-0">アクセス</v-subheader>
+        <v-slider
+            v-model="zoom.access"
+            :max="10"
+            step="1"
+            ticks="always"
+            tick-size="3"
+            color="red"
+            thumb-label="always"
+            :thumb-size="24"
+            append-icon="fa-plus-circle"
+            prepend-icon="fa-minus-circle"
+            class="detail-review-icon"
+            @click:append="zoomIn('access')"
+            @click:prepend="zoomOut('access')"
+        ></v-slider>
     {% else %}
         <v-text-field
             value="{{ field.value }}"
@@ -33,8 +137,10 @@
                 label="Instagram"
             {% elif field.id_for_label == 'id_password1' %}
                 label="パスワード"
-            {% else %}
+            {% elif field.id_for_label == 'id_password2' %}
                 label="パスワード確認"
+            {% elif field.id_for_label == 'id_review_title' %}
+                label="タイトル"
             {% endif %}
             {# -----------------------ラベル分岐終了----------------------- #}
             {# -----------------------アイコン分岐開始----------------------- #}
@@ -52,8 +158,10 @@
                 prepend-icon="fab fa-instagram"
             {% elif field.id_for_label == 'id_password1' %}
                 prepend-icon="lock"
-            {% else %}
+            {% elif field.id_for_label == 'id_password2' %}
                 prepend-icon="lock"
+            {% elif field.id_for_label == 'id_review_title' %}
+                prepend-icon="subtitles"
             {% endif %}
             {# -----------------------アイコン分岐終了----------------------- #}
             {# -----------------------name分岐終了----------------------- #}
@@ -71,8 +179,10 @@
                 name="instagram"
             {% elif field.id_for_label == 'id_password1' %}
                 name="password1"
-            {% else %}
+            {% elif field.id_for_label == 'id_password2' %}
                 name="password2"
+            {% elif field.id_for_label == 'id_review_title' %}
+                name="review_title"
             {% endif %}
             {# -----------------------name分岐開始----------------------- #}
             {# -----------------------name分岐終了----------------------- #}
@@ -90,12 +200,14 @@
                 id="id_instagram"
             {% elif field.id_for_label == 'id_password1' %}
                 id="id_password1"
-            {% else %}
+            {% elif field.id_for_label == 'id_password2' %}
                 id="id_password2"
+            {% elif field.id_for_label == 'id_review_title' %}
+                id="id_review_title"
             {% endif %}
             {# -----------------------name分岐開始----------------------- #}
 
-            id="{% if field.id_for_label == 'id_username' %}id_username{% elif field.id_for_label == 'id_email' %}id_email{% elif field.id_for_label == 'id_password1' %}id_password1{% else %}id_password2{% endif %}"
+            id="{% if field.id_for_label == 'id_username' %}id_username{% elif field.id_for_label == 'id_email' %}id_email{% elif field.id_for_label == 'id_password1' %}id_password1{% elif field.id_for_label == 'id_password2' %}id_password2{% endif %}"
             {% if field.id_for_label == 'id_password1' or field.id_for_label == 'id_password2' %}type="password"{% endif %}
             {% if field.id_for_label == 'id_username' %}readonly{% endif %}
             required

@@ -41,6 +41,14 @@ var app = new Vue({
             snackbar:{
                 active:false,
                 timeout:6000,
+            },
+            zoom:{
+                clean:0,
+                facility:0,
+                lounge:0,
+                service:0,
+                access:0,
+                id:'test'
             }
         }
     },
@@ -130,6 +138,12 @@ var app = new Vue({
         remove (item) {
             const index = this.alliance.indexOf(item.name);
             if (index >= 0) this.alliance.splice(index, 1);
+        },
+        zoomOut (ch) {
+            this.zoom[ch] = (this.zoom[ch]- 1) || 0;
+        },
+        zoomIn (ch) {
+            this.zoom[ch] = (this.zoom[ch] + 1) || 10;
         }
     },
     // beforeMount(){
