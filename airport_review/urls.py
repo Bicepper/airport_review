@@ -32,6 +32,7 @@ from account.views import AccountUpdateEmail
 from account.views import AccountUpdateIntro
 from account.views import AccountUpdateSocialmedia
 from review.views import NewReview
+from review.views import ListReview
 
 from country.api_urls import country_router
 from alliance.api_urls import alliance_router
@@ -66,4 +67,5 @@ urlpatterns = [
     path('account/<int:pk>/intro', AccountUpdateIntro.as_view(), name='account_update_intro'),
     path('account/<int:pk>/sns', AccountUpdateSocialmedia.as_view(), name='account_update_sns'),
     path('account/<int:pk>/new_review', NewReview.as_view(), name='account_review_new'),
+    path('account/<int:pk>/list_review', ListReview.as_view(), name='account_review_list'),
 ]

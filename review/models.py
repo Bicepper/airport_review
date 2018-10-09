@@ -19,7 +19,7 @@ class Review(models.Model):
         ('9', '9'),
         ('10', '10'),
     )
-    review_user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    user = models.ManyToManyField(User, default=None)
     airport = models.ForeignKey(Airport, on_delete=models.CASCADE, verbose_name=_('空港'))
     rate_clean = models.CharField(_('清潔さ'), max_length=2, blank=False, choices=RATE_NUM, default=None)
     rate_facility = models.CharField(_('施設・設備'), max_length=2, blank=False, choices=RATE_NUM, default=None)

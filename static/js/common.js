@@ -47,9 +47,9 @@ var app = new Vue({
                 facility:0,
                 lounge:0,
                 service:0,
-                access:0,
-                id:'test'
-            }
+                access:0
+            },
+            reviewairport:null
         }
     },
     computed: {
