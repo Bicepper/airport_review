@@ -44,14 +44,6 @@ class NewReview(generic.CreateView):
         except Review.DoesNotExist:
             pass
 
-        # obj = form.save(commit=False)
-        # obj.user = get_object_or_404(Review, user=self.request.user, airport_id=obj.airport_id)
-        # print(obj.user)
-        # obj.form.save()
-        # obj.user.add(self.request.user)
-        # obj.save()
-        # return HttpResponseRedirect(self.get_success_url())
-
     def get_success_url(self):
         return resolve_url('account_review_list', pk=self.kwargs['pk'])
 
