@@ -20,3 +20,7 @@ class ReviewCreateForm(forms.ModelForm):
             'review_title',
             'review_text',
         )
+        widgets = {
+            'airport': forms.TextInput,
+            'rate_clean': forms.TextInput(attrs={'name':'rate_clean'}),
+        }

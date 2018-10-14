@@ -22,17 +22,16 @@ class NewReview(generic.CreateView):
     template_name = 'account/user_detail.html'
     form_class = ReviewCreateForm
 
-    # def form_valid(self, form):
-    #     obj = form.save()
-    #     obj.user.add(self.request.user)
-    #     obj.save()
-    #     return HttpResponseRedirect(self.get_success_url())
+    # def post(self, request, **kwargs):
+    #     print(request.POST['airport'])
 
     def form_valid(self, form):
         obj = form.save(commit=False)
         try:
             userreviewed = Review.objects.filter(user=self.request.user)
             print('=================ここから開始=================')
+            # print(obj.airport.name_ja)
+            print(obj.airport.id)
             for a in userreviewed:
                 if obj.airport_id == a.airport_id:
                     raise ValueError('既にレビュー済みです。')

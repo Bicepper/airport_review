@@ -31,3 +31,7 @@ class Review(models.Model):
     review_title = models.CharField(_('タイトル'), max_length=40, blank=False, default="")
     review_text = models.TextField(_('レビュー'), max_length=1000, blank=False, default="")
 
+
+
+
+

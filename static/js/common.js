@@ -102,6 +102,15 @@ var app = new Vue({
                         }
                     })
             }
+        },
+        reviewid:{
+            get: function(x) {
+                return this.reviewairport;
+            },
+            set: function(uu){
+                console.log(uu);
+                this.reviewairport = uu;
+            }
         }
     },
     created: function() {
