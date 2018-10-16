@@ -36,6 +36,10 @@ class NewReview(generic.CreateView):
         except Review.DoesNotExist:
             pass
 
+    def form_invalid(self, form):
+        print('pass form_invalid')
+        return self.render_to_response(self.get_context_data(form=form))
+
     def get_success_url(self):
         return resolve_url('account_review_list', pk=self.kwargs['pk'])
 

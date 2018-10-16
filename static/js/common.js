@@ -43,11 +43,11 @@ var app = new Vue({
                 timeout:6000,
             },
             zoom:{
-                clean:0,
-                facility:0,
-                lounge:0,
-                service:0,
-                access:0
+                clean:1,
+                facility:1,
+                lounge:1,
+                service:1,
+                access:1
             },
             reviewairport:null,
             retest:"1",
