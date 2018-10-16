@@ -38,24 +38,37 @@
 {#        {{ field }}#}
     {% elif field.id_for_label == 'id_rate_clean' %}
         <v-subheader class="pl-0">清潔さ</v-subheader>
-{#        <v-slider#}
-{#            v-model="zoom.clean"#}
-{#            id="id_password2"#}
-{#            item-value="zoom.clean"#}
-{#            :max="10"#}
-{#            step="1"#}
-{#            ticks="always"#}
-{#            tick-size="3"#}
-{#            color="red"#}
-{#            thumb-label="always"#}
-{#            :thumb-size="24"#}
-{#            append-icon="fa-plus-circle"#}
-{#            prepend-icon="fa-minus-circle"#}
-{#            class="detail-review-icon"#}
-{#            @click:append="zoomIn('clean')"#}
-{#            @click:prepend="zoomOut('clean')"#}
-{#        ></v-slider>#}
-        <p>{{ field }}</p>
+        <v-slider
+            v-model="zoom.clean"
+            id="id_rate_clean"
+            item-value="zoom.clean"
+            name="rate_clean"
+            :max="10"
+            step="1"
+            ticks="always"
+            tick-size="3"
+            color="red"
+            thumb-label="always"
+            :thumb-size="24"
+            append-icon="fa-plus-circle"
+            prepend-icon="fa-minus-circle"
+            class="detail-review-icon"
+            @click:append="zoomIn('clean')"
+            @click:prepend="zoomOut('clean')"
+        ></v-slider>
+{#        <v-select#}
+{#            :items="reviewselectnum"#}
+{#            v-model="testid"#}
+{#            item-text="reviewselectnum"#}
+{#            item-value="reviewselectnum"#}
+{#            id="id_rate_clean"#}
+{#            name="rate_clean"#}
+{#            label="清潔さ"#}
+{#        ></v-select>#}
+
+
+
+{#        <p>{{ field }}</p>#}
     {% elif field.id_for_label == 'id_rate_facility' %}
         <v-subheader class="pl-0">施設・設備</v-subheader>
 {#        <v-slider#}

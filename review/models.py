@@ -13,11 +13,6 @@ class Review(models.Model):
         ('3', '3'),
         ('4', '4'),
         ('5', '5'),
-        ('6', '6'),
-        ('7', '7'),
-        ('8', '8'),
-        ('9', '9'),
-        ('10', '10'),
     )
     user = models.ManyToManyField(User, default=None)
     airport = models.ForeignKey(Airport, on_delete=models.CASCADE, verbose_name=_('空港'))

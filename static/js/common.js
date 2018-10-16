@@ -49,7 +49,9 @@ var app = new Vue({
                 service:0,
                 access:0
             },
-            reviewairport:null
+            reviewairport:null,
+            retest:"1",
+            reviewselectnum:["1","2","3","4","5","6","7","8","9","10"]
         }
     },
     computed: {
@@ -108,8 +110,15 @@ var app = new Vue({
                 return this.reviewairport;
             },
             set: function(uu){
-                console.log(uu);
                 this.reviewairport = uu;
+            }
+        },
+        testid:{
+            get: function(x) {
+                return this.retest;
+            },
+            set: function(zz){
+                this.retest = zz;
             }
         }
     },
@@ -153,6 +162,11 @@ var app = new Vue({
         },
         zoomIn (ch) {
             this.zoom[ch] = (this.zoom[ch] + 1) || 10;
+        },
+        SaveChange(evt, data) {
+            console.log('event is', evt);
+            console.log('field is', data); // equivalent to $root.$data.index
+            data.innerHTML = evt;
         }
     },
     // beforeMount(){
