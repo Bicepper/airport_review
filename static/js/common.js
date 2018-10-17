@@ -43,7 +43,7 @@ var app = new Vue({
                 timeout:6000,
             },
             zoom:{
-                clean:1,
+                id_rate_clean:1,
                 facility:1,
                 lounge:1,
                 service:1,
@@ -157,11 +157,10 @@ var app = new Vue({
             const index = this.alliance.indexOf(item.name);
             if (index >= 0) this.alliance.splice(index, 1);
         },
-        zoomOut (ch) {
-            this.zoom[ch] = (this.zoom[ch]- 1) || 0;
-        },
-        zoomIn (ch) {
-            this.zoom[ch] = (this.zoom[ch] + 1) || 10;
+        slideselect: function(event, id){
+            console.log($(event.target));
+            console.log(event);
+            $('#' + id).val(this.zoom[id]);
         },
         SaveChange(evt, data) {
             console.log('event is', evt);

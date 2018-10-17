@@ -29,6 +29,5 @@ class ReviewCreateForm(forms.ModelForm):
             'review_text',
         )
         # widgets = {
-        #     'airport': forms.TextInput,
-        #     'rate_clean': forms.TextInput(attrs={'name':'rate_clean'}),
+        #     'rate_clean': forms.TextInput(),
         # }

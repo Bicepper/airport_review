@@ -39,10 +39,8 @@
     {% elif field.id_for_label == 'id_rate_clean' %}
         <v-subheader class="pl-0">清潔さ</v-subheader>
         <v-slider
-            v-model="zoom.clean"
-            id="id_rate_clean"
-            item-value="zoom.clean"
-            name="rate_clean"
+            v-model="zoom.id_rate_clean"
+            item-value="zoom.id_rate_clean"
             :min="1"
             :max="5"
             step="1"
@@ -51,11 +49,7 @@
             color="red"
             thumb-label="always"
             :thumb-size="24"
-            append-icon="fa-plus-circle"
-            prepend-icon="fa-minus-circle"
-            class="detail-review-icon"
-            @click:append="zoomIn('clean')"
-            @click:prepend="zoomOut('clean')"
+            @change="slideselect($event, 'id_rate_clean')"
         ></v-slider>
 {#        <v-select#}
 {#            :items="reviewselectnum"#}
@@ -65,11 +59,12 @@
 {#            id="id_rate_clean"#}
 {#            name="rate_clean"#}
 {#            label="清潔さ"#}
+{#            @change="dddd($event)"#}
 {#        ></v-select>#}
 
 
 
-{#        <p>{{ field }}</p>#}
+        <p>{{ field }}</p>
     {% elif field.id_for_label == 'id_rate_facility' %}
         <v-subheader class="pl-0">施設・設備</v-subheader>
 {#        <v-slider#}
