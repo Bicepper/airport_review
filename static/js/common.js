@@ -38,10 +38,13 @@ var app = new Vue({
                     ]
                 }
             ],
-            snackbar:{
-                active:false,
-                timeout:6000,
-            },
+            sliderlabel:[
+                '最悪',
+                '悪い',
+                '普通',
+                '良い',
+                '最高'
+            ],
             zoom:{
                 id_rate_clean:1,
                 facility:1,
@@ -147,6 +150,8 @@ var app = new Vue({
                 self.airports.push(response.data[i]);
             }
         });
+
+        self.zoom.id_rate_clean = $('#id_rate_clean').val();
     },
     methods: {
         clear: function() {
@@ -158,17 +163,9 @@ var app = new Vue({
             if (index >= 0) this.alliance.splice(index, 1);
         },
         slideselect: function(event, id){
-            console.log($(event.target));
-            console.log(event);
+            // console.log($(event.target));
+            // console.log(event);
             $('#' + id).val(this.zoom[id]);
-        },
-        SaveChange(evt, data) {
-            console.log('event is', evt);
-            console.log('field is', data); // equivalent to $root.$data.index
-            data.innerHTML = evt;
         }
-    },
-    // beforeMount(){
-    //     this.snackbar.active = true;
-    // }
+    }
 })

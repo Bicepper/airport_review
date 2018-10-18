@@ -46,25 +46,13 @@
             step="1"
             ticks="always"
             tick-size="3"
+            :tick-labels="sliderlabel"
             color="red"
             thumb-label="always"
             :thumb-size="24"
             @change="slideselect($event, 'id_rate_clean')"
         ></v-slider>
-{#        <v-select#}
-{#            :items="reviewselectnum"#}
-{#            v-model="testid"#}
-{#            item-text="reviewselectnum"#}
-{#            item-value="reviewselectnum"#}
-{#            id="id_rate_clean"#}
-{#            name="rate_clean"#}
-{#            label="清潔さ"#}
-{#            @change="dddd($event)"#}
-{#        ></v-select>#}
-
-
-
-        <p>{{ field }}</p>
+        <p class="display-none">{{ field }}</p>
     {% elif field.id_for_label == 'id_rate_facility' %}
         <v-subheader class="pl-0">施設・設備</v-subheader>
 {#        <v-slider#}
