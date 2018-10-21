@@ -20,11 +20,7 @@ class ReviewCreateForm(forms.ModelForm):
         model = Review
         fields = (
             'airport',
-            'rate_clean',
-            'rate_facility',
-            'rate_lounge',
-            'rate_service',
-            'rate_access',
+            'rate_synthesis',
             'review_title',
             'review_text',
         )

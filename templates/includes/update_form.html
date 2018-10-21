@@ -36,94 +36,37 @@
             prepend-icon="local_airport"
         ></v-autocomplete>
 {#        {{ field }}#}
-    {% elif field.id_for_label == 'id_rate_clean' %}
-        <v-subheader class="pl-0">清潔さ</v-subheader>
-        <v-slider
-            v-model="zoom.id_rate_clean"
-            item-value="zoom.id_rate_clean"
-            :min="1"
-            :max="5"
-            step="1"
-            ticks="always"
-            tick-size="3"
-            :tick-labels="sliderlabel"
-            color="red"
-            thumb-label="always"
-            :thumb-size="24"
-            @change="slideselect($event, 'id_rate_clean')"
-        ></v-slider>
-        <p class="display-none">{{ field }}</p>
-    {% elif field.id_for_label == 'id_rate_facility' %}
-        <v-subheader class="pl-0">施設・設備</v-subheader>
+    {% elif field.id_for_label == 'id_rate_synthesis' %}
+        <h4 class="subheading">総合評価</h4>
 {#        <v-slider#}
-{#            v-model="zoom.facility"#}
-{#            :max="10"#}
+{#            v-model="zoom.id_rate_clean"#}
+{#            item-value="zoom.id_rate_clean"#}
+{#            :min="1"#}
+{#            :max="5"#}
 {#            step="1"#}
+{#            always-dirty#}
 {#            ticks="always"#}
 {#            tick-size="3"#}
+{#            :tick-labels="sliderlabel"#}
 {#            color="red"#}
 {#            thumb-label="always"#}
 {#            :thumb-size="24"#}
-{#            append-icon="fa-plus-circle"#}
-{#            prepend-icon="fa-minus-circle"#}
-{#            class="detail-review-icon"#}
-{#            @click:append="zoomIn('facility')"#}
-{#            @click:prepend="zoomOut('facility')"#}
+{#            @change="slideselect($event, 'id_rate_synthesis')"#}
 {#        ></v-slider>#}
-        <p>{{ field }}</p>
-    {% elif field.id_for_label == 'id_rate_lounge' %}
-        <v-subheader class="pl-0">ラウンジ</v-subheader>
-{#        <v-slider#}
-{#            v-model="zoom.lounge"#}
-{#            :max="10"#}
-{#            step="1"#}
-{#            ticks="always"#}
-{#            tick-size="3"#}
-{#            color="red"#}
-{#            thumb-label="always"#}
-{#            :thumb-size="24"#}
-{#            append-icon="fa-plus-circle"#}
-{#            prepend-icon="fa-minus-circle"#}
-{#            class="detail-review-icon"#}
-{#            @click:append="zoomIn('lounge')"#}
-{#            @click:prepend="zoomOut('lounge')"#}
-{#        ></v-slider>#}
-        <p>{{ field }}</p>
-    {% elif field.id_for_label == 'id_rate_service' %}
-        <v-subheader class="pl-0">サービス</v-subheader>
-{#        <v-slider#}
-{#            v-model="zoom.service"#}
-{#            :max="10"#}
-{#            step="1"#}
-{#            ticks="always"#}
-{#            tick-size="3"#}
-{#            color="red"#}
-{#            thumb-label="always"#}
-{#            :thumb-size="24"#}
-{#            append-icon="fa-plus-circle"#}
-{#            prepend-icon="fa-minus-circle"#}
-{#            class="detail-review-icon"#}
-{#            @click:append="zoomIn('service')"#}
-{#            @click:prepend="zoomOut('service')"#}
-{#        ></v-slider>#}
-        <p>{{ field }}</p>
-    {% elif field.id_for_label == 'id_rate_access' %}
-        <v-subheader class="pl-0">アクセス</v-subheader>
-{#        <v-slider#}
-{#            v-model="zoom.access"#}
-{#            :max="10"#}
-{#            step="1"#}
-{#            ticks="always"#}
-{#            tick-size="3"#}
-{#            color="red"#}
-{#            thumb-label="always"#}
-{#            :thumb-size="24"#}
-{#            append-icon="fa-plus-circle"#}
-{#            prepend-icon="fa-minus-circle"#}
-{#            class="detail-review-icon"#}
-{#            @click:append="zoomIn('access')"#}
-{#            @click:prepend="zoomOut('access')"#}
-{#        ></v-slider>#}
+
+        <v-layout align-center justify-start row fill-height>
+            <v-rating
+                v-model="rate.rating"
+                :length="rate.length"
+                :hover="rate.hover"
+                :readonly="rate.readonly"
+                dense
+                color="red lighten-3"
+                background-color="grey lighten-1"
+                :click="slideselect('id_rate_synthesis')"
+            ></v-rating>
+            <div class="class_rate_synthesis">{$ rate.text $}</div>
+        </v-layout>
         <p>{{ field }}</p>
     {% else %}
         <v-text-field

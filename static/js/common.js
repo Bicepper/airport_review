@@ -45,16 +45,17 @@ var app = new Vue({
                 '良い',
                 '最高'
             ],
-            zoom:{
-                id_rate_clean:1,
-                facility:1,
-                lounge:1,
-                service:1,
-                access:1
+            rate:{
+                emptyIcon: 'far fa-star',
+                fullIcon: 'fas fa-star',
+                halfIncrements: false,
+                hover: true,
+                length: 5,
+                rating: 3,
+                text:'普通',
+                readonly: false
             },
-            reviewairport:null,
-            retest:"1",
-            reviewselectnum:["1","2","3","4","5","6","7","8","9","10"]
+            reviewairport:null
         }
     },
     computed: {
@@ -115,14 +116,6 @@ var app = new Vue({
             set: function(uu){
                 this.reviewairport = uu;
             }
-        },
-        testid:{
-            get: function(x) {
-                return this.retest;
-            },
-            set: function(zz){
-                this.retest = zz;
-            }
         }
     },
     created: function() {
@@ -150,8 +143,22 @@ var app = new Vue({
                 self.airports.push(response.data[i]);
             }
         });
-
-        self.zoom.id_rate_clean = $('#id_rate_clean').val();
+        //画面遷移したときのretainした値を取得
+        var rating_val = Number($('#id_rate_synthesis').val());
+        self.rate.rating = rating_val;
+        if(rating_val === 1){
+            self.rate.text = '最悪';
+        }else if(rating_val === 2){
+            self.rate.text = '悪い';
+        }else if(rating_val === 3){
+            self.rate.text = '普通';
+        }else if(rating_val === 4){
+            self.rate.text = '良い';
+        }else if(rating_val === 5){
+            self.rate.text = '最高';
+        }else{
+            self.rate.text = '評価なし';
+        }
     },
     methods: {
         clear: function() {
@@ -162,10 +169,24 @@ var app = new Vue({
             const index = this.alliance.indexOf(item.name);
             if (index >= 0) this.alliance.splice(index, 1);
         },
-        slideselect: function(event, id){
+        slideselect: function(id){
             // console.log($(event.target));
             // console.log(event);
-            $('#' + id).val(this.zoom[id]);
+            // $('#' + id).val(this.rate[id]);
+            $('#' + id).val(this.rate.rating);
+            if(this.rate.rating === 1){
+                this.rate.text = '最悪';
+            }else if(this.rate.rating === 2){
+                this.rate.text = '悪い';
+            }else if(this.rate.rating === 3){
+                this.rate.text = '普通';
+            }else if(this.rate.rating === 4){
+                this.rate.text = '良い';
+            }else if(this.rate.rating === 5){
+                this.rate.text = '最高';
+            }else{
+                this.rate.text = '評価なし';
+            }
         }
     }
 })
