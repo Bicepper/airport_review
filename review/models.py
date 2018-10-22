@@ -1,9 +1,17 @@
+import os
+
 from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 
 from users.models import User
 from airport.models import Airport
+
+
+def get_upload_path(instance, filename):
+    return os.path.join(
+        "static/img/review/%d" % instance.user, filename
+    )
 
 
 class Review(models.Model):
@@ -26,7 +34,7 @@ class Review(models.Model):
     review_update = models.DateTimeField(_('更新日'), auto_now=True)
     review_title = models.CharField(_('タイトル'), max_length=40, blank=False, default="")
     review_text = models.TextField(_('レビュー'), max_length=1000, blank=False, default="")
-    review_img_01 = models.ImageField(_('画像1'), upload_to='static/img/review', blank=True)
+    review_img_01 = models.FileField(_('画像1'), upload_to=get_upload_path, blank=True)
 
 
 
