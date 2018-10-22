@@ -112,7 +112,7 @@
                             <v-card-text>
                                 <v-container grid-list-xl>
 
-                                    <v-form method="post" novalidate>
+                                    <v-form enctype="multipart/form-data" method="post" novalidate>
                                         {% csrf_token %}
                                         {% include 'includes/update_form.html' %}
                                         <v-btn class="m-t-20" type="submit" block color="primary" large>更新</v-btn>

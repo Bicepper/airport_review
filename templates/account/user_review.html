@@ -98,7 +98,7 @@
                                         <h3 class="title m-b-15">全ての項目を記入して投稿してください。</h3>
                                     {% endif %}
 
-                                    <v-form method="post" novalidate>
+                                    <v-form method="post" novalidate enctype="multipart/form-data">
                                         {% csrf_token %}
                                         {% include 'includes/user_review_form.html' %}
                                         <v-btn class="m-t-20" type="submit" block color="primary" large>投稿</v-btn>
