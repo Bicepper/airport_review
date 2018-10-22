@@ -3,15 +3,16 @@ import os
 from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import get_object_or_404
 
 from users.models import User
 from airport.models import Airport
 
 
 def get_upload_path(instance, filename):
-    return os.path.join(
-        "static/img/review/%d" % instance.user, filename
-    )
+    instance = instance.copy()
+    obj = get_object_or_404(User, pk=instance['user'])
+    return os.path.join("static/img/review/{a}/{b}".format(a=instance.airport_id, b=obj), filename)
 
 
 class Review(models.Model):
