@@ -38,13 +38,6 @@ var app = new Vue({
                     ]
                 }
             ],
-            sliderlabel:[
-                '最悪',
-                '悪い',
-                '普通',
-                '良い',
-                '最高'
-            ],
             rate:{
                 emptyIcon: 'far fa-star',
                 fullIcon: 'fas fa-star',

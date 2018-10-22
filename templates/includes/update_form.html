@@ -30,14 +30,13 @@
             item-value="id"
             id="id_airport"
             name="airport"
-            label="空港名"
             autocomplete
+            label="空港"
             no-data-text="空港が見つかりません"
-            prepend-icon="local_airport"
         ></v-autocomplete>
 {#        {{ field }}#}
     {% elif field.id_for_label == 'id_rate_synthesis' %}
-        <h4 class="subheading">総合評価</h4>
+        <h4 class="caption">総合評価</h4>
 {#        <v-slider#}
 {#            v-model="zoom.id_rate_clean"#}
 {#            item-value="zoom.id_rate_clean"#}
@@ -60,14 +59,13 @@
                 :length="rate.length"
                 :hover="rate.hover"
                 :readonly="rate.readonly"
-                dense
                 color="red lighten-3"
                 background-color="grey lighten-1"
                 :click="slideselect('id_rate_synthesis')"
             ></v-rating>
             <div class="class_rate_synthesis">{$ rate.text $}</div>
         </v-layout>
-        <p>{{ field }}</p>
+        <p class="display-none">{{ field }}</p>
     {% else %}
         <v-text-field
             value="{{ field.value }}"
@@ -109,8 +107,6 @@
                 prepend-icon="lock"
             {% elif field.id_for_label == 'id_password2' %}
                 prepend-icon="lock"
-            {% elif field.id_for_label == 'id_review_title' %}
-                prepend-icon="subtitles"
             {% endif %}
             {# -----------------------アイコン分岐終了----------------------- #}
             {# -----------------------name分岐終了----------------------- #}

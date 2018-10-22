@@ -1,0 +1,95 @@
+
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <div class="login-alert">
+            <p>{{ error }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% for field in form %}
+{#    <p>{{ field.id_for_label }}</p>#}
+{#    <p>{{ field.value }}</p>#}
+    {% if field.id_for_label == 'id_review_text' %}
+        <v-textarea
+          label="レビュー"
+          value="{{ field.value }}"
+          name="{% if field.id_for_label == 'id_review_text' %}review_text{% endif %}"
+        ></v-textarea>
+    {% elif field.id_for_label == 'id_airport' %}
+        <v-autocomplete
+            :items="airports"
+            v-model="reviewid"
+            item-text="name_ja"
+            item-value="id"
+            id="id_airport"
+            name="airport"
+            autocomplete
+            label="空港"
+            no-data-text="空港が見つかりません"
+        ></v-autocomplete>
+{#        {{ field }}#}
+    {% elif field.id_for_label == 'id_rate_synthesis' %}
+        <h4 class="caption">総合評価</h4>
+{#        <v-slider#}
+{#            v-model="zoom.id_rate_clean"#}
+{#            item-value="zoom.id_rate_clean"#}
+{#            :min="1"#}
+{#            :max="5"#}
+{#            step="1"#}
+{#            always-dirty#}
+{#            ticks="always"#}
+{#            tick-size="3"#}
+{#            :tick-labels="sliderlabel"#}
+{#            color="red"#}
+{#            thumb-label="always"#}
+{#            :thumb-size="24"#}
+{#            @change="slideselect($event, 'id_rate_synthesis')"#}
+{#        ></v-slider>#}
+
+        <v-layout align-center justify-start row fill-height>
+            <v-rating
+                v-model="rate.rating"
+                :length="rate.length"
+                :hover="rate.hover"
+                :readonly="rate.readonly"
+                color="red lighten-3"
+                background-color="grey lighten-1"
+                :click="slideselect('id_rate_synthesis')"
+            ></v-rating>
+            <div class="class_rate_synthesis">{$ rate.text $}</div>
+        </v-layout>
+        <p class="display-none">{{ field }}</p>
+    {% elif field.id_for_label == 'id_review_img_01' %}
+        <p>{{ field }}</p>
+    {% else %}
+        <v-text-field
+            value="{{ field.value }}"
+            {# -----------------------ラベル分岐開始----------------------- #}
+            {% if field.id_for_label == 'id_review_title' %}
+                label="タイトル"
+            {% endif %}
+            {# -----------------------ラベル分岐終了----------------------- #}
+            {# -----------------------name分岐開始----------------------- #}
+            {% if field.id_for_label == 'id_review_title' %}
+                name="review_title"
+            {% endif %}
+            {# -----------------------name分岐終了----------------------- #}
+            {# -----------------------id分岐開始----------------------- #}
+            {% if field.id_for_label == 'id_review_title' %}
+                id="id_review_title"
+            {% endif %}
+            {# -----------------------id分岐終了----------------------- #}
+            required
+        ></v-text-field>
+    {% endif %}
+
+    <div class="form-text-alert-wrapper">
+        {% for error in field.errors %}
+            <p class="form-text-alert">{{ error }}</p>
+        {% endfor %}
+    {% if field.help_text %}
+            {{ field.help_text|safe }}
+    {% endif %}
+    </div>
+{% endfor %}

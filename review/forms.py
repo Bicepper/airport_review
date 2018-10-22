@@ -23,6 +23,7 @@ class ReviewCreateForm(forms.ModelForm):
             'rate_synthesis',
             'review_title',
             'review_text',
+            'review_img_01',
         )
         # widgets = {
         #     'rate_clean': forms.TextInput(),

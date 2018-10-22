@@ -19,7 +19,7 @@ class NewReview(generic.CreateView):
     レビュー作成
     """
     model = Review
-    template_name = 'account/user_detail.html'
+    template_name = 'account/user_review.html'
     form_class = ReviewCreateForm
 
     def form_valid(self, form):

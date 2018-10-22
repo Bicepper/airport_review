@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | マイページ{% endblock %}
+
+{% block content %}
+
+    <v-navigation-drawer
+        mobile-break-point="960"
+        v-model="adminmenu"
+        absolute
+        app
+        class="user-menu elevation-2"
+    >
+        <v-list dense>
+            <v-list-group
+                prepend-icon="person"
+            >
+                <v-list-tile slot="activator">
+                    <v-list-tile-content>
+                        <v-list-tile-title>プロフィール</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile href="{% url 'account_update_email' user.pk %}">
+                    <v-list-tile-action>
+                        <v-icon>email</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Eメール</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile href="{% url 'account_update_intro' user.pk %}">
+                    <v-list-tile-action>
+                        <v-icon>notes</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>アピール</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile href="{% url 'account_update_sns' user.pk %}">
+                    <v-list-tile-action>
+                        <v-icon>share</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>SNS</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list-group>
+
+            <v-list-group
+                prepend-icon="rate_review"
+            >
+                <v-list-tile slot="activator">
+                    <v-list-tile-content>
+                        <v-list-tile-title>レビュー</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile href="{% url 'account_review_list' user.pk %}">
+                    <v-list-tile-action>
+                        <v-icon>list</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>レビュー済み</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile href="{% url 'account_review_new' user.pk %}">
+                    <v-list-tile-action>
+                        <v-icon>fiber_new</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>新規</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list-group>
+
+            <v-list-tile href="{% url 'airport' %}">
+                <v-list-tile-action>
+                    <v-icon>settings</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>設定</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+    </v-navigation-drawer>
+
+    <section class="user_detail_column_right">
+        <v-layout justify-center row wrap fill-height>
+            <v-flex xs12 sm12 md12 lg12>
+                <v-container grid-list-xl>
+                    <v-card>
+
+                        <v-card flat>
+                            <v-card-text>
+                                <v-container grid-list-xl>
+
+                                    {% if request.path|slice:"11:" == 'new_review' %}
+                                        <h3 class="title m-b-15">全ての項目を記入して投稿してください。</h3>
+                                    {% endif %}
+
+                                    <v-form method="post" novalidate>
+                                        {% csrf_token %}
+                                        {% include 'includes/user_review_form.html' %}
+                                        <v-btn class="m-t-20" type="submit" block color="primary" large>投稿</v-btn>
+                                    </v-form>
+
+                                </v-container>
+                            </v-card-text>
+                        </v-card>
+
+                    </v-card>
+                </v-container>
+            </v-flex>
+        </v-layout>
+    </section>
+
+
+
+
+{% endblock %}
