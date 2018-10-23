@@ -10,7 +10,8 @@ from airport.models import Airport
 
 
 def get_upload_path(instance, filename):
-    return os.path.join("static/img/review/{a}".format(a=instance.airport.id), filename)
+    test = instance.userid
+    return os.path.join("static/img/review/{a}/{b}".format(a=instance.airport.id, b=test), filename)
 
 
 class Review(models.Model):
@@ -21,6 +22,7 @@ class Review(models.Model):
         ('4', '4'),
         ('5', '5'),
     )
+
     user = models.ManyToManyField(User, default=None)
     airport = models.ForeignKey(Airport, on_delete=models.CASCADE, verbose_name=_('空港'))
     rate_synthesis = models.CharField(_('総合評価'), max_length=2, blank=False, choices=RATE_NUM, default='3')
@@ -35,7 +37,8 @@ class Review(models.Model):
     review_text = models.TextField(_('レビュー'), max_length=1000, blank=False, default="")
     review_img_01 = models.FileField(_('画像1'), upload_to=get_upload_path, blank=True)
 
-
+    def upload_to_userid(self, userid):
+        self.userid = userid
 
 
 

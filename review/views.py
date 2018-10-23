@@ -29,8 +29,13 @@ class NewReview(generic.CreateView):
             for a in userreviewed:
                 if obj.airport_id == a.airport_id:
                     raise ValueError('既にレビュー済みです。')
+            obj.upload_to_userid(self.request.user.id)
             obj.save()
             obj.user.add(self.request.user)
+            print('============kusakusa=====--')
+            print(self.request.user.id)
+            print('============kusakusa=====--')
+
             obj.save()
             return HttpResponseRedirect(self.get_success_url())
         except Review.DoesNotExist:
