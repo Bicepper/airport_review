@@ -10,9 +10,7 @@ from airport.models import Airport
 
 
 def get_upload_path(instance, filename):
-    instance = instance.copy()
-    obj = get_object_or_404(User, pk=instance['user'])
-    return os.path.join("static/img/review/{a}/{b}".format(a=instance.airport_id, b=obj), filename)
+    return os.path.join("static/img/review/{a}".format(a=instance.airport.id), filename)
 
 
 class Review(models.Model):

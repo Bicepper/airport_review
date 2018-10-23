@@ -7,6 +7,8 @@
         <option name="settingsModule" value="" />
         <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
+        <option name="doNotUseTestRunner" value="false" />
+        <option name="trackFilePattern" value="migrations" />
       </configuration>
     </facet>
   </component>
@@ -14,7 +16,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/test_python" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6.4 (/anaconda3/bin/python)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (airport_review)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
