@@ -1,17 +1,25 @@
 import os
+import uuid
 
 from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
-from django.shortcuts import get_object_or_404
 
 from users.models import User
 from airport.models import Airport
 
 
 def get_upload_path(instance, filename):
-    test = instance.userid
-    return os.path.join("static/img/review/{a}/{b}".format(a=instance.airport.id, b=test), filename)
+    """
+    投稿した画像のパスを'airportid/userid/'に変更
+    :param instance:
+    :param filename:
+    :return:
+    """
+    userid = instance.userid  # useridを取得し、パスに追加
+    extension = os.path.splitext(filename)[-1]  # ファイルの拡張し取得
+    new_name = str(uuid.uuid4()).replace('-', '')  # ファイル名をuuidに変更
+    return os.path.join("static/img/review/{a}/{b}".format(a=instance.airport.id, b=userid), new_name+extension)
 
 
 class Review(models.Model):
