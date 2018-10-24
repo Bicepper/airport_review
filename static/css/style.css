@@ -595,7 +595,8 @@ html {
 
 .top-search-title {
   z-index: 10;
-  transition: all  0.1s ease; }
+  transition: all  0.1s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
   @media only screen and (max-width: 599px) {
     .top-search-title {
       font-size: 34px !important; } }
@@ -627,6 +628,10 @@ html {
     .top-search-form-input {
       min-width: 400px;
       max-width: 400px; } }
+  .top-search-form-input .v-input__control .v-input__slot .v-select__slot:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f002'; }
 
 .top-search-form-search {
   height: 48px;
@@ -954,6 +959,10 @@ html {
 @media only screen and (max-width: 959px) {
   .detail-review-author-intro {
     margin: 10px 0 0 0; } }
+
+.login-header {
+  background-color: #1ba4a4;
+  padding: 80px 0; }
 
 .login-wrapper {
   margin: 60px auto; }
