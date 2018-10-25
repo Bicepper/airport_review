@@ -4,12 +4,13 @@
 
 {% block content %}
     <section class="top-count">
+        <div class="login-header"></div>
         <v-layout justify-center row wrap fill-height>
             <v-flex xs12 sm12>
-                <v-container grid-list-xl class="login-wrapper">
+                <v-container grid-list-xl class="default-wrapper default-wrapper-maxwidth">
+                    <p class="login-header-title display-1 font-weight-bold">ログイン</p>
                     <v-card>
                         <v-container grid-list-md>
-                            <p class="headline">ログイン</p>
                             <v-form method="post" novalidate>
                                 {% csrf_token %}
                                 {% include 'includes/login_form.html' %}

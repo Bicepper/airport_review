@@ -32,9 +32,9 @@ class NewReview(generic.CreateView):
             obj.upload_to_userid(self.request.user.id)
             obj.save()
             obj.user.add(self.request.user)
-            print('============kusakusa=====--')
-            print(self.request.user.id)
-            print('============kusakusa=====--')
+            # print('============kusakusa=====--')
+            # print(self.request.user.id)
+            # print('============kusakusa=====--')
 
             obj.save()
             return HttpResponseRedirect(self.get_success_url())
@@ -42,7 +42,6 @@ class NewReview(generic.CreateView):
             pass
 
     def form_invalid(self, form):
-        print('pass form_invalid')
         return self.render_to_response(self.get_context_data(form=form))
 
     def get_success_url(self):

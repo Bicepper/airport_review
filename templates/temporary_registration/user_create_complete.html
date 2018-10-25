@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
+{% block title %} | 本登録完了{% endblock %}
+
 {% block content %}
-    <section>
+    <section class="top-count">
+        <div class="login-header"></div>
         <v-layout justify-center row wrap fill-height>
             <v-flex xs12 sm12>
-                <v-container grid-list-xl class="login-wrapper">
+                <v-container grid-list-xl class="default-wrapper">
+                    <p class="login-header-title display-1 font-weight-bold">新規登録</p>
                     <v-card>
                         <v-container grid-list-md>
                             <p class="headline">本登録完了</p>

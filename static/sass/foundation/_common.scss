@@ -543,6 +543,24 @@
 }
 
 //=================================================
+// デフォルトデザイン
+//=================================================
+
+.default-wrapper{
+  margin:-160px auto 0 auto;
+  @media only screen and (min-width: 600px){
+    min-width:600px;
+    //max-width:600px;
+  }
+}
+
+.default-wrapper-maxwidth{
+  @media only screen and (min-width: 600px){
+    max-width:600px;
+  }
+}
+
+//=================================================
 // ログイン
 //=================================================
 .login-header{
@@ -552,14 +570,6 @@
 
 .login-header-title{
   color:#fff;
-}
-
-.login-wrapper{
-  margin:-160px auto 0 auto;
-  @media only screen and (min-width: 600px){
-    min-width:600px;
-    //max-width:600px;
-  }
 }
 
 .login-link{
@@ -573,7 +583,6 @@
 .login-image{
   width:100%;
 }
-
 //=================================================
 // 新規登録
 //=================================================

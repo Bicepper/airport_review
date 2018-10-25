@@ -960,18 +960,22 @@ html {
   .detail-review-author-intro {
     margin: 10px 0 0 0; } }
 
+.default-wrapper {
+  margin: -160px auto 0 auto; }
+  @media only screen and (min-width: 600px) {
+    .default-wrapper {
+      min-width: 600px; } }
+
+@media only screen and (min-width: 600px) {
+  .default-wrapper-maxwidth {
+    max-width: 600px; } }
+
 .login-header {
   background-color: #616161;
   padding: 110px 0; }
 
 .login-header-title {
   color: #fff; }
-
-.login-wrapper {
-  margin: -160px auto 0 auto; }
-  @media only screen and (min-width: 600px) {
-    .login-wrapper {
-      min-width: 600px; } }
 
 .login-link {
   list-style: none; }
