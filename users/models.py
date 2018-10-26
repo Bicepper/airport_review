@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.core.mail import send_mail
 from django.contrib.auth.base_user import AbstractBaseUser  # ユーザー完全カスタマイズ
@@ -10,6 +12,7 @@ from .manager import UserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
 
+    pid = models.UUIDField(default=uuid.uuid4, editable=False)
     email = models.EmailField(_('メールアドレス'), unique=True, blank=False)
     username = models.CharField(_('ユーザー名'), max_length=32, unique=True, blank=False, null=True)
     date_joined = models.DateTimeField(_('登録日'), auto_now_add=True)
