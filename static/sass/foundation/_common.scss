@@ -342,9 +342,13 @@
   }
 }
 
+.detail-container{
+  height:100%;
+}
+
 .detail-title{
-  position:relative;
-  width:100%;
+  //position:relative;
+  //width:100%;
   color:#fff;
   z-index:11;
 }

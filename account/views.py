@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http.request import HttpRequest
 from django.shortcuts import resolve_url
+from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import UserPassesTestMixin  # ログイン済み、かつ条件を満たしているか
@@ -25,7 +27,7 @@ class OnlyYouMixin(UserPassesTestMixin):
         スーパーユーザーは無条件で表示
         """
         user = self.request.user
-        return user.pk == self.kwargs['pk'] or user.is_superuser
+        return user.pk == self.kwargs['pid'] or user.is_superuser
 
 
 # class Account(OnlyYouMixin, generic.DetailView):
@@ -55,8 +57,14 @@ class AccountUpdateEmail(OnlyYouMixin, generic.UpdateView):
     form_class = UserUpdateEmailForm
     template_name = 'account/user_detail.html'
 
+    def get_object(self, queryset=None):  # urlでpidを利用するため、オーバーライド
+        print('===========getobjectの中身===============')
+        print(self.kwargs['pid'])
+        print('===========getobjectの中身===============')
+        return get_object_or_404(User, pid=self.kwargs['pid'])
+
     def get_success_url(self):
-        return resolve_url('account_update_email', pk=self.kwargs['pk'])
+        return resolve_url('account_update_email', pid=self.kwargs['pid'])
 
 
 class AccountUpdateIntro(OnlyYouMixin, generic.UpdateView):
@@ -64,8 +72,11 @@ class AccountUpdateIntro(OnlyYouMixin, generic.UpdateView):
     form_class = UserUpdateIntroForm
     template_name = 'account/user_detail.html'
 
+    def get_object(self, queryset=None):  # urlでpidを利用するため、オーバーライド
+        return get_object_or_404(User, pid=self.kwargs['pid'])
+
     def get_success_url(self):
-        return resolve_url('account_update_intro', pk=self.kwargs['pk'])
+        return resolve_url('account_update_intro', pid=self.kwargs['pid'])
 
 
 class AccountUpdateSocialmedia(OnlyYouMixin, generic.UpdateView):
@@ -73,5 +84,8 @@ class AccountUpdateSocialmedia(OnlyYouMixin, generic.UpdateView):
     form_class = UserUpdateSocialmediaForm
     template_name = 'account/user_detail.html'
 
+    def get_object(self, queryset=None):  # urlでpidを利用するため、オーバーライド
+        return get_object_or_404(User, pid=self.kwargs['pid'])
+
     def get_success_url(self):
-        return resolve_url('account_update_sns', pk=self.kwargs['pk'])
+        return resolve_url('account_update_sns', pid=self.kwargs['pid'])

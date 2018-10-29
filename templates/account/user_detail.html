@@ -21,7 +21,7 @@
                         <v-list-tile-title>プロフィール</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile href="{% url 'account_update_email' user.pk %}">
+                <v-list-tile href="{% url 'account_update_email' user.pid.hex %}">
                     <v-list-tile-action>
                         <v-icon>email</v-icon>
                     </v-list-tile-action>
@@ -29,7 +29,7 @@
                         <v-list-tile-title>Eメール</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile href="{% url 'account_update_intro' user.pk %}">
+                <v-list-tile href="{% url 'account_update_intro' user.pid.hex %}">
                     <v-list-tile-action>
                         <v-icon>notes</v-icon>
                     </v-list-tile-action>
@@ -37,7 +37,7 @@
                         <v-list-tile-title>アピール</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile href="{% url 'account_update_sns' user.pk %}">
+                <v-list-tile href="{% url 'account_update_sns' user.pid.hex %}">
                     <v-list-tile-action>
                         <v-icon>share</v-icon>
                     </v-list-tile-action>
@@ -55,7 +55,7 @@
                         <v-list-tile-title>レビュー</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile href="{% url 'account_review_list' user.pk %}">
+                <v-list-tile href="{% url 'account_review_list' user.pid.hex %}">
                     <v-list-tile-action>
                         <v-icon>list</v-icon>
                     </v-list-tile-action>
@@ -63,7 +63,7 @@
                         <v-list-tile-title>レビュー済み</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile href="{% url 'account_review_new' user.pk %}">
+                <v-list-tile href="{% url 'account_review_new' user.pid.hex %}">
                     <v-list-tile-action>
                         <v-icon>fiber_new</v-icon>
                     </v-list-tile-action>

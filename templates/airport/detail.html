@@ -4,27 +4,21 @@
 {% block javascript-head %}{% endblock %}
 
 {% block content %}
-    <v-layout class="detail-image" style="background-image:url(/{{ object.main_image }});" align-center justify-center column wrap>
-        <v-flex xs12 sm12 md12 class="detail-title">
-            <v-container class="detail-title-inner">
-                <h2 class="display-2">{{ object.name_ja }}</h2>
-                <h3 class="headline">{{ object.name_en }}</h3>
-{#                <v-layout class="detail-rate" align-center justify-start row fill-height>#}
-{#                    <span class="detail-rate-title">総合レート:</span>#}
-{#                    <v-rating#}
-{#                        v-model="rating"#}
-{#                        background-color="amber lighten-1"#}
-{#                        color="amber lighten-1"#}
-{#                        medium#}
-{#                        dense#}
-{#                        half-increments#}
-{#                        readonly#}
-{#                    ></v-rating>#}
-{#                    <span class="detail-rate-fraction">3/5</span>#}
-{#                </v-layout>#}
-            </v-container>
-        </v-flex>
-    </v-layout>
+    <div class="detail-image" style="background-image:url(/{{ object.main_image }});">
+        <v-container class="detail-container">
+            <v-layout align-end justify-center row wrap fill-height>
+                <v-flex xs12 sm12 md6 class="detail-title">
+                    <v-container>
+                        <h2 class="display-2">{{ object.name_ja }}</h2>
+                        <h3 class="headline">{{ object.name_en }}</h3>
+                    </v-container>
+                </v-flex>
+                <v-flex xs12 sm12 md6 class="detail-title">
+                    <p>test</p>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </div>
     <v-layout justify-center row wrap fill-height>
 
         <v-flex xs12 sm12 md12 class="">
