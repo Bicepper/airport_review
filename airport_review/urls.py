@@ -38,12 +38,14 @@ from country.api_urls import country_router
 from alliance.api_urls import alliance_router
 from airline.api_urls import airline_router
 from airport.api_urls import airport_router
+from lounge.api_urls import lounge_router
 
 api_urlpatterns = [
     path('countries/', include(country_router.urls)),
     path('alliances/', include(alliance_router.urls)),
     path('airlines/', include(airline_router.urls)),
     path('airports/', include(airport_router.urls)),
+    path('lounges/', include(lounge_router.urls)),
 ]
 
 urlpatterns = [

@@ -9,6 +9,7 @@ var app = new Vue({
             countries:[],
             alliance:[],
             airlines:[],
+            lounges:[],
             airportsselected:[],
             countryselected:[],
             allianceselected:[],
@@ -136,6 +137,13 @@ var app = new Vue({
                 self.airports.push(response.data[i]);
             }
         });
+
+        axios.get('/api/1.0/lounges/').then(function(response){
+            for(var i=0; i < response.data.length; i++){
+                self.lounges.push(response.data[i]);
+            }
+        });
+
         //画面遷移したときのretainした値を取得
         var rating_val = Number($('#id_rate_synthesis').val());
         self.rate.rating = rating_val;
