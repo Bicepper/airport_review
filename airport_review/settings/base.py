@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'alliance',
     'airline',
     'review',
+    'lounge',
     'rest_framework',
 ]
 

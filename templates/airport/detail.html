@@ -7,14 +7,9 @@
     <div class="detail-image" style="background-image:url(/{{ object.main_image }});">
         <v-container class="detail-container">
             <v-layout align-end justify-center row wrap fill-height>
-                <v-flex xs12 sm12 md6 class="detail-title">
-                    <v-container>
-                        <h2 class="display-2">{{ object.name_ja }}</h2>
-                        <h3 class="headline">{{ object.name_en }}</h3>
-                    </v-container>
-                </v-flex>
-                <v-flex xs12 sm12 md6 class="detail-title">
-                    <p>test</p>
+                <v-flex xs12 sm12 md12 class="detail-title">
+                    <h2 class="display-2">{{ object.name_ja }}</h2>
+                    <h3 class="headline">{{ object.name_en }}</h3>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -38,13 +33,13 @@
                         </div>
 
                         <div class="skillbar" data-percent="8.2">
-                            <span class="skillbar-title" style="background:#00C853;">施設・設備</span>
+                            <span class="skillbar-title" style="background:#00C853;">設備</span>
                             <p class="skillbar-bar" style="background:#69F0AE;"></p>
                             <span class="skill-bar-percent"></span>
                         </div>
 
                         <div class="skillbar" data-percent="10.0">
-                            <span class="skillbar-title" style="background:#00C853;">ラウンジ</span>
+                            <span class="skillbar-title" style="background:#00C853;">食事</span>
                             <p class="skillbar-bar" style="background:#69F0AE;"></p>
                             <span class="skill-bar-percent"></span>
                         </div>
@@ -63,26 +58,108 @@
                     </v-flex>
                 </v-layout>
 
-                <v-layout align-center justify-space-between row wrap fill-height class="detail-sort">
-                    <v-flex xs12 sm12 md2 d-flex>
-                        <v-select
-                            v-model="detailsortselect"
-                            :items="detailsortlist"
-                            label="並び替え"
-                            item-text="name"
-                            item-value="abbr"
-                            return-object
-                        ></v-select>
+                <v-layout align-start justify-space-between row wrap fill-height class="detail-sort">
+                    <v-flex xs12 sm4 md4>
+                        <h5 class="subheading font-weight-bold">評価</h5>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="5.0"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="4.0"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="3.0"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="2.0"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="1.0"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
                     </v-flex>
-                    <v-flex xs12 sm12 md3 d-flex>
-                        <v-switch
-                            :label="`画像・動画投稿あり`"
-                            v-model="detailcheckimage"
-                            color="primary"
-                            class="detail-sort-image"
-                        ></v-switch>
+                    <v-flex xs12 sm4 md4>
+                        <h5 class="subheading font-weight-bold">ソート</h5>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="参考になった順"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="新着順"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
+                    </v-flex>
+                    <v-flex xs12 sm4 md4>
+                        <h5 class="subheading font-weight-bold">その他</h5>
+                        <v-checkbox
+                            v-model="ex4"
+                            label="写真がある投稿のみ"
+                            color="red"
+                            value="red"
+                            hide-details
+                            class="m-t-0"
+                        ></v-checkbox>
                     </v-flex>
                 </v-layout>
+
+
+
+
+
+
+
+{#                <v-layout align-center justify-space-between row wrap fill-height class="detail-sort">#}
+{#                    <v-flex xs12 sm12 md2 d-flex>#}
+{#                        <v-select#}
+{#                            v-model="detailsortselect"#}
+{#                            :items="detailsortlist"#}
+{#                            label="並び替え"#}
+{#                            item-text="name"#}
+{#                            item-value="abbr"#}
+{#                            return-object#}
+{#                        ></v-select>#}
+{#                    </v-flex>#}
+{#                    <v-flex xs12 sm12 md3 d-flex>#}
+{#                        <v-switch#}
+{#                            :label="`画像・動画投稿あり`"#}
+{#                            v-model="detailcheckimage"#}
+{#                            color="primary"#}
+{#                            class="detail-sort-image"#}
+{#                        ></v-switch>#}
+{#                    </v-flex>#}
+{#                </v-layout>#}
 
                 <v-layout align-start justify-space-between row wrap fill-height class="detail-review-review">
                     <v-flex xs12 sm12 md3 class="">

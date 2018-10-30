@@ -11,10 +11,6 @@ class Airport(models.Model):
     icao = models.CharField(_('ICAO'), max_length=4, blank=False, default='')
     coordinate_latitude = models.FloatField(_('座標：緯度'), blank=False, default=0)
     coordinate_longitude = models.FloatField(_('座標：経度'), blank=False, default=0)
-    open_time = models.TimeField(_('営業時間：開始'), blank=True)
-    close_time = models.TimeField(_('営業時間：終了'), blank=True)
-    num_terminals = models.IntegerField(_('ターミナル数'), blank=False, default=0)
-    area_breadth = models.CharField(_('敷地面積'), max_length=255, blank=True, default='')
     url = models.URLField(_('WebサイトURL'), blank=True, default='')
     country = models.ForeignKey(Country, on_delete=models.CASCADE, verbose_name=_('国'),
                                 null=False, default='')
