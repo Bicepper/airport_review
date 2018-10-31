@@ -50,10 +50,8 @@
                                     :items="alliance"
                                     item-text="name_ja"
                                     label="アライアンス"
+                                    item-value="id"
                                     autocomplete
-                                    chips
-                                    close
-                                    multiple
                                     no-data-text="アライアンスが見つかりません"
                                 ></v-autocomplete>
                             </v-flex>
@@ -62,10 +60,9 @@
                                     :items="airlines"
                                     item-text="name_ja"
                                     label="運航エアライン"
+                                    item-value="id"
                                     autocomplete
-                                    chips
-                                    close
-                                    multiple
+                                    v-model="filterAirlines"
                                     no-data-text="エアラインが見つかりません"
                                 ></v-autocomplete>
                             </v-flex>
@@ -78,11 +75,11 @@
                         <v-container grid-list-md class="airport-list-container">
                             <v-layout row wrap class="airport-list">
                                 <v-flex
-                                  v-for="airport in filteredData"
+                                  v-for="airport in filteredLoungeData"
                                   :key="airport.id"
                                   class="airport-list-item"
                                   item-value="airport.id"
-                                  v-model="filteredData"
+                                  v-model="filteredLoungeData"
                                 >
                                     <v-card>
                                         <v-img
@@ -99,7 +96,10 @@
                                             >
                                                 <v-layout fill-height class="airport-list-item-view-text">
                                                     <v-flex xs12 align-end flexbox>
-                                                        <span class="title white--text" v-text="airport.name_ja"></span>
+                                                        <span class="title white--text">
+                                                            <span v-text="airport.airport.name_ja"></span>
+                                                            <span v-text="airport.airline.name_ja" class="airport-list-item-view-text-airlinename"></span>
+                                                        </span>
                                                     </v-flex>
                                                 </v-layout>
                                             </v-container>

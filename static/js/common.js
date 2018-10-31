@@ -13,6 +13,7 @@ var app = new Vue({
             airportsselected:[],
             countryselected:[],
             allianceselected:[],
+            airlineselected:[],
             sortitems:[],
             rating:3,
             agreement: false,
@@ -54,7 +55,7 @@ var app = new Vue({
     },
     computed: {
         filterAirport: {
-            get: function(x) {
+            get: function(x){
                 return this.airportsselected;
             },
             set: function(y){
@@ -62,26 +63,30 @@ var app = new Vue({
             }
         },
         filterCountry: {
-            get: function(x) {
+            get: function(x){
                 return this.countryselected;
             },
             set: function(y){
                 this.countryselected = y;
             }
         },
+        filterAirlines:{
+            get: function(x){
+                return this.airlineselected;
+            },
+            set: function(y){
+                this.airlineselected = y;
+            }
+        },
+        filterAlliance:{
+            get: function(x){
+                return this.allianceselected;
+            },
+            set: function(y){
+                this.allianceselected = y;
+            }
+        },
         filteredData() {
-                // let options = this.airports;
-                // console.log(options);
-                // if (typeof(this.airlinesselected) !== 'number'){
-                //     return options;
-                // }else{
-                //     //optionsで全て見て回る（pythonのmapみたいな感じ）
-                //     return options.filter(o => o.id === this.airlinesselected)
-                // }
-
-                // let self = this.airports;
-                // console.log(self);
-                // let options = this.airports;
             if (this.airportsselected.length === 0 && this.countryselected.length === 0 && this.allianceselected.length === 0) {
                 return this.airports;
             } else {
@@ -99,6 +104,38 @@ var app = new Vue({
                             return post.country_id === self.countryselected;
                         }else{
                             return self.airports;
+                        }
+                    })
+            }
+        },
+        filteredLoungeData() {
+            if (this.airportsselected.length === 0 &&
+                this.countryselected.length === 0 &&
+                this.allianceselected.length === 0 &&
+                this.airlineselected.length === 0){
+                return this.lounges;
+            } else {
+                var self = this;
+                return self.lounges
+                    .filter(function(post){
+                        if (self.airportsselected.length !== 0){
+                            return post.airport.id === self.airportsselected;
+                        }else{
+                            return self.lounges;
+                        }
+                    })
+                    .filter(function(post){
+                        if (self.countryselected.length !== 0){
+                            return post.airport.country_id === self.countryselected;
+                        }else{
+                            return self.lounges;
+                        }
+                    })
+                    .filter(function(post){
+                        if (self.airlineselected.length !== 0){
+                            return post.airline.id === self.airlineselected;
+                        }else{
+                            return self.lounges;
                         }
                     })
             }
@@ -165,6 +202,7 @@ var app = new Vue({
         clear: function() {
             this.airportsselected = '';
             this.countryselected = '';
+            this.airlineselected = '';
         },
         remove (item) {
             const index = this.alliance.indexOf(item.name);

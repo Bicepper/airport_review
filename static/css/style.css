@@ -721,6 +721,10 @@ html {
     -o-transition-timing-function: ease;
     -ms-transition-timing-function: ease;
     transition-timing-function: ease; }
+  .airport-list-item-view-text .airport-list-item-view-text-airlinename:before {
+    content: '('; }
+  .airport-list-item-view-text .airport-list-item-view-text-airlinename:after {
+    content: ')'; }
 
 .airport-list-item-link .v-image__image--cover {
   -webkit-transition: 0.3s;

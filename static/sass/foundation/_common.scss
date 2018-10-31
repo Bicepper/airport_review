@@ -242,6 +242,14 @@
     @include transition(0.3s);
     @include transition-timing-function(ease);
   }
+  .airport-list-item-view-text-airlinename{
+    &:before{
+      content:'(';
+    }
+    &:after{
+      content:')';
+    }
+  }
 }
 
 .airport-list-item-link{
