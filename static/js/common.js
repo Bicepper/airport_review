@@ -138,6 +138,13 @@ var app = new Vue({
                             return self.lounges;
                         }
                     })
+                    .filter(function(post){
+                        if (self.allianceselected.length !== 0){
+                            return post.alliance.id === self.allianceselected;
+                        }else{
+                            return self.lounges;
+                        }
+                    })
             }
         },
         reviewid:{

@@ -8,8 +8,8 @@
         <v-container class="detail-container">
             <v-layout align-end justify-center row wrap fill-height>
                 <v-flex xs12 sm12 md12 class="detail-title">
-                    <h2 class="display-2">{{ object.name_ja }}</h2>
-                    <h3 class="headline">{{ object.name_en }}</h3>
+                    <h2 class="display-1">{{ object.airport.name_ja }}</h2>
+                    <h3 class="display-1">{{ object.airline.name_ja }}</h3>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -58,100 +58,120 @@
                     </v-flex>
                 </v-layout>
 
-                <v-layout align-start justify-space-between row wrap fill-height class="detail-sort">
-                    <v-flex xs12 sm4 md4>
+                <v-layout align-space-around justify-space-around row wrap fill-height class="detail-sort">
+                    <v-flex xs12 sm4 md4 class="detail-sort-segment">
                         <h5 class="subheading font-weight-bold">評価</h5>
-                        <v-checkbox
-                            label="5.0"
-                            color="red"
-                            value="red"
-                            hide-details
-                            class="m-t-0"
-                        ></v-checkbox>
-                        <v-checkbox
-                            label="4.0"
-                            color="red"
-                            value="red"
-                            hide-details
-                            class="m-t-0"
-                        ></v-checkbox>
-                        <v-checkbox
-                            label="3.0"
-                            color="red"
-                            value="red"
-                            hide-details
-                            class="m-t-0"
-                        ></v-checkbox>
-                        <v-checkbox
-                            label="2.0"
-                            color="red"
-                            value="red"
-                            hide-details
-                            class="m-t-0"
-                        ></v-checkbox>
-                        <v-checkbox
-                            label="1.0"
-                            color="red"
-                            value="red"
-                            hide-details
-                            class="m-t-0"
-                        ></v-checkbox>
+                        <v-layout justify-start column>
+                            <v-layout align-start justify-space-between row>
+                                <v-checkbox
+                                    label="5.0"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    class="m-t-0 p-t-0"
+                                ></v-checkbox>
+                                <v-progress-linear
+                                    color="success"
+                                    height="15"
+                                    value="100"
+                                    class="detail-sort-bar"
+                                ></v-progress-linear>
+                                <div>(30)</div>
+                            </v-layout>
+                            <v-layout align-start justify-start row fill-height>
+                                <v-checkbox
+                                    label="4.0"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    class="m-t-0 p-t-0"
+                                ></v-checkbox>
+                                <v-progress-linear
+                                    color="success"
+                                    height="15"
+                                    value="30"
+                                    class="detail-sort-bar"
+                                ></v-progress-linear>
+                                <div>(30)</div>
+                            </v-layout>
+                            <v-layout align-start justify-start row fill-height>
+                                <v-checkbox
+                                    label="3.0"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    class="m-t-0 p-t-0"
+                                ></v-checkbox>
+                                <v-progress-linear
+                                    color="success"
+                                    height="15"
+                                    value="30"
+                                    class="detail-sort-bar"
+                                ></v-progress-linear>
+                                <div>(30)</div>
+                            </v-layout>
+                            <v-layout align-start justify-start row fill-height>
+                                <v-checkbox
+                                    label="2.0"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    class="m-t-0 p-t-0"
+                                ></v-checkbox>
+                                <v-progress-linear
+                                    color="success"
+                                    height="15"
+                                    value="30"
+                                    class="detail-sort-bar"
+                                ></v-progress-linear>
+                                <div>(30)</div>
+                            </v-layout>
+                            <v-layout align-start justify-start row fill-height>
+                                <v-checkbox
+                                    label="1.0"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    class="m-t-0 p-t-0"
+                                ></v-checkbox>
+                                <v-progress-linear
+                                    color="success"
+                                    height="15"
+                                    value="30"
+                                    class="detail-sort-bar"
+                                ></v-progress-linear>
+                                <div>(30)</div>
+                            </v-layout>
+                        </v-layout>
                     </v-flex>
-                    <v-flex xs12 sm4 md4>
+                    <v-flex xs12 sm4 md4 class="detail-sort-segment">
                         <h5 class="subheading font-weight-bold">ソート</h5>
                         <v-checkbox
                             label="参考になった順"
                             color="red"
                             value="red"
                             hide-details
-                            class="m-t-0"
+                            class="m-t-0 p-t-0"
                         ></v-checkbox>
                         <v-checkbox
                             label="新着順"
                             color="red"
                             value="red"
                             hide-details
-                            class="m-t-0"
+                            class="m-t-0 p-t-0"
                         ></v-checkbox>
                     </v-flex>
-                    <v-flex xs12 sm4 md4>
+                    <v-flex xs12 sm4 md4 class="detail-sort-segment">
                         <h5 class="subheading font-weight-bold">その他</h5>
                         <v-checkbox
                             label="写真がある投稿のみ"
                             color="red"
                             value="red"
                             hide-details
-                            class="m-t-0"
+                            class="m-t-0 p-t-0"
                         ></v-checkbox>
                     </v-flex>
                 </v-layout>
-
-
-
-
-
-
-
-{#                <v-layout align-center justify-space-between row wrap fill-height class="detail-sort">#}
-{#                    <v-flex xs12 sm12 md2 d-flex>#}
-{#                        <v-select#}
-{#                            v-model="detailsortselect"#}
-{#                            :items="detailsortlist"#}
-{#                            label="並び替え"#}
-{#                            item-text="name"#}
-{#                            item-value="abbr"#}
-{#                            return-object#}
-{#                        ></v-select>#}
-{#                    </v-flex>#}
-{#                    <v-flex xs12 sm12 md3 d-flex>#}
-{#                        <v-switch#}
-{#                            :label="`画像・動画投稿あり`"#}
-{#                            v-model="detailcheckimage"#}
-{#                            color="primary"#}
-{#                            class="detail-sort-image"#}
-{#                        ></v-switch>#}
-{#                    </v-flex>#}
-{#                </v-layout>#}
 
                 <v-layout align-start justify-space-between row wrap fill-height class="detail-review-review">
                     <v-flex xs12 sm12 md3 class="">
@@ -314,14 +334,14 @@
         });
 
         $('.circle').circleProgress({
-            value: 0.5,
+            value: 1,
             size: 120,
             startAngle:Math.PI / -2,
             fill: {
                 gradient: ["red", "orange"]
             }
         }).on('circle-animation-progress', function(event, progress, stepValue) {
-            $(this).find('strong').html((Math.floor(stepValue * 100) / 10).toFixed(1));
+            $(this).find('strong').html((Math.floor(stepValue * 100) / 20).toFixed(1));
         });
     </script>
 {% endblock %}

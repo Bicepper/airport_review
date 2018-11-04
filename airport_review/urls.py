@@ -26,13 +26,13 @@ from users.views import PasswordReset
 from users.views import PasswordResetDone
 from users.views import PasswordResetConfirm
 from users.views import PasswordResetComplete
-from airport.views import list
-from airport.views import Detail
 from account.views import AccountUpdateEmail
 from account.views import AccountUpdateIntro
 from account.views import AccountUpdateSocialmedia
 from review.views import NewReview
 from review.views import ListReview
+from lounge.views import LoungeList
+from lounge.views import LoungeDetail
 
 from country.api_urls import country_router
 from alliance.api_urls import alliance_router
@@ -55,8 +55,8 @@ urlpatterns = [
     path('signup/', UserCreate.as_view(), name='signup'),
     path('signup/done/', UserCreateDone.as_view(), name='create_done'),
     path('signup/complete/<token>/', UserCreateComplete.as_view(), name='create_complete'),
-    path('airport/', list, name='airport'),
-    path('airport/<int:pk>/', Detail.as_view(), name='airport_detail'),
+    path('lounge/', LoungeList, name='lounge'),
+    path('lounge/<int:pk>/', LoungeDetail.as_view(), name='lounge_detail'),
     path('login/', auth_views.LoginView.as_view(template_name='register/login.html'), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('reset/', PasswordReset.as_view(), name='password_reset'),

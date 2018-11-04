@@ -14,6 +14,7 @@ class LoungeSerializers(serializers.ModelSerializer):
     main_image = serializers.SerializerMethodField()
     airport = serializers.SerializerMethodField()
     airline = serializers.SerializerMethodField()
+    alliance = serializers.SerializerMethodField()
 
     class Meta:
         model = Lounge
@@ -24,6 +25,7 @@ class LoungeSerializers(serializers.ModelSerializer):
             'name_en',
             'airport',
             'airline',
+            'alliance',
             'main_image',
         )
 
@@ -32,9 +34,16 @@ class LoungeSerializers(serializers.ModelSerializer):
         return airport_abstruct
 
     def get_airline(self, obj):
-        airline_abstruct = AirlineSerializers(Airline.objects.all().get(name_ja=obj.airline)).data
-        # alliance_abstruct = AllianceSerializers(Alliance.objects.get(id=airline_abstruct['id'])).data
+        airline_abstruct = AirlineSerializers(Airline.objects.get(name_ja=obj.airline)).data
         return airline_abstruct
+
+    def get_alliance(self, obj):
+        try:
+            alliance_abstruct = AllianceSerializers(Alliance.objects.get(id=obj.airline.member_alliance_id)).data
+            return alliance_abstruct
+        except:
+            alliance_abstruct = None
+            return alliance_abstruct
 
     def get_main_image(self, obj):
         return str('/{a}'.format(a=obj.main_image))

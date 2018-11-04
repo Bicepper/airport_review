@@ -10,4 +10,5 @@ class AirlineSerializers(serializers.ModelSerializer):
             'id',
             'name_ja',
             'name_en',
+            'member_alliance_id',
         )

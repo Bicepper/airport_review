@@ -5,7 +5,7 @@
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down head-nav-menu">
         <v-btn flat class="head-nav-menu-item{% if request.path == '/' %} active{% endif %}" href="{% url 'home' %}">Home</v-btn>
-        <v-btn flat class="head-nav-menu-item{% if request.path|slice:'9' == '/airport/' %} active{% endif %}" href="{% url 'airport' %}">Airport</v-btn>
+        <v-btn flat class="head-nav-menu-item{% if request.path|slice:'9' == '/lounge/' %} active{% endif %}" href="{% url 'lounge' %}">Lounge</v-btn>
         <v-btn flat class="head-nav-menu-item">News</v-btn>
         {% if user.is_authenticated %}
             <v-btn flat class="head-nav-menu-item{% if request.path|slice:':9' == '/account/' %} active{% endif %}" href="{% url 'account_update_email' user.pid.hex %}">Mypage</v-btn>
@@ -28,7 +28,7 @@
                 <v-list-tile-title>HOME</v-list-tile-title>
             </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile href="{% url 'airport' %}">
+        <v-list-tile href="{% url 'lounge' %}">
             <v-list-tile-action>
                 <v-icon>local_airport</v-icon>
             </v-list-tile-action>
