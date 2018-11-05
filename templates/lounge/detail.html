@@ -23,9 +23,13 @@
                     <v-flex xs12 sm12 md4 class="detail-rate-circle">
                         <p class="detail-rate-circle-total">総合</p>
                         <div class="circle"><strong></strong></div>
-                        <div>2 レビュー</div>
+                        <div class="detail-rate-review-count">2 レビュー</div>
                         <div>
-                            <v-btn color="error" dark large>Large Button</v-btn>
+                            {% if user.is_authenticated %}
+                                <v-btn color="error m-b-10" dark large href="{% url 'review_new' lounge.id user.pid.hex %}">レビューを書く</v-btn>
+                            {% else %}
+                                <v-btn color="error m-b-10" dark large href="{% url 'login' %}">レビューを書く</v-btn>
+                            {% endif %}
                         </div>
                     </v-flex>
                     <v-flex xs12 sm12 md8 class="">

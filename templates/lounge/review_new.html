@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block javascript-head %}{% endblock %}
+
+{% block content %}
+    <div class="detail-image" style="background-image:url(/{{ lounge_detail.main_image }});">
+        <v-container class="detail-container">
+            <v-layout align-end justify-center row wrap fill-height>
+                <v-flex xs12 sm12 md12 class="detail-title">
+                    <h2 class="display-1">{{ lounge_detail.airport.name_ja }}</h2>
+                    <h3 class="display-1">{{ lounge_detail.airline.name_ja }}</h3>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </div>
+    <v-layout justify-center row wrap fill-height>
+
+        <v-flex xs12 sm12 md12 class="">
+
+            <v-container>
+                <v-layout align-center justify-space-between row wrap fill-height>
+                    <v-flex xs12 sm12 md12 class="">
+                        <v-form method="post" novalidate enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% include 'includes/user_review_form.html' %}
+                            <v-btn class="m-t-20" type="submit" block color="primary" large>投稿</v-btn>
+                        </v-form>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+
+        </v-flex>
+    </v-layout>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/skill.bars.jquery.js' %}"></script>
+    <script src="{% static 'js/circle-progress.min.js' %}"></script>
+    <script>
+        $('.skillbar').skillBars({
+            from: 0,
+            speed: 2000,
+            interval: 100,
+        });
+
+        $('.circle').circleProgress({
+            value: 1,
+            size: 120,
+            startAngle:Math.PI / -2,
+            fill: {
+                gradient: ["red", "orange"]
+            }
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('strong').html((Math.floor(stepValue * 100) / 20).toFixed(1));
+        });
+    </script>
+{% endblock %}

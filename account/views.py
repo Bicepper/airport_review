@@ -23,11 +23,11 @@ class OnlyYouMixin(UserPassesTestMixin):
 
     def test_func(self):
         """
-        現在ログインしているユーザーのPKと、表示しているマイページのPKが同一か判定
+        現在ログインしているユーザーのPKと、表示しているマイページのPIDが同一か判定
         スーパーユーザーは無条件で表示
         """
         user = self.request.user
-        return user.pk == self.kwargs['pid'] or user.is_superuser
+        return user.pid.hex == self.kwargs['pid'] or user.is_superuser
 
 
 # class Account(OnlyYouMixin, generic.DetailView):
@@ -58,9 +58,6 @@ class AccountUpdateEmail(OnlyYouMixin, generic.UpdateView):
     template_name = 'account/user_detail.html'
 
     def get_object(self, queryset=None):  # urlでpidを利用するため、オーバーライド
-        print('===========getobjectの中身===============')
-        print(self.kwargs['pid'])
-        print('===========getobjectの中身===============')
         return get_object_or_404(User, pid=self.kwargs['pid'])
 
     def get_success_url(self):

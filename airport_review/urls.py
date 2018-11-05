@@ -57,6 +57,7 @@ urlpatterns = [
     path('signup/complete/<token>/', UserCreateComplete.as_view(), name='create_complete'),
     path('lounge/', LoungeList, name='lounge'),
     path('lounge/<int:pk>/', LoungeDetail.as_view(), name='lounge_detail'),
+    path('lounge/<int:pk>/review/<slug:pid>/', NewReview.as_view(), name='review_new'),
     path('login/', auth_views.LoginView.as_view(template_name='register/login.html'), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('reset/', PasswordReset.as_view(), name='password_reset'),
@@ -68,6 +69,6 @@ urlpatterns = [
     path('account/<slug:pid>/email', AccountUpdateEmail.as_view(), name='account_update_email'),
     path('account/<slug:pid>/intro', AccountUpdateIntro.as_view(), name='account_update_intro'),
     path('account/<slug:pid>/sns', AccountUpdateSocialmedia.as_view(), name='account_update_sns'),
-    path('account/<slug:pid>/new_review', NewReview.as_view(), name='account_review_new'),
+    # path('account/<slug:pid>/new_review', NewReview.as_view(), name='account_review_new'),
     path('account/<slug:pid>/list_review', ListReview.as_view(), name='account_review_list'),
 ]

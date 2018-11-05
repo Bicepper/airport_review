@@ -210,6 +210,7 @@ var app = new Vue({
             this.airportsselected = '';
             this.countryselected = '';
             this.airlineselected = '';
+            this.allianceselected = '';
         },
         remove (item) {
             const index = this.alliance.indexOf(item.name);

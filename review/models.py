@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from users.models import User
 from airport.models import Airport
+from lounge.models import Lounge
 
 
 def get_upload_path(instance, filename):
@@ -32,7 +33,7 @@ class Review(models.Model):
     )
 
     user = models.ManyToManyField(User, default=None)
-    airport = models.ForeignKey(Airport, on_delete=models.CASCADE, verbose_name=_('空港'))
+    lounge = models.ForeignKey(Lounge, on_delete=models.CASCADE, verbose_name=_('ラウンジ'), default=None)
     rate_synthesis = models.CharField(_('総合評価'), max_length=2, blank=False, choices=RATE_NUM, default='3')
     # rate_clean = models.CharField(_('清潔さ'), max_length=2, blank=False, choices=RATE_NUM, default=None)
     # rate_facility = models.CharField(_('施設・設備'), max_length=2, blank=False, choices=RATE_NUM, default=None)
