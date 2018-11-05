@@ -39,6 +39,7 @@ from alliance.api_urls import alliance_router
 from airline.api_urls import airline_router
 from airport.api_urls import airport_router
 from lounge.api_urls import lounge_router
+from review.api_urls import review_router
 
 api_urlpatterns = [
     path('countries/', include(country_router.urls)),
@@ -46,6 +47,7 @@ api_urlpatterns = [
     path('airlines/', include(airline_router.urls)),
     path('airports/', include(airport_router.urls)),
     path('lounges/', include(lounge_router.urls)),
+    path('reviews/', include(review_router.urls)),
 ]
 
 urlpatterns = [

@@ -10,6 +10,7 @@ var app = new Vue({
             alliance:[],
             airlines:[],
             lounges:[],
+            reviews:[],
             airportsselected:[],
             countryselected:[],
             allianceselected:[],
@@ -186,6 +187,12 @@ var app = new Vue({
             for(var i=0; i < response.data.length; i++){
                 self.lounges.push(response.data[i]);
             }
+        });
+
+        axios.get('/api/1.0/reviews/').then(function(response){
+           for(var i=0; i < response.data.length; i++){
+               self.reviews.push(response.data[i]);
+           }
         });
 
         //画面遷移したときのretainした値を取得
