@@ -6,7 +6,8 @@ from users.serializers import UserSerializers
 
 
 class ReviewSerializers(serializers.ModelSerializer):
-    user = serializers.RelatedField(read_only=True)
+    # user = serializers.RelatedField(read_only=True)
+    userinfo = serializers.SerializerMethodField()
 
     class Meta:
         model = Review
@@ -18,13 +19,13 @@ class ReviewSerializers(serializers.ModelSerializer):
             'review_title',
             'review_text',
             'review_img_01',
-            'user',
+            'userinfo',
         )
 
-    # def get_userid(self, obj):
-    #     try:
-    #         user_abstruct = UserSerializers(User.objects.get(id=Review.objects.get(id=obj.id))).data
-    #         return user_abstruct
-    #     except():
-    #         user_abstruct = None
-    #         return user_abstruct
+    def get_userinfo(self, obj):
+        try:
+            user_abstruct = UserSerializers(User.objects.get(id=Review.objects.get(id=obj.id).id)).data
+            return user_abstruct
+        except():
+            user_abstruct = None
+            return user_abstruct
