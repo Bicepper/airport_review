@@ -23,7 +23,7 @@
                     <v-flex xs12 sm12 md4 class="detail-rate-circle">
                         <p class="detail-rate-circle-total">総合</p>
                         <div class="circle"><strong></strong></div>
-                        <div class="detail-rate-review-count">2 レビュー</div>
+                        <div class="detail-rate-review-count"><span class="detail-rate-review-count-num"></span> レビュー</div>
                         <div>
                             {% if user.is_authenticated %}
                                 <v-btn color="error m-b-10" dark large href="{% url 'review_new' lounge.id user.pid.hex %}">レビューを書く</v-btn>
@@ -180,10 +180,18 @@
                     </v-flex>
                 </v-layout>
 
-                <v-layout align-start justify-space-between row wrap fill-height class="detail-review-review">
+                <v-layout
+                        v-for="review in reviews"
+                        :key="review.id"
+                        align-start
+                        justify-space-between
+                        row
+                        wrap
+                        fill-height
+                        class="detail-review-review">
                     <v-flex xs12 sm12 md3 class="">
                         <v-layout align-center justify-center column fill-height class="">
-                            <v-flex xs12 sm12 md12 lg12><span class="detail-review-totalrate-sub-num">3.5</span></v-flex>
+                            <v-flex xs12 sm12 md12 lg12><span class="detail-review-totalrate-sub-num" v-text="review.rate_synthesis"></span></v-flex>
                             <v-flex xs12 sm12 md12 lg12>
                                 <v-avatar color="grey lighten-4" class="detail-review-author">
                                     <img src="https://cdn.vuetifyjs.com/images/john.jpg" class="detail-review-author-image" alt="avatar">
@@ -191,16 +199,31 @@
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 class="">
                                 <v-layout align-center justify-center column fill-height class="">
-                                    <v-flex xs12 sm12 md12 lg12 class="detail-review-author-name">テスト太郎</v-flex>
+                                    <v-flex xs12 sm12 md12 lg12 class="detail-review-author-name" v-text="review.user[0].username"></v-flex>
                                     <v-flex xs12 sm12 md12 lg12 class="">
                                         <div class="detail-review-author-social">
-                                            <v-btn icon class="detail-review-author-social-button light-blue--text">
+                                            <v-btn
+                                                icon
+                                                class="detail-review-author-social-button light-blue--text"
+                                                :href="review.user[0].twitter"
+                                                target="_blank"
+                                                :disabled="review.user[0].twitter == ''">
                                                 <v-icon small>fab fa-twitter</v-icon>
                                             </v-btn>
-                                            <v-btn icon class="detail-review-author-social-button blue--text text--darken-4">
+                                            <v-btn
+                                                icon
+                                                class="detail-review-author-social-button blue--text text--darken-4"
+                                                :href="review.user[0].facebook"
+                                                target="_blank"
+                                                :disabled="review.user[0].facebook == ''">
                                                 <v-icon small>fab fa-facebook-f</v-icon>
                                             </v-btn>
-                                            <v-btn icon class="detail-review-author-social-button red--text">
+                                            <v-btn
+                                                icon
+                                                class="detail-review-author-social-button red--text"
+                                                :href="review.user[0].youtube"
+                                                target="_blank"
+                                                :disabled="review.user[0].youtube == ''">
                                                 <v-icon small>fab fa-youtube</v-icon>
                                             </v-btn>
                                         </div>
@@ -210,115 +233,59 @@
                         </v-layout>
                     </v-flex>
                     <v-flex xs12 sm12 md9 class="detail-review-right">
-                        <h4 class="title font-weight-bold detail-review-header-inner">タイトルテスト　タイトル</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h4 class="title font-weight-bold detail-review-header-inner" v-text="review.review_title"></h4>
+                        <p v-text="review.review_text"></p>
                         <v-flex xs12 sm12 md12>
                             <v-container class="detail-review-gallery" grid-list-sm fluid>
-                              <v-layout row wrap>
-                                <v-flex
-                                  v-for="n in 6"
-                                  :key="n"
-                                  xs3
-                                  sm2
-                                  d-flex
-                                >
-                                  <v-card flat tile class="d-flex">
-                                    <v-img
-                                      :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                                      :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-                                      aspect-ratio="1"
-                                      class="grey lighten-2"
+                                <v-layout row wrap>
+                                    <v-flex
+                                        v-for="(n, i) in review.imglen"
+                                        :key="i"
+                                        xs3
+                                        sm2
+                                        d-flex
                                     >
-                                      <v-layout
-                                        slot="placeholder"
-                                        fill-height
-                                        align-center
-                                        justify-center
-                                        ma-0
-                                      >
-                                        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                                      </v-layout>
-                                    </v-img>
-                                  </v-card>
-                                </v-flex>
-                              </v-layout>
-                            </v-container>
-                        </v-flex>
-                        <v-layout align-start justify-space-between row fill-height>
-                            <div>投稿日:<span class="">2018年9月23日 9:33</span></div>
-                            <v-btn outline color="indigo" class="m-t-0 m-r-0 m-b-0 m-l-0">参考になった</v-btn>
-                        </v-layout>
-                    </v-flex>
-                </v-layout>
+                                        <v-card flat tile class="d-flex">
+                                            <v-img
+                                                :src="review.imglist[i]"
+                                                :lazy-src="review.imglist[i]"
+                                                aspect-ratio="1"
+                                                class="grey lighten-2"
+                                                @click="review.dialog = true"
+                                            >
+                                                <v-layout
+                                                    slot="placeholder"
+                                                    fill-height
+                                                    align-center
+                                                    justify-center
+                                                    ma-0
+                                                >
+                                                    <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                                </v-layout>
+                                            </v-img>
+                                        </v-card>
+                                    </v-flex>
 
-                <v-layout align-start justify-start row wrap fill-height class="detail-review-review">
-                    <v-flex xs12 sm12 md3 class="">
-                        <v-layout align-center justify-center column fill-height class="">
-                            <v-flex xs12 sm12 md12 lg12><span class="detail-review-totalrate-sub-num">3.5</span></v-flex>
-                            <v-flex xs12 sm12 md12 lg12 class="">
-                                <v-avatar color="grey lighten-4" class="detail-review-author">
-                                    <img src="https://cdn.vuetifyjs.com/images/john.jpg" class="detail-review-author-image" alt="avatar">
-                                </v-avatar>
-                            </v-flex>
-                            <v-flex xs12 sm12 md12 lg12 class="">
-                                <v-layout align-center justify-center column fill-height class="">
-                                    <v-flex xs12 sm12 md12 lg12 class="detail-review-author-name">テスト太郎</v-flex>
-                                    <v-flex xs12 sm12 md12 lg12 class="">
-                                        <div class="detail-review-author-social">
-                                            <v-btn icon class="detail-review-author-social-button light-blue--text">
-                                                <v-icon small>fab fa-twitter</v-icon>
-                                            </v-btn>
-                                            <v-btn icon class="detail-review-author-social-button blue--text text--darken-4">
-                                                <v-icon small>fab fa-facebook-f</v-icon>
-                                            </v-btn>
-                                            <v-btn icon class="detail-review-author-social-button red--text">
-                                                <v-icon small>fab fa-youtube</v-icon>
-                                            </v-btn>
-                                        </div>
-                                    </v-flex>
-                                </v-layout>
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-                    <v-flex xs12 sm12 md9 class="detail-review-right">
-                        <h4 class="title font-weight-bold detail-review-header-inner">タイトルテスト　タイトル</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <v-flex xs12 sm12 md12>
-                            <v-container class="detail-review-gallery" grid-list-sm fluid>
-                              <v-layout row wrap>
-                                <v-flex
-                                  v-for="n in 6"
-                                  :key="n"
-                                  xs3
-                                  sm2
-                                  d-flex
-                                >
-                                  <v-card flat tile class="d-flex">
-                                    <v-img
-                                      :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                                      :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-                                      aspect-ratio="1"
-                                      class="grey lighten-2"
+                                    <v-dialog
+                                        v-model="review.dialog"
+                                        max-width="800"
                                     >
-                                      <v-layout
-                                        slot="placeholder"
-                                        fill-height
-                                        align-center
-                                        justify-center
-                                        ma-0
-                                      >
-                                        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                                      </v-layout>
-                                    </v-img>
-                                  </v-card>
-                                </v-flex>
+                                        <v-carousel hide-delimiters class="detail-review-gallery-dialog">
+                                            <v-carousel-item
+                                                v-for="(n, i) in review.imglen"
+                                                :key="i"
+                                                :src="review.imglist[i]"
+                                                contain
+                                                dark
+                                            ></v-carousel-item>
+                                        </v-carousel>
+                                    </v-dialog>
+
                               </v-layout>
                             </v-container>
                         </v-flex>
                         <v-layout align-start justify-space-between row fill-height>
-                            <div>投稿日:<span class="">2018年9月23日 9:33</span></div>
+                            <div>投稿日:<span class="" v-text="review.review_date"></span></div>
                             <v-btn outline color="indigo" class="m-t-0 m-r-0 m-b-0 m-l-0">参考になった</v-btn>
                         </v-layout>
                     </v-flex>
@@ -334,21 +301,33 @@
     <script src="{% static 'js/skill.bars.jquery.js' %}"></script>
     <script src="{% static 'js/circle-progress.min.js' %}"></script>
     <script>
-        $('.skillbar').skillBars({
-            from: 0,
-            speed: 2000,
-            interval: 100,
-        });
-
-        $('.circle').circleProgress({
-            value: 1,
-            size: 120,
-            startAngle:Math.PI / -2,
-            fill: {
-                gradient: ["red", "orange"]
+        $(window).on('load', function(){
+            var param = app.reviews.length;
+            var total = 0;
+            for(var i=0; i<param; i++){
+                total += app.reviews[i]['rate_synthesis'];
             }
-        }).on('circle-animation-progress', function(event, progress, stepValue) {
-            $(this).find('strong').html((Math.floor(stepValue * 100) / 20).toFixed(1));
+            var circle_value = ((total/param).toFixed(1) / 5.0).toFixed(1);
+
+            $('.detail-rate-review-count-num').text(app.reviews.length);
+
+            $('.skillbar').skillBars({
+                from: 0,
+                speed: 2000,
+                interval: 100,
+            });
+
+            $('.circle').circleProgress({
+                value: circle_value,
+                size: 120,
+                startAngle:Math.PI / -2,
+                fill: {
+                    gradient: ["red", "orange"]
+                }
+            }).on('circle-animation-progress', function(event, progress, stepValue) {
+                $(this).find('strong').html((total/param).toFixed(1));
+            });
+
         });
     </script>
 {% endblock %}

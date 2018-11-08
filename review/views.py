@@ -57,13 +57,9 @@ class NewReview(OnlyYouMixin, generic.CreateView):
             for a in userreviewed:
                 if obj.lounge_id == a.lounge_id:
                     raise ValueError('既にレビュー済みです。')
-            obj.upload_to_userid(self.request.user.id)
+            obj.upload_to_userid(self.request.user.pid.hex)
             obj.save()
             obj.user.add(self.request.user)
-            # print('============kusakusa=====--')
-            # print(self.request.user.id)
-            # print('============kusakusa=====--')
-
             obj.save()
             return HttpResponseRedirect(self.get_success_url())
         except Review.DoesNotExist:

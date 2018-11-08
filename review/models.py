@@ -20,7 +20,7 @@ def get_upload_path(instance, filename):
     userid = instance.userid  # useridを取得し、パスに追加
     extension = os.path.splitext(filename)[-1]  # ファイルの拡張し取得
     new_name = str(uuid.uuid4()).replace('-', '')  # ファイル名をuuidに変更
-    return os.path.join("static/img/review/{a}/{b}".format(a=instance.airport.id, b=userid), new_name+extension)
+    return os.path.join("static/img/review/{a}/{b}".format(a=instance.lounge.id, b=userid), new_name+extension)
 
 
 class Review(models.Model):
@@ -47,6 +47,9 @@ class Review(models.Model):
     review_img_01 = models.FileField(_('画像1'), upload_to=get_upload_path, blank=True)
 
     def upload_to_userid(self, userid):
+        print('================確認================')
+        print(userid)
+        print('================確認================')
         self.userid = userid
 
 
