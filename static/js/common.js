@@ -11,6 +11,7 @@ var app = new Vue({
             airlines:[],
             lounges:[],
             reviews:[],
+            testes:[[{'aaa':'1'}],[{'aaa':'2'}]],
             airportsselected:[],
             countryselected:[],
             allianceselected:[],
@@ -191,8 +192,18 @@ var app = new Vue({
 
         axios.get('/api/1.0/reviews/').then(function(response){
            for(var i=0; i < response.data.length; i++){
-               self.reviews.push(response.data[i]);
+               if(response.data[i]['lounge_id'] in self.reviews){
+                   console.log(typeof(response.data[i]));
+                   self.reviews[response.data[i]['lounge_id']].push(response.data[i]);
+               }else{
+                   self.reviews[0] = [];
+                   self.reviews[response.data[i]['lounge_id']] = [];
+                   self.reviews[response.data[i]['lounge_id']].push(response.data[i]);
+               }
            }
+           //  for(var i=0; i < response.data.length; i++){
+           //      self.reviews.push(response.data[i]);
+           //  }
         });
 
         //画面遷移したときのretainした値を取得

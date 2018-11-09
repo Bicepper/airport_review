@@ -10,6 +10,7 @@
                 <v-flex xs12 sm12 md12 class="detail-title">
                     <h2 class="display-1">{{ object.airport.name_ja }}</h2>
                     <h3 class="display-1">{{ object.airline.name_ja }}</h3>
+                    {{ request.path|slice:'-2:-1' }}
                 </v-flex>
             </v-layout>
         </v-container>
@@ -181,7 +182,7 @@
                 </v-layout>
 
                 <v-layout
-                        v-for="review in reviews"
+                        v-for="review in reviews[1]"
                         :key="review.id"
                         align-start
                         justify-space-between
@@ -302,14 +303,18 @@
     <script src="{% static 'js/circle-progress.min.js' %}"></script>
     <script>
         $(window).on('load', function(){
-            var param = app.reviews.length;
-            var total = 0;
-            for(var i=0; i<param; i++){
-                total += app.reviews[i]['rate_synthesis'];
+            var param_value = app.reviews[{{ request.path|slice:'-2:-1' }}].length;
+            var total_value = 0;
+            var circle_value = 0;
+            for(var i=0; i<param_value; i++){
+                total_value += app.reviews[{{ request.path|slice:'-2:-1' }}][i]['rate_synthesis'];
             }
-            var circle_value = ((total/param).toFixed(1) / 5.0).toFixed(1);
 
-            $('.detail-rate-review-count-num').text(app.reviews.length);
+            if(!(param_value == 0 && total_value == 0)){
+                circle_value = ((total_value/param_value).toFixed(1) / 5.0).toFixed(1);
+            }
+
+            $('.detail-rate-review-count-num').text(param_value);
 
             $('.skillbar').skillBars({
                 from: 0,
@@ -325,7 +330,7 @@
                     gradient: ["red", "orange"]
                 }
             }).on('circle-animation-progress', function(event, progress, stepValue) {
-                $(this).find('strong').html((total/param).toFixed(1));
+                $(this).find('strong').html((total_value/param_value).toFixed(1));
             });
 
         });
