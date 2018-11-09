@@ -5,6 +5,14 @@ from users.models import User
 from users.serializers import UserSerializers
 
 
+class ReviewRuleSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = (
+            'lounge_id',
+        )
+
+
 class ReviewSerializers(serializers.ModelSerializer):
     rate_synthesis = serializers.SerializerMethodField()
     dialog = serializers.SerializerMethodField()
